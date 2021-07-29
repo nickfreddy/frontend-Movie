@@ -1,9 +1,18 @@
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Footer from './components/footer';
+import Navbar_Admin from './components/header/Navbar_Admin';
+import Navbar_notSign from './components/header/Navbar_notSign';
+import Navbar_Sign from './components/header/Navbar_Sign';
 
 function App() {
   return (
     <div className="App">
-      <h1>TEAM D MOVIE APP</h1>
+      <Navbar_Admin />
+      <hr />
+      <Navbar_Sign />
+      <hr />
+      <Navbar_notSign />
+      <Footer />
     </div>
   );
 }
