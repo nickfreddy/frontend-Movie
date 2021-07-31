@@ -1,8 +1,8 @@
 import { Switch, Route } from "react-router-dom";
 import Homepage from "../pages/Homepage/Homepage";
-import Detailpage from "../Pages/DetailPages/DetailPage";
-import Characterpage from "../Pages/DetailPages/Characterpage";
-import Review from "../Pages/DetailPages/Reviewpage";
+import Detailpage from "../pages/DetailPages/DetailPage";
+import Characterpage from "../pages/DetailPages/Characterpage";
+import Review from "../pages/DetailPages/Reviewpage";
 import Footer from "../components/footer";
 
 
