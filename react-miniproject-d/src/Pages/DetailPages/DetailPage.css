@@ -1,0 +1,110 @@
+.DetailContainer {
+    /* display: flex; */
+    max-width: 100rem;
+    /* background-color: black; */
+    margin: auto;
+}
+
+.badge-pill {
+    border: 1px;
+    border-radius: 5px;
+    margin-right: 6rem;
+}
+
+.SynopContainer {
+    display: inline-flex;
+}
+
+.MovContainer {
+    width: max-content;
+    display: inline-flex;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.LineContainer {
+    /* display: inline-flex; */
+    /* flex-direction: row; */
+    /* width: 80%; */
+    /* border: 2px; */
+    margin-left: 2rem;
+    height: 5px;
+    /* background-color: black; */
+    /* border: 2px; */
+
+}
+
+
+.Line {
+
+    width: 70rem;
+    background-color: #CDCDCD;
+    height: 5px;
+    /* max-width: 4rem; */
+}
+
+
+.BtnLink {
+    display: flex;
+    width: 40%;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 1rem 0 1rem 0;
+
+}
+
+.ButtonList {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-right: 5rem;
+}
+
+.infoDetail {
+    line-height: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+.LinkBtn{
+    margin: 1rem 0 1rem 0 !important;
+}
+
+.submitBtn {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem !important;
+}
+
+@media screen and (max-width: 1400px) {
+    .Line {
+
+        width: 50rem;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .Line {
+
+        width: 35rem;
+    }
+
+}
+
+@media screen and (max-width: 650px) {
+    .Line {
+
+        width: 20rem;
+    }
+
+}
+
+@media screen and (max-width: 450px) {
+    .Line {
+
+        width: 10rem;
+    }
+
+}
