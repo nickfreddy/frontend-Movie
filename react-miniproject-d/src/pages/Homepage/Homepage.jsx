@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react'
+import { Carousel, Pagination } from 'react-bootstrap'
 import axios from 'axios'
 // import img2 from '../Img/image2.jpg'
 // import img3 from '../Img/image3.jpg'
 import Card from '../../components/card/Card'
 import CategoryButton from '../../components/categoryButton/CategoryButton'
-import ModalSignIn from '../../components/modalSignIn/ModalSignIn'
+
+
+
 
 
 function Homepage() {
@@ -12,50 +15,47 @@ function Homepage() {
 
 
     useEffect(() => {
-      getMoviesAll("https://jsonplaceholder.typicode.com/photos")
+      getMoviesAll("https://api.themoviedb.org/3/movie/now_playing?api_key=ba4ce5d35b9081ae360eeb355f0acda9")
     }, [])
 
     const getMoviesAll = async (url) => {
         try {
             const movies = await axios.get(url);
-            const data = await movies.data;
+            const dataResults = await movies.data;
+            const data = await dataResults.results;
             setMovies(data)
-            
+            console.log(data)
         }catch (error) {
             console.log(error)
         }
     }
 
+        let active = 1;
+        let items = [];
+        for (let number = 1; number <= 5; number++) {
+        items.push(
+            <Pagination.Item key={number} active={number === active}>
+            {number}
+            </Pagination.Item>,
+        );
+        }
+
 
     return (
+        
         <div>
-            <ModalSignIn/>
             {/* -------------------------------------------------- */}
-            <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
-
-                <div className="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div>
-
-                <div className="carousel-inner">
-
-                    <div className="carousel-item active">
-                        {/* <img src={img2} className="d-block w-100" alt="..."/> */}
-                    </div>
-
-                    <div className="carousel-item">
-                        {/* <img src={img3} className="d-block w-100" alt="..."/> */}
-                    </div>
-
-                    {/* <div className="carousel-item">
-                    <img src="..." className="d-block w-100" alt="..."/>
-                    </div> */}
-
-                </div>
-            
-            </div>
+            <Carousel >
+            {movies.filter((movie, idx) => idx < 3).map( movie =>(
+                <Carousel.Item style={{height: '30rem'}}>
+                    <img
+                    className="d-block w-100"
+                    src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+                    alt="First slide"
+                    />                   
+                </Carousel.Item>
+            ))}
+            </Carousel>
         {/* --------------------------end carousel---------------------- */}
             <div className="container">
                 <h2 className="">Browse by Category</h2>
@@ -74,12 +74,21 @@ function Homepage() {
                     <h6>{movie.title}</h6>
                 </div>
             ))} */}
-            <div className="container d-flex flex-wrap justify-content-around">
+            <div className="container d-flex flex-wrap justify-content-between">
                 {movies.filter((movie, idx) => idx < 10).map( movie =>(
-                    <Card title={movie.title} img={movie.thumbnailUrl}/>
+                    <Card title={movie.title} img={`https://image.tmdb.org/t/p/original${movie.poster_path}`} vote={movie.vote_average}/>
                     ))}
             </div>
+            {/* -------------end card------------- */}
+            <div>
+                <Pagination className="justify-content-center">{items}</Pagination>
+            </div>
+
+            {/*  ---------------------- */}
+           
+            
         </div>
+        
     )
 }
 
