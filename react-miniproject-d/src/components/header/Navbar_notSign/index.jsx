@@ -26,7 +26,7 @@ function Navbar_notSign(props) {
                         className="d-inline-block align-top m-3"
                         alt="React Bootstrap logo"
                     />
-                    <Navbar.Brand className='me-auto' href="#home" style={{ fontWeight: "500" }}>MilanTv</Navbar.Brand>
+                    <Navbar.Brand className='me-auto' href="#home" style={{ fontWeight: "500" }}>deMovie</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="m-auto pe-3" >
