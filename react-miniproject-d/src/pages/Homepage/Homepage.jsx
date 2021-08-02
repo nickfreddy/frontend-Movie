@@ -76,7 +76,7 @@ function Homepage() {
             ))} */}
             <div className="container d-flex flex-wrap justify-content-between">
                 {movies.filter((movie, idx) => idx < 10).map( movie =>(
-                    <Card title={movie.title} img={`https://image.tmdb.org/t/p/original${movie.poster_path}`} vote={movie.vote_average}/>
+                   <a href='/DetailPage'> <Card title={movie.title} img={`https://image.tmdb.org/t/p/original${movie.poster_path}`} vote={movie.vote_average}/></a>
                     ))}
             </div>
             {/* -------------end card------------- */}
