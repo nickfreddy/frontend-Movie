@@ -4,6 +4,7 @@ import Detailpage from "../Pages/DetailPages/DetailPage";
 import Characterpage from "../Pages/DetailPages/Characterpage";
 import Review from "../Pages/DetailPages/Reviewpage";
 import Footer from "../components/footer";
+import Navbar_notSign from "../components/header/Navbar_notSign";
 
 
 const Routers = () => {
@@ -13,10 +14,14 @@ const Routers = () => {
   return (
     // switch -> just like switch case where it read routes/ browser url and return it accordingly
     <>
+    <Navbar_notSign/>
     <Switch>
       {/* exact means the path must be the same as the value  */}
         {/* return this component if the router is root aka / */}
-        <Route exact path="/">
+      <Route exact path="/">
+        <Homepage/>
+      </Route>
+      <Route exact path="/SignIn">
         <Homepage/>
       </Route>
       <Route exact path="/DetailPage">

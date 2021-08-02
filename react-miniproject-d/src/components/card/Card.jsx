@@ -9,7 +9,7 @@ function Card(props) {
             <img src={img} classNameName="card-img-top " alt="..."/>
                     
             <div className="card-body">
-                <h4>{title}</h4>
+                <h5>{title}</h5>
                 <p className="m-0">Vote {vote}</p>
             </div>
         </div>

@@ -25,10 +25,10 @@ function ModalSignIn() {
                         </Form.Group>
 
                         <Form.Group>
-                            <Button className="mt-4" variant="danger" type="submit" style={{width: '25rem'}}>
+                            <Button className="mt-4" variant="primary" type="submit" style={{width: '25rem'}}>
                                 SIGN IN
                             </Button>
-                            <p className="text-center mt-3">Don't have an account ? <Link to='/' className="text-danger">Sign Up</Link></p>
+                            <p className="text-center mt-3">Don't have an account ? <Link to='/' className=" text-warning">Sign Up</Link></p>
                         </Form.Group>
                     </div>
 

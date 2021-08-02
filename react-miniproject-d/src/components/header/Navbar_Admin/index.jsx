@@ -7,7 +7,7 @@ import user from '../../../img/user.png'
 function Navbar_Admin(props) {
     return (
         <div>
-            <Navbar collapseOnSelect expand="lg" className="custom-navbar">
+            <Navbar collapseOnSelect expand="lg" bg="secondary" className="custom-navbar">
                 <Container>
                     <img
                         src={logo}

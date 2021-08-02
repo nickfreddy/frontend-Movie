@@ -13,7 +13,7 @@ import '../../style/style.css'
 
 function Footer() {
     return (
-        <div className="bg-dark">
+        <div className="bg-secondary">
             <Container >
                 <Row className="text-light pt-4 pb-5">
                     <Col xs={5}>

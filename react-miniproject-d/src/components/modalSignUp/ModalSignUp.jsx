@@ -50,10 +50,10 @@ function ModalSignUp() {
                         </Form.Group>
 
                         <Form.Group>
-                            <Button className="mt-4" variant="danger" type="submit" style={{width: '25rem'}}>
+                            <Button className="mt-4" variant="primary" type="submit" style={{width: '25rem'}}>
                                 SIGN UP
                             </Button>
-                            <p className="text-center mt-3">Already have an account ? <Link to='/SignIn' className="text-danger">Log in</Link></p>
+                            <p className="text-center mt-3">Already have an account ? <Link to='/SignIn' className="text-warning">Log in</Link></p>
                         </Form.Group>
                     </div>
 
