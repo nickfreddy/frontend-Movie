@@ -72,6 +72,11 @@ return (
                 <CategoryButton title={"submit"} />
             </Row>
             <CommentCard />
+            <Row >
+                <Col></Col>
+                <Col style={{ display: 'flex', justifyContent: 'space-evenly', }}><CategoryButton title={"Load More"} /></Col>
+                <Col></Col>
+            </Row>
         </Container>
 
     </div>

@@ -8,17 +8,18 @@
 
 import React, { useEffect, useState } from 'react';
 import TitleBackground from '../../components/DetailBackground/TitleBackground'
-import { FloatingLabel, Form , Badge, Button, Figure, Container ,Row, Col, Card} from 'react-bootstrap';
+import { Container , Card} from 'react-bootstrap';
 import DetailNavBtn from '../../components/DetailNavButton.jsx/DetailNavBtn';
 import axios from 'axios';
 
 function Characterpage() {
-const number = Math.floor(Math.random() * 20)
+const number = Math.floor(Math.random() * 10)
+const number2 = Math.floor(Math.random() * 20)
+
 // console.log (number)
 
 const [charMale, setCharMale] = useState([])
-
-
+const [charFemale, setCharFemale] = useState([])
 
 
 const getCharMale = async (url) => {
@@ -31,10 +32,25 @@ setCharMale(data.results)
 console.log(error)
 }
 }
+
+const getCharFemale = async (url) => {
+try {
+const charFemale = await axios.get(url);
+const data = await charFemale.data;
+setCharFemale(data.results)
+
+}catch (error) {
+console.log(error)
+}
+}
+
 useEffect(() => {
-getCharMale(`https://randomuser.me/api/?results=${number}&gender=male&inc=name,gender,picture`)
+getCharMale(`https://randomuser.me/api/?results=${number}&gender=male&inc=name,gender,picture`);
+getCharFemale(`https://randomuser.me/api/?results=${number2}&gender=female&inc=name,gender,picture`)
 }, [])
 console.log(charMale)
+console.log(charFemale)
+
 // console.log (charMale.map((item, index)=>{
 // return
 // }))
@@ -48,23 +64,45 @@ return (
     <TitleBackground />
     <Container>
         <DetailNavBtn />
-        <Container>
-            <ul>
+        <h1>Character</h1>
+
+        <div className="container d-flex flex-wrap justify-content-around"> {/* <ul> */}
                 {charMale.map((item, index)=>{
                 return <div key={index}>
 
-                    <h3>{item?.name?.first}</h3>
+                    <Card style={{ width: '8rem', margin:'0rem 1rem 1rem 1rem' }}>
+                        <Card.Img variant="top" src={item?.picture?.large} />
+                        <Card.Body>
+                            <p>{item?.name?.first+ " " + item?.name?.last}</p>
+
+                        </Card.Body>
+                    </Card>
 
                 </div>
                 })}
-            </ul>
-        </Container>
+                {/* </ul> */}
+            {/* <ul> */}
+                {charFemale.map((item, index)=>{
+                return <div key={index}>
+
+
+                    <Card style={{ width: '8rem', margin:'0rem 1rem 1rem 1rem' }}>
+                        <Card.Img variant="top" src={item?.picture?.large} />
+                        <Card.Body>
+                            <p>{item?.name?.first+ '' + item?.name?.last}</p>
+
+                        </Card.Body>
+                    </Card>
+
+
+                </div>
+                })}
+                {/* </ul> */}
+
+        </div>
     </Container>
 
-    <div>
-        <h1>Character</h1>
-
-    </div>
+   
 </>
 )
 }
