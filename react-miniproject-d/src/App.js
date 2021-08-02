@@ -11,10 +11,10 @@ import Homepage from './pages/Homepage/Homepage';
 function App() {
   return (
     <div className="App">
-    <BrowserRouter>
-    {/* the routing components */}
-      <Routers /> 
-    </BrowserRouter>
+      <BrowserRouter>
+        {/* the routing components */}
+        <Routers />
+      </BrowserRouter>
     </div>
   );
 }

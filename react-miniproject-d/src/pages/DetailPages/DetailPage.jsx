@@ -6,20 +6,20 @@
 // useParams
 // } from "react-router-dom";
 import './Background.css'
-import { Button, Badge, Container ,Row, Col} from 'react-bootstrap';
+import { Button, Badge, Container, Row, Col } from 'react-bootstrap';
 import React from 'react'
 import './DetailPage.css'
 import TitleBackground from '../../components/DetailBackground/TitleBackground';
 import DetailNavBtn from '../../components/DetailNavButton.jsx/DetailNavBtn';
 
 function Detailpage() {
-return (
-<>
-<TitleBackground />
+    return (
+        <>
+            <TitleBackground />
 
-    <div className="PageContainer">
+            <div className="PageContainer">
 
-        {/* <div className='BG-Container'>
+                {/* <div className='BG-Container'>
             <div className='FullbgImage'
                 style={{backgroundImage:`linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
             url("https://gamebrott.com/wp-content/uploads/2019/07/bdd85ff4c1c38757d4ebc68bb3ed510b.jpg")`,backgroundRepeat: 'no-repeat',backgroundSize: 'cover',}}>
@@ -53,9 +53,9 @@ return (
             </div>
         </div> */}
 
-<Container>
-<DetailNavBtn/>
-        {/* <Container className='NavButton'>
+                <Container>
+                    <DetailNavBtn />
+                    {/* <Container className='NavButton'>
             <Row>
                 <Col className='LinkBtn' lg={8} md={6} xs={8} >
                 <a href='/'>
@@ -82,7 +82,7 @@ return (
                 </Col>
             </Row>
             </Container> */}
-            {/* <div className='BtnLink'>
+                    {/* <div className='BtnLink'>
                 <div className='ButtonList'>
                     <a href='/'>
                         <Badge pill bg="danger"> All </Badge>
@@ -106,39 +106,39 @@ return (
 
             </div> */}
 
-            <div className='SynopContainer'>
-                <h1>Synopsis</h1>
-                <div className='LineContainer' style={{color:'white'}}>
-                    line
-                    <div className='Line'></div>
-                </div>
+                    <div className='SynopContainer'>
+                        <h1>Synopsis</h1>
+                        <div className='LineContainer' style={{ color: 'white' }}>
+                            line
+                            <div className='Line'></div>
+                        </div>
+                    </div>
+                    <div>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam nostrum minus laudantium quasi doloribus
+                        in et beatae laborum? Ea deleniti repudiandae iste blanditiis illo, architecto unde pariatur porro a
+                        expedita.
+                    </div>
+
+                    <div className='MovContainer'>
+                        <h1>Movie Info</h1>
+
+                        <div className='LineContainer' style={{ color: 'white' }}>
+                            line
+                            <div className='Line'></div>
+                        </div>
+                    </div>
+                    <div className='infoDetail'>
+                        <p>Release Year : </p>
+                        <p>Rating : </p>
+                        <p>Genre : </p>
+                    </div>
+
+
+
+                </Container>
             </div>
-            <div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam nostrum minus laudantium quasi doloribus
-                in et beatae laborum? Ea deleniti repudiandae iste blanditiis illo, architecto unde pariatur porro a
-                expedita.
-            </div>
-
-            <div className='MovContainer'>
-                <h1>Movie Info</h1>
-
-                <div className='LineContainer' style={{color:'white'}}>
-                    line
-                    <div className='Line'></div>
-                </div>
-            </div>
-            <div className='infoDetail'>
-                <p>Release Year : </p>
-                <p>Rating : </p>
-                <p>Genre : </p>
-            </div>
-
-
-
-        </Container>
-    </div>
-</>
-)
+        </>
+    )
 }
 
 export default Detailpage
