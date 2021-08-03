@@ -94,7 +94,7 @@ const FormMovie = () => {
                 </Container>
 
             </div>
-            <div className="footer">
+            <div className="footer bg-secondary">
                 <img
                     src={logo}
                     width="50"
