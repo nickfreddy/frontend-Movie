@@ -6,7 +6,7 @@ import logo from '../../img/brand-logo.png'
 function ModalSignIn() {
     return (
         <div>
-            <Form className="d-flex justify-content-center bg-light rounded-3" >
+            <Form className="d-flex justify-content-center bg-info rounded-3" >
                     <div style={{height: '30rem'}}>
 
                         <Form.Group className="d-flex mt-3 justify-content-center">
@@ -25,10 +25,10 @@ function ModalSignIn() {
                         </Form.Group>
 
                         <Form.Group>
-                            <Button className="mt-4" variant="danger" type="submit" style={{width: '25rem'}}>
+                            <Button className="mt-4" variant="primary" type="submit" style={{width: '25rem'}}>
                                 SIGN IN
                             </Button>
-                            <p className="text-center mt-3">Don't have an account ? <Link to='/' className="text-danger">Sign Up</Link></p>
+                            <p className="text-center mt-3">Don't have an account ? <Link to='/' className=" text-warning">Sign Up</Link></p>
                         </Form.Group>
                     </div>
 

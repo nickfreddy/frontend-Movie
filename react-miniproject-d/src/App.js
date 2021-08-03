@@ -1,4 +1,5 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import './Custom.scss'
 import { BrowserRouter } from "react-router-dom";
 import Routers from './routes/router';
 import Footer from './components/footer';
