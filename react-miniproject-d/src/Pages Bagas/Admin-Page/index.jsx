@@ -29,17 +29,14 @@ const AdminPage = () => {
                             <Card style={{ borderRadius: "10px", boxShadow: "4px 5px 1px #9E9E9E" }}>
                                 <Card.Body style={{ padding: "0" }}>
                                     <div className="card-title">
-                                        <h3>Setting</h3>
+                                        <h3>Movie</h3>
                                         <p>Admin page for movie CRUD</p>
                                     </div>
                                     <div className="button-profile">
                                         <h5>Add Movie</h5>
                                     </div>
-                                    <div className="button-profile watchlist">
-                                        <h5>Update Movie</h5>
-                                    </div>
                                     <div className="button-profile delete">
-                                        <h5>Delete Movie</h5>
+                                        <h5>List Movie</h5>
                                     </div>
                                 </Card.Body>
                             </Card>

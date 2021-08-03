@@ -24,8 +24,6 @@
     font-weight: 200;
 }
 
-.watchlist {}
-
 .form-setting-profile {
     margin-left: 90px;
     display: flex;
@@ -71,4 +69,10 @@
 .footer h3 {
     font-weight: 500;
     padding-top: 7px;
+}
+
+.image-movie {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
 }
