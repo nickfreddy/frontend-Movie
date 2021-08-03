@@ -26,7 +26,7 @@ function ModalSignUp() {
     return (
         <div>
                
-                <Form onSubmit={add} className="d-flex justify-content-center bg-light rounded-3" >
+                <Form onSubmit={add} className="d-flex justify-content-center bg-info rounded-3" >
                     <div style={{height: '30rem'}}>
 
                         <Form.Group className="d-flex mt-3 justify-content-center">
@@ -50,10 +50,10 @@ function ModalSignUp() {
                         </Form.Group>
 
                         <Form.Group>
-                            <Button className="mt-4" variant="danger" type="submit" style={{width: '25rem'}}>
+                            <Button className="mt-4" variant="primary" type="submit" style={{width: '25rem'}}>
                                 SIGN UP
                             </Button>
-                            <p className="text-center mt-3">Already have an account ? <Link to='/SignIn' className="text-danger">Log in</Link></p>
+                            <p className="text-center mt-3">Already have an account ? <Link to='/SignIn' className="text-warning">Log in</Link></p>
                         </Form.Group>
                     </div>
 

@@ -1,4 +1,5 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import './Custom.scss'
 import { BrowserRouter } from "react-router-dom";
 import Routers from './routes/router';
 import Footer from './components/footer';
@@ -13,12 +14,12 @@ import FormMovie from './Pages Bagas/Admin-Page/FormUpdate';
 function App() {
   return (
     <div className="App">
-      {/* <BrowserRouter> */}
-      {/* the routing components */}
-      {/* <Routers />
-      </BrowserRouter> */}
-      {/* <AdminPage /> */}
-      <FormMovie />
+      <BrowserRouter>
+        {/* the routing components */}
+        <Routers />
+      </BrowserRouter>
+
+
     </div>
   );
 }

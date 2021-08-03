@@ -17,7 +17,7 @@ function Navbar_notSign(props) {
 
     return (
         <div>
-            <Navbar collapseOnSelect expand="lg" bg="light" className="custom-navbar">
+            <Navbar collapseOnSelect expand="lg" bg="secondary" className="custom-navbar">
                 <Container>
                     <img
                         src={logo}
@@ -26,7 +26,7 @@ function Navbar_notSign(props) {
                         className="d-inline-block align-top m-3"
                         alt="React Bootstrap logo"
                     />
-                    <Navbar.Brand className='me-auto' href="#home" style={{ fontWeight: "500" }}>MilanTv</Navbar.Brand>
+                    <Navbar.Brand className='me-auto text-light' href="#home" style={{ fontWeight: "500" }}>deMovie</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="m-auto pe-3" >
@@ -42,10 +42,10 @@ function Navbar_notSign(props) {
                         <Nav>
                             <Switch>
                                 <Route exact path='/'>
-                                    <Button style={{ fontWeight: "500", color: "black" }} variant="outline-secondary" onClick={handleShow}>Sign Up</Button>
+                                    <Button style={{ fontWeight: "500", color: "black" }} variant="outline-secondary text-light" onClick={handleShow}>Sign Up</Button>
                                 </Route>
                                 <Route exact path='/SignIn'>
-                                    <Button style={{ fontWeight: "500", color: "black" }} variant="outline-secondary" onClick={handleShow}>Sign in</Button>
+                                    <Button style={{ fontWeight: "500", color: "black" }} variant="outline-secondary text-light" onClick={handleShow}>Sign in</Button>
                                 </Route>
                             </Switch>
                         </Nav>

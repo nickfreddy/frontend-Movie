@@ -1,10 +1,15 @@
 import React from 'react'
+import './CategoryButton.css'
 
 function CategoryButton(props) {
-    const { title } = props;
+    
+    const { title, value, onClick } = props;
+
+    
+
     return (
         <div>
-            <button type="button" className="btn btn-danger rounded-pill me-2">{props.title}</button>
+            <button type="button" className="btnNokay me-2" value={props.value} onClick={props.onClick}>{props.title}</button>
         </div>
     )
 }
