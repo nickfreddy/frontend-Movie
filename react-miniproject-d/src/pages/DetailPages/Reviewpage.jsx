@@ -5,7 +5,7 @@
 // Link,
 // useParams
 // } from "react-router-dom";
-import { FloatingLabel, Form , Badge, Button, Figure, Container ,Row, Col, Card} from 'react-bootstrap';
+import { FloatingLabel, Form, Badge, Button, Figure, Container, Row, Col, Card } from 'react-bootstrap';
 import React from 'react'
 import CategoryButton from '../../components/categoryButton/CategoryButton';
 import CommentCard from '../../components/Review/CommentCard';
@@ -19,6 +19,7 @@ import { useState, useEffect } from "react";
 
 
 function Review() {
+<<<<<<< HEAD
     const {id} = useParams();
     console.log(id)
     const [detail, setDetail] = useState([])
@@ -45,6 +46,12 @@ return (
 <>
 <TitleBackground synopsis={detail.overview} title={detail.title} poster={backdrop+detail.backdrop_path} rating={detail.vote_average/2} trailer={`https://api.themoviedb.org/3/movie/${id}/videos?api_key=ba4ce5d35b9081ae360eeb355f0acda9&language=en-US`} />
     {/* <Container className='NavButton'>
+=======
+    return (
+        <>
+            <TitleBackground />
+            {/* <Container className='NavButton'>
+>>>>>>> 38f68df54c4adca0ed2300892e9b8fdd7b82fb51
         <Row>
             <Col className='LinkBtn' lg={8} md={6} xs={8}>
             <a href='/'>
@@ -72,44 +79,44 @@ return (
         </Row>
     </Container> */}
 
-    <div>
-        <Container className='PageContainer'>
-        <DetailNavBtn/>
+            <div>
+                <Container className='PageContainer'>
+                    <DetailNavBtn />
 
-            <Row>
-                <Col lg={1} md={2}>
-                <Figure.Image width={137} height={143} alt="171x180"
-                    src="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco/v1499159723/kjmiibei1rnx1qj8guco.png" />
-                </Col>
-                <Col lg='auto' md='auto' xs='auto'>
-                <Row>
-                    <h5>user id</h5>
-                </Row>
-                <Row>
-                    <Rating name="half-rating" defaultValue={0} precision={0.5} />
-                </Row>
-                </Col>
-            </Row>
-            <FloatingLabel className='ReviewForm' controlId="floatingTextarea2" label="Leave a review">
-                <Form.Control as="textarea" placeholder="Leave a review" style={{ height: '200px' }} />
-            </FloatingLabel>
-            <Row style={{ float: 'right' }}>
-                <CategoryButton title={"submit"} />
-            </Row>
-            <CommentCard />
-            <Row >
-                <Col></Col>
-                <Col style={{ display: 'flex', justifyContent: 'space-evenly', }}><CategoryButton title={"Load More"} /></Col>
-                <Col></Col>
-            </Row>
-        </Container>
+                    <Row>
+                        <Col lg={1} md={2}>
+                            <Figure.Image width={137} height={143} alt="171x180"
+                                src="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco/v1499159723/kjmiibei1rnx1qj8guco.png" />
+                        </Col>
+                        <Col lg='auto' md='auto' xs='auto'>
+                            <Row>
+                                <h5>user id</h5>
+                            </Row>
+                            <Row>
+                                <Rating name="half-rating" defaultValue={0} precision={0.5} />
+                            </Row>
+                        </Col>
+                    </Row>
+                    <FloatingLabel className='ReviewForm' controlId="floatingTextarea2" label="Leave a review">
+                        <Form.Control as="textarea" placeholder="Leave a review" style={{ height: '200px' }} />
+                    </FloatingLabel>
+                    <Row style={{ float: 'right' }}>
+                        <CategoryButton title={"submit"} />
+                    </Row>
+                    <CommentCard />
+                    <Row >
+                        <Col></Col>
+                        <Col style={{ display: 'flex', justifyContent: 'space-evenly', }}><CategoryButton title={"Load More"} /></Col>
+                        <Col></Col>
+                    </Row>
+                </Container>
 
-    </div>
+            </div>
 
 
 
-</>
-)
+        </>
+    )
 }
 
 export default Review

@@ -15,7 +15,7 @@ function Homepage() {
 
 
     useEffect(() => {
-      getMoviesAll("https://api.themoviedb.org/3/movie/now_playing?api_key=ba4ce5d35b9081ae360eeb355f0acda9")
+        getMoviesAll("https://api.themoviedb.org/3/movie/now_playing?api_key=ba4ce5d35b9081ae360eeb355f0acda9")
     }, [])
 
     const getMoviesAll = async (url) => {
@@ -25,49 +25,49 @@ function Homepage() {
             const data = await dataResults.results;
             setMovies(data)
             console.log(data)
-        }catch (error) {
+        } catch (error) {
             console.log(error)
         }
     }
 
-        let active = 1;
-        let items = [];
-        for (let number = 1; number <= 5; number++) {
+    let active = 1;
+    let items = [];
+    for (let number = 1; number <= 5; number++) {
         items.push(
             <Pagination.Item key={number} active={number === active}>
-            {number}
+                {number}
             </Pagination.Item>,
         );
-        }
+    }
 
 
     return (
-        
+
         <div>
             {/* -------------------------------------------------- */}
             <Carousel >
-            {movies.filter((movie, idx) => idx < 3).map( movie =>(
-                <Carousel.Item style={{height: '30rem'}}>
-                    <img
-                    className="d-block w-100"
-                    src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
-                    alt="First slide"
-                    />                   
-                </Carousel.Item>
-            ))}
+                {movies.filter((movie, idx) => idx < 3).map(movie => (
+                    <Carousel.Item style={{ height: '30rem' }}>
+                        <img
+                            className="d-block w-100"
+                            src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+                            alt="First slide"
+                        />
+                    </Carousel.Item>
+                ))}
             </Carousel>
-        {/* --------------------------end carousel---------------------- */}
+            {/* --------------------------end carousel---------------------- */}
             <div className="container">
                 <h2 className="">Browse by Category</h2>
 
                 <div className="d-flex">
-                    <CategoryButton title={"anime"}/>
-                    <CategoryButton title={"anime"}/>
-                    <CategoryButton title={"anime"}/>
-                    <CategoryButton title={"anime"}/>
+                    <CategoryButton title={"anime"} />
+                    <CategoryButton title={"anime"} />
+                    <CategoryButton title={"anime"} />
+                    <CategoryButton title={"anime"} />
                 </div>
             </div>
-        {/* -------------------------------end browse category-------------- */}
+            {/* -------------------------------end browse category-------------- */}
             {/* {movies.filter((movie, idx) => idx < 10).map( movie =>(
                 <div>
                     <img src={movie.thumbnailUrl}/>
@@ -75,9 +75,15 @@ function Homepage() {
                 </div>
             ))} */}
             <div className="container d-flex flex-wrap justify-content-between">
+<<<<<<< HEAD
                 {movies.filter((movie, idx) => idx < 10).map( movie =>(
                    <a href={`/DetailPage/${movie.id}`}> <Card title={movie.title} img={`https://image.tmdb.org/t/p/original${movie.poster_path}`} vote={movie.vote_average}/></a>
                     ))}
+=======
+                {movies.filter((movie, idx) => idx < 10).map(movie => (
+                    <a href='/DetailPage'> <Card title={movie.title} img={`https://image.tmdb.org/t/p/original${movie.poster_path}`} vote={movie.vote_average} /></a>
+                ))}
+>>>>>>> 38f68df54c4adca0ed2300892e9b8fdd7b82fb51
             </div>
             {/* -------------end card------------- */}
             <div>
@@ -85,10 +91,10 @@ function Homepage() {
             </div>
 
             {/*  ---------------------- */}
-           
-            
+
+
         </div>
-        
+
     )
 }
 

@@ -1,8 +1,9 @@
 import React from 'react';
 import { Button, ListGroupItem, ListGroup, Navbar, Card, Nav, NavDropdown, Form, FormControl, Container, Row, Col, NavItem, Grid } from 'react-bootstrap'
 import back_button from '../../img/back-button.png'
-import '../../pages/Profile-page/index.css'
+import '../Profile-page/index.css'
 import user from '../../img/user.png'
+import logo from '../../img/brand-logo.png'
 
 const ProfilePage = () => {
     return (
@@ -48,13 +49,10 @@ const ProfilePage = () => {
                                     </div>
                                     <Form style={{ padding: "1px 32px 20px 110px" }}>
                                         <Form.Group className="mb-3 d-flex" controlId="formBasicFirstName">
-                                            <Form.Label style={{ width: "30%" }} >First Name</Form.Label>
-                                            <Form.Control type="text" placeholder="First Name" />
+                                            <Form.Label style={{ width: "30%" }} >Full Name</Form.Label>
+                                            <Form.Control type="text" placeholder="Full Name" />
                                         </Form.Group>
-                                        <Form.Group className="mb-3 d-flex" controlId="formBasicLastName">
-                                            <Form.Label style={{ width: "30%" }}>Last Name</Form.Label>
-                                            <Form.Control type="text" placeholder="Last Name" />
-                                        </Form.Group>
+
                                         <Form.Group className="mb-3 d-flex" controlId="formBasicEmail">
                                             <Form.Label style={{ width: "30%" }}>Email address</Form.Label>
                                             <Form.Control type="email" placeholder="Enter email" />
@@ -104,6 +102,17 @@ const ProfilePage = () => {
                         </Col>
                     </Row>
                 </Container>
+
+            </div>
+            <div className="footer">
+                <img
+                    src={logo}
+                    width="50"
+                    height="50"
+                    className="d-inline-block align-top m-3"
+                    alt="React Bootstrap logo"
+                />
+                <h3>De Movie</h3>
             </div>
         </div >
     );

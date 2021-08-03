@@ -6,7 +6,7 @@
 // useParams
 // } from "react-router-dom";
 import './Background.css'
-import { Button, Badge, Container ,Row, Col} from 'react-bootstrap';
+import { Button, Badge, Container, Row, Col } from 'react-bootstrap';
 import React from 'react'
 import './DetailPage.css'
 import TitleBackground from '../../components/DetailBackground/TitleBackground';
@@ -18,6 +18,7 @@ import axios from "axios";
 
 
 function Detailpage() {
+<<<<<<< HEAD
 const {id} = useParams();
 console.log(id)
 
@@ -77,8 +78,15 @@ return (
 
     <div className="PageContainer">
         {/* <h1>{detail.overview}</h1> */}
+=======
+    return (
+        <>
+            <TitleBackground />
 
-        {/* <div className='BG-Container'>
+            <div className="PageContainer">
+>>>>>>> 38f68df54c4adca0ed2300892e9b8fdd7b82fb51
+
+                {/* <div className='BG-Container'>
             <div className='FullbgImage'
                 style={{backgroundImage:`linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
             url("https://gamebrott.com/wp-content/uploads/2019/07/bdd85ff4c1c38757d4ebc68bb3ed510b.jpg")`,backgroundRepeat: 'no-repeat',backgroundSize: 'cover',}}>
@@ -112,6 +120,7 @@ return (
             </div>
         </div> */}
 
+<<<<<<< HEAD
         <Container>
             <DetailNavBtn />
             {/* <Container className='NavButton'>
@@ -140,8 +149,38 @@ return (
 
                     </Col>
                 </Row>
+=======
+                <Container>
+                    <DetailNavBtn />
+                    {/* <Container className='NavButton'>
+            <Row>
+                <Col className='LinkBtn' lg={8} md={6} xs={8} >
+                <a href='/'>
+                    <Badge pill bg="danger"> All </Badge>
+                </a>
+                <a href='/'>
+                    <Badge pill bg="danger"> Danger </Badge>
+                </a>
+                <a href='/DetailPage/Character/'>
+                    <Badge pill bg="danger"> Character </Badge>
+                </a>
+                <a href='/DetailPage/Review/'>
+                    <Badge pill bg="danger"> Review </Badge>
+                </a>
+                </Col>
+                <Col md="auto" xs={2} lg={3}>
+
+                </Col>
+                <Col xs={1} lg={1} className='submitBtn'>
+                <a href='/'>
+                    <Badge pill bg="danger"> Submit </Badge>
+                </a>
+
+                </Col>
+            </Row>
+>>>>>>> 38f68df54c4adca0ed2300892e9b8fdd7b82fb51
             </Container> */}
-            {/* <div className='BtnLink'>
+                    {/* <div className='BtnLink'>
                 <div className='ButtonList'>
                     <a href='/'>
                         <Badge pill bg="danger"> All </Badge>
@@ -165,39 +204,39 @@ return (
 
             </div> */}
 
-            <div className='SynopContainer'>
-                <h1>Synopsis</h1>
-                <div className='LineContainer' style={{color:'white'}}>
-                    line
-                    <div className='Line'></div>
-                </div>
+                    <div className='SynopContainer'>
+                        <h1>Synopsis</h1>
+                        <div className='LineContainer' style={{ color: 'white' }}>
+                            line
+                            <div className='Line'></div>
+                        </div>
+                    </div>
+                    <div>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam nostrum minus laudantium quasi doloribus
+                        in et beatae laborum? Ea deleniti repudiandae iste blanditiis illo, architecto unde pariatur porro a
+                        expedita.
+                    </div>
+
+                    <div className='MovContainer'>
+                        <h1>Movie Info</h1>
+
+                        <div className='LineContainer' style={{ color: 'white' }}>
+                            line
+                            <div className='Line'></div>
+                        </div>
+                    </div>
+                    <div className='infoDetail'>
+                        <p>Release Year : </p>
+                        <p>Rating : </p>
+                        <p>Genre : </p>
+                    </div>
+
+
+
+                </Container>
             </div>
-            <div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam nostrum minus laudantium quasi doloribus
-                in et beatae laborum? Ea deleniti repudiandae iste blanditiis illo, architecto unde pariatur porro a
-                expedita.
-            </div>
-
-            <div className='MovContainer'>
-                <h1>Movie Info</h1>
-
-                <div className='LineContainer' style={{color:'white'}}>
-                    line
-                    <div className='Line'></div>
-                </div>
-            </div>
-            <div className='infoDetail'>
-                <p>Release Year : </p>
-                <p>Rating : </p>
-                <p>Genre : </p>
-            </div>
-
-
-
-        </Container>
-    </div>
-</>
-)
+        </>
+    )
 }
 
 export default Detailpage
