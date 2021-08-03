@@ -5,7 +5,7 @@ import {
     POST_REVIEW_BEGIN,
     POST_REVIEW_SUCCESS,
     POST_REVIEW_FAIL,
- }     from "./types";
+ }     from "../../store/actions/types";
  import axios from "axios";
 
  const BASE_URL = "https://api.themoviedb.org/3/movie/";

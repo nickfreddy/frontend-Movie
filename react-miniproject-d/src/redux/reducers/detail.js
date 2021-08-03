@@ -5,7 +5,7 @@ import {
     POST_REVIEW_BEGIN,
     POST_REVIEW_SUCCESS,
     POST_REVIEW_FAIL,
-} from "../actions/types";
+} from "../action/types";
 
 const initialState = {
     detail:[],

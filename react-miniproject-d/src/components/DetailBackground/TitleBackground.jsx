@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import './Background.css'
 import { Modal, Button, Col } from 'react-bootstrap';
 // import StarRatings from './react-star-ratings';
-
 // import { Rating } from '@material-ui/lab';
 
 

@@ -7,7 +7,7 @@ import user from '../../../img/user.png'
 function Navbar_Sign(props) {
     return (
         <div>
-            <Navbar collapseOnSelect expand="lg" bg="light" className="custom-navbar">
+            <Navbar collapseOnSelect expand="lg" bg="secondary" className="custom-navbar">
                 <Container>
                     <img
                         src={logo}
