@@ -5,7 +5,7 @@ import Card from '../../components/card/Card'
 import CategoryButton from '../../components/categoryButton/CategoryButton'
 import './homepage.css'
 import Search from '../../components/Search/search'
-import { Link } from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
 
 
 
@@ -101,9 +101,9 @@ function Homepage() {
             <div className="container divider my-1"></div>
 
             <div className="container d-flex flex-wrap justify-content-between my-1">
-                {movies.filter((movie, idx) => idx < 20).map(movie => (
-                    <Link className="text-decoration-none text-dark" to="/detailPage"><Card className="skala" title={movie.title} img={`https://image.tmdb.org/t/p/original${movie.poster_path}`} vote={movie.vote_average} /></Link>
-                ))}
+                {movies.filter((movie, idx) => idx < 20).map( movie =>(
+                    <Link className="text-decoration-none text-dark" to="/detailPage/:id"><Card className="skala" title={movie.title} img={`https://image.tmdb.org/t/p/original${movie.poster_path}`} vote={movie.vote_average}/></Link>
+                    ))}
             </div>
             {/* -------------end card------------- */}
 
@@ -115,7 +115,7 @@ function Homepage() {
             <div className="d-flex justify-content-center">
                 <Search search={search} />
             </div>
-
+            
         </div>
     )
 }

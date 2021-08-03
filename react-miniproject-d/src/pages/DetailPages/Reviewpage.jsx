@@ -13,13 +13,38 @@ import TitleBackground from '../../components/DetailBackground/TitleBackground';
 import Rating from '@material-ui/lab/Rating';
 import './DetailPage.css'
 import DetailNavBtn from '../../components/DetailNavButton.jsx/DetailNavBtn';
+import { useParams } from "react-router-dom";
+import axios from 'axios';
+import { useState, useEffect } from "react";
 
 
 function Review() {
-    return (
-        <>
-            <TitleBackground />
-            {/* <Container className='NavButton'>
+    const {id} = useParams();
+    console.log(id)
+    const [detail, setDetail] = useState([])
+//set var movies
+
+const GetDetailMovies = async (url) => {
+try {
+const res = await axios.get(url);
+const data = await res.data;
+setDetail(data)
+//declare variable to save the data
+} catch (error) {
+console.log(error)
+}
+}
+
+useEffect(() => {
+GetDetailMovies(`https://api.themoviedb.org/3/movie/+${id}+?api_key=4c2c9a58431c5b46e098bf4eed17c94b&language=en-US`)
+}, [])
+
+const backdrop = 'https://image.tmdb.org/t/p/original'
+
+return (
+<>
+<TitleBackground synopsis={detail.overview} title={detail.title} poster={backdrop+detail.backdrop_path} rating={detail.vote_average/2} trailer={`https://api.themoviedb.org/3/movie/${id}/videos?api_key=ba4ce5d35b9081ae360eeb355f0acda9&language=en-US`} />
+    {/* <Container className='NavButton'>
         <Row>
             <Col className='LinkBtn' lg={8} md={6} xs={8}>
             <a href='/'>
