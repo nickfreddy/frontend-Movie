@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        {/* the routing components */}
+              {/* the routing components */}
         <Routers />
       </BrowserRouter>
     </div>
