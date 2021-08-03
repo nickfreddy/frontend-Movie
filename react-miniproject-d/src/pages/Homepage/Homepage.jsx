@@ -15,7 +15,7 @@ function Homepage() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const getMoviesAll = async (url) => {
+       const getMoviesAll = async (url) => {
             try {
                 const movies = await axios.get(url);
                 const dataResults = await movies.data;
@@ -37,7 +37,7 @@ function Homepage() {
     for (let number = 1; number <= 5; number++) {
         items.push(
             <Pagination.Item key={number} active={number === active}>
-            {number}
+                {number}
             </Pagination.Item>,
         );
     };
@@ -72,21 +72,20 @@ function Homepage() {
           console.log(movies)
 
     return (
-        
         <div>
             {/* -------------------------------------------------- */}
             <Carousel >
-            {movies.filter((movie, idx) => idx < 3).map( movie =>(
-                <Carousel.Item style={{height: '30rem'}}>
-                    <img
-                    className="d-block w-100"
-                    src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
-                    alt="First slide"
-                    />                   
-                </Carousel.Item>
-            ))}
+                {movies.filter((movie, idx) => idx < 3).map(movie => (
+                    <Carousel.Item style={{ height: '30rem' }}>
+                        <img
+                            className="d-block w-100"
+                            src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+                            alt="First slide"
+                        />
+                    </Carousel.Item>
+                ))}
             </Carousel>
-        {/* --------------------------end carousel---------------------- */}
+            {/* --------------------------end carousel---------------------- */}
             <div className="container">
                 <h2 className="mt-3">Browse by Category</h2>
 
@@ -98,20 +97,16 @@ function Homepage() {
                     <CategoryButton title={"Anime"}/>
                 </div>
             </div>
+
             <div className="container divider my-1"></div>
-        {/* -------------------------------end browse category-------------- */}
-            {/* {movies.filter((movie, idx) => idx < 10).map( movie =>(
-                <div>
-                    <img src={movie.thumbnailUrl}/>
-                    <h6>{movie.title}</h6>
-                </div>
-            ))} */}
+        
             <div className="container d-flex flex-wrap justify-content-between my-1">
                 {movies.filter((movie, idx) => idx < 20).map( movie =>(
                     <Link className="text-decoration-none text-dark" to="/detailPage"><Card className="skala" title={movie.title} img={`https://image.tmdb.org/t/p/original${movie.poster_path}`} vote={movie.vote_average}/></Link>
                     ))}
             </div>
             {/* -------------end card------------- */}
+
             <div className="mt-1">
                 <Pagination className="justify-content-center">{items}</Pagination>
             </div>
@@ -120,9 +115,8 @@ function Homepage() {
             <div className="d-flex justify-content-center">
                 <Search search={search}/>
             </div>
-            
+
         </div>
-        
     )
 }
 
