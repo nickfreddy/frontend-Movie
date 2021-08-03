@@ -37,45 +37,32 @@ console.log(error)
 
 useEffect(() => {
 GetDetailMovies(`https://api.themoviedb.org/3/movie/+${id}+?api_key=4c2c9a58431c5b46e098bf4eed17c94b&language=en-US`)
-}, [])
+}, [id])
 const backdrop = 'https://image.tmdb.org/t/p/original'
 
 
 // console.log (number)
 
-const [charMale, setCharMale] = useState([])
-const [charFemale, setCharFemale] = useState([])
+const [Actors, setActors] = useState([])
 
 
-const getCharMale = async (url) => {
+const getActors = async (url) => {
 try {
-const charMale = await axios.get(url);
-const data = await charMale.data;
-setCharMale(data.results)
+const Actors = await axios.get(url);
+const data = await Actors.data;
+setActors(data.cast)
 
 }catch (error) {
 console.log(error)
 }
 }
 
-const getCharFemale = async (url) => {
-try {
-const charFemale = await axios.get(url);
-const data = await charFemale.data;
-setCharFemale(data.results)
-
-}catch (error) {
-console.log(error)
-}
-}
 
 useEffect(() => {
-getCharMale(`https://randomuser.me/api/?results=${number}&gender=male&inc=name,gender,picture`);
-getCharFemale(`https://randomuser.me/api/?results=${number2}&gender=female&inc=name,gender,picture`)
+getActors(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=ba4ce5d35b9081ae360eeb355f0acda9&language=en-US`);
 }, [])
-console.log(charMale)
-console.log(charFemale)
-
+console.log(Actors)
+const ProfPic = 'https://image.tmdb.org/t/p/w500/'
 // console.log (charMale.map((item, index)=>{
 // return
 // }))
@@ -92,13 +79,13 @@ return (
         <h1>Character</h1>
 
         <div className="container d-flex flex-wrap justify-content-around"> {/* <ul> */}
-                {charMale.map((item, index)=>{
+                {Actors.map((item, index)=>{
                 return <div key={index}>
 
                     <Card style={{ width: '8rem', margin:'0rem 1rem 1rem 1rem' }}>
-                        <Card.Img variant="top" src={item?.picture?.large} />
+                        <Card.Img variant="top" src={ProfPic+item.profile_path} />
                         <Card.Body>
-                            <p>{item?.name?.first+ " " + item?.name?.last}</p>
+                            <p>{item.name}</p>
 
                         </Card.Body>
                     </Card>
@@ -107,7 +94,7 @@ return (
                 })}
                 {/* </ul> */}
             {/* <ul> */}
-                {charFemale.map((item, index)=>{
+                {/* {charFemale.map((item, index)=>{
                 return <div key={index}>
 
 
@@ -121,7 +108,7 @@ return (
 
 
                 </div>
-                })}
+                })} */}
                 {/* </ul> */}
 
         </div>

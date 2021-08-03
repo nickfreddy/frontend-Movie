@@ -19,7 +19,6 @@ import { useState, useEffect } from "react";
 
 
 function Review() {
-<<<<<<< HEAD
     const {id} = useParams();
     console.log(id)
     const [detail, setDetail] = useState([])
@@ -46,12 +45,6 @@ return (
 <>
 <TitleBackground synopsis={detail.overview} title={detail.title} poster={backdrop+detail.backdrop_path} rating={detail.vote_average/2} trailer={`https://api.themoviedb.org/3/movie/${id}/videos?api_key=ba4ce5d35b9081ae360eeb355f0acda9&language=en-US`} />
     {/* <Container className='NavButton'>
-=======
-    return (
-        <>
-            <TitleBackground />
-            {/* <Container className='NavButton'>
->>>>>>> 38f68df54c4adca0ed2300892e9b8fdd7b82fb51
         <Row>
             <Col className='LinkBtn' lg={8} md={6} xs={8}>
             <a href='/'>

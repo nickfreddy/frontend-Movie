@@ -18,7 +18,6 @@ import axios from "axios";
 
 
 function Detailpage() {
-<<<<<<< HEAD
 const {id} = useParams();
 console.log(id)
 
@@ -78,13 +77,6 @@ return (
 
     <div className="PageContainer">
         {/* <h1>{detail.overview}</h1> */}
-=======
-    return (
-        <>
-            <TitleBackground />
-
-            <div className="PageContainer">
->>>>>>> 38f68df54c4adca0ed2300892e9b8fdd7b82fb51
 
                 {/* <div className='BG-Container'>
             <div className='FullbgImage'
@@ -120,7 +112,6 @@ return (
             </div>
         </div> */}
 
-<<<<<<< HEAD
         <Container>
             <DetailNavBtn />
             {/* <Container className='NavButton'>
@@ -149,36 +140,6 @@ return (
 
                     </Col>
                 </Row>
-=======
-                <Container>
-                    <DetailNavBtn />
-                    {/* <Container className='NavButton'>
-            <Row>
-                <Col className='LinkBtn' lg={8} md={6} xs={8} >
-                <a href='/'>
-                    <Badge pill bg="danger"> All </Badge>
-                </a>
-                <a href='/'>
-                    <Badge pill bg="danger"> Danger </Badge>
-                </a>
-                <a href='/DetailPage/Character/'>
-                    <Badge pill bg="danger"> Character </Badge>
-                </a>
-                <a href='/DetailPage/Review/'>
-                    <Badge pill bg="danger"> Review </Badge>
-                </a>
-                </Col>
-                <Col md="auto" xs={2} lg={3}>
-
-                </Col>
-                <Col xs={1} lg={1} className='submitBtn'>
-                <a href='/'>
-                    <Badge pill bg="danger"> Submit </Badge>
-                </a>
-
-                </Col>
-            </Row>
->>>>>>> 38f68df54c4adca0ed2300892e9b8fdd7b82fb51
             </Container> */}
                     {/* <div className='BtnLink'>
                 <div className='ButtonList'>
@@ -212,9 +173,7 @@ return (
                         </div>
                     </div>
                     <div>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam nostrum minus laudantium quasi doloribus
-                        in et beatae laborum? Ea deleniti repudiandae iste blanditiis illo, architecto unde pariatur porro a
-                        expedita.
+                       <p> {detail.overview}</p>
                     </div>
 
                     <div className='MovContainer'>
@@ -226,9 +185,9 @@ return (
                         </div>
                     </div>
                     <div className='infoDetail'>
-                        <p>Release Year : </p>
-                        <p>Rating : </p>
-                        <p>Genre : </p>
+                        <p>Release Year : {detail.release_date} </p>
+                        <p>Rating : {detail.vote_average / 2}</p>
+                        <p>Genre :  </p>
                     </div>
 
 

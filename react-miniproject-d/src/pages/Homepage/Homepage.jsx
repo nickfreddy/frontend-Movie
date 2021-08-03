@@ -75,15 +75,9 @@ function Homepage() {
                 </div>
             ))} */}
             <div className="container d-flex flex-wrap justify-content-between">
-<<<<<<< HEAD
                 {movies.filter((movie, idx) => idx < 10).map( movie =>(
                    <a href={`/DetailPage/${movie.id}`}> <Card title={movie.title} img={`https://image.tmdb.org/t/p/original${movie.poster_path}`} vote={movie.vote_average}/></a>
                     ))}
-=======
-                {movies.filter((movie, idx) => idx < 10).map(movie => (
-                    <a href='/DetailPage'> <Card title={movie.title} img={`https://image.tmdb.org/t/p/original${movie.poster_path}`} vote={movie.vote_average} /></a>
-                ))}
->>>>>>> 38f68df54c4adca0ed2300892e9b8fdd7b82fb51
             </div>
             {/* -------------end card------------- */}
             <div>

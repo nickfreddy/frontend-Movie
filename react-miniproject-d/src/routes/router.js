@@ -18,37 +18,15 @@ const Routers = () => {
         {/* exact means the path must be the same as the value  */}
         {/* return this component if the router is root aka / */}
         <Route exact path="/">
-<<<<<<< HEAD
-        <Homepage/>
-      </Route>
-      <Route exact path="/DetailPage/:id">
-        <Detailpage/>
-      </Route>
-      <Route exact path ="/DetailPage/Character/:id">
-        <Characterpage/>
-      </Route>
-      <Route exact path ="/DetailPage/Review/:id">
-        <Review />
-      </Route>
-
-      {/*  * is for all routes that is not registered in here */}
-      <Route path="*">
-        <div>
-          <h1>PAGE NOT FOUND</h1>
-        </div>
-      </Route>
-    </Switch>
-    <Footer />
-=======
           <Homepage />
         </Route>
-        <Route exact path="/DetailPage">
+        <Route exact path="/DetailPage/:id">
           <Detailpage />
         </Route>
-        <Route exact path="/DetailPage/Character/">
+        <Route exact path="/DetailPage/Character/:id">
           <Characterpage />
         </Route>
-        <Route exact path="/DetailPage/Review/">
+        <Route exact path="/DetailPage/Review/:id">
           <Review />
         </Route>
         <Route exact path="/Pages Bagas/Profile-page">
@@ -62,7 +40,6 @@ const Routers = () => {
         </Route>
       </Switch>
       <Footer />
->>>>>>> 38f68df54c4adca0ed2300892e9b8fdd7b82fb51
     </>
   );
 };
