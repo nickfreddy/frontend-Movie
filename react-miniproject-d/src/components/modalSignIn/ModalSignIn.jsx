@@ -6,7 +6,7 @@ import logo from '../../img/brand-logo.png'
 function ModalSignIn() {
     return (
         <div>
-            <Form className="d-flex justify-content-center bg-light rounded-3" >
+            <Form className="d-flex justify-content-center bg-info rounded-3" >
                     <div style={{height: '30rem'}}>
 
                         <Form.Group className="d-flex mt-3 justify-content-center">

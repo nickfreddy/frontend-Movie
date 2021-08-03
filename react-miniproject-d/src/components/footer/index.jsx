@@ -85,7 +85,7 @@ function Footer() {
                         </div>
                     </Col>
                     <hr style={{ border: "solid 2px", borderRadius: "10px", color: "white", margin: "20px 0" }} />
-                    <h5 className="text-center">Copyright © 2000-202 MilanTV.  All Rights Reserved</h5>
+                    <h5 className="text-center">Copyright © 2000-2021 deMovie.  All Rights Reserved</h5>
                 </Row >
 
             </Container >

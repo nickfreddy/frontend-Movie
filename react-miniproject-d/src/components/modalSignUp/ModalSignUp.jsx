@@ -26,7 +26,7 @@ function ModalSignUp() {
     return (
         <div>
                
-                <Form onSubmit={add} className="d-flex justify-content-center bg-light rounded-3" >
+                <Form onSubmit={add} className="d-flex justify-content-center bg-info rounded-3" >
                     <div style={{height: '30rem'}}>
 
                         <Form.Group className="d-flex mt-3 justify-content-center">

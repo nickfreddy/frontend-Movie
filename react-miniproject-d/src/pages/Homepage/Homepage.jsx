@@ -1,35 +1,36 @@
 import React, { useEffect, useState } from 'react'
 import { Carousel, Pagination } from 'react-bootstrap'
 import axios from 'axios'
-// import img2 from '../Img/image2.jpg'
-// import img3 from '../Img/image3.jpg'
 import Card from '../../components/card/Card'
 import CategoryButton from '../../components/categoryButton/CategoryButton'
 import './homepage.css'
-
+import Search from '../../components/Search/search'
+import {Link} from 'react-router-dom'
 
 
 
 function Homepage() {
-    
     const [movies, setMovies] = useState([]);
-   
+    const [errorMessage, setErrorMessage] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        const getMoviesAll = async (url) => {
+            try {
+                const movies = await axios.get(url);
+                const dataResults = await movies.data;
+                const data = await dataResults.results;
+                setMovies(data)
+                // console.log(data)
+            }catch (error) {
+                console.log(error)
+            }
+        };
+
       getMoviesAll("https://api.themoviedb.org/3/movie/now_playing?api_key=ba4ce5d35b9081ae360eeb355f0acda9")
     }, []);
 
-    const getMoviesAll = async (url) => {
-        try {
-            const movies = await axios.get(url);
-            const dataResults = await movies.data;
-            const data = await dataResults.results;
-            setMovies(data)
-            // console.log(data)
-        }catch (error) {
-            console.log(error)
-        }
-    };
+
 
     let active = 1;
     let items = [];
@@ -48,14 +49,27 @@ function Homepage() {
     const handleFilterButton = (e) => {
         let word = e.target.value
         console.log(word)
-
+        
         const filteredData = movies.filter(movie => movie.vote_count > word)
         // console.log(filteredData)
         setMovies(filteredData)
+        
     }
 
-   
-
+    const search = searchValue => {
+        console.log(searchValue)
+        setLoading(true);
+        setErrorMessage(null);
+    
+        axios.get(`https://api.themoviedb.org/3/search/movie?api_key=ba4ce5d35b9081ae360eeb355f0acda9&language=en-US&query=${searchValue}&page=1&include_adult=false`)
+          .then(response => response.data)
+          .then(res => res.results)
+          .then(jsonResponse => {
+              setMovies(jsonResponse);
+              setLoading(false);
+            });
+          };
+          console.log(movies)
 
     return (
         
@@ -84,6 +98,7 @@ function Homepage() {
                     <CategoryButton title={"Anime"}/>
                 </div>
             </div>
+            <div className="container divider my-1"></div>
         {/* -------------------------------end browse category-------------- */}
             {/* {movies.filter((movie, idx) => idx < 10).map( movie =>(
                 <div>
@@ -91,18 +106,20 @@ function Homepage() {
                     <h6>{movie.title}</h6>
                 </div>
             ))} */}
-            <div className="container d-flex flex-wrap justify-content-between ">
+            <div className="container d-flex flex-wrap justify-content-between my-1">
                 {movies.filter((movie, idx) => idx < 20).map( movie =>(
-                    <Card className="skala" title={movie.title} img={`https://image.tmdb.org/t/p/original${movie.poster_path}`} vote={movie.vote_average}/>
+                    <Link className="text-decoration-none text-dark" to="/detailPage"><Card className="skala" title={movie.title} img={`https://image.tmdb.org/t/p/original${movie.poster_path}`} vote={movie.vote_average}/></Link>
                     ))}
             </div>
             {/* -------------end card------------- */}
-            <div>
+            <div className="mt-1">
                 <Pagination className="justify-content-center">{items}</Pagination>
             </div>
 
             {/*  ---------------------- */}
-           
+            <div className="d-flex justify-content-center">
+                <Search search={search}/>
+            </div>
             
         </div>
         

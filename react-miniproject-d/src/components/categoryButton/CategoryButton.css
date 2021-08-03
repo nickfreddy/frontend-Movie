@@ -13,7 +13,7 @@
     font-weight: bold;
 }
 
-.btnNokay:Hover {
+.btnNokay:hover {
     border: 3px solid #EF9774 ;
     border-radius: 30px;
     color: black;
@@ -21,6 +21,14 @@
     -moz-border-radius: 30px;
     -ms-border-radius: 30px;
     -o-border-radius: 30px;
-    
-    
+}
+
+.btnNokay:focus {
+    border: 3px solid #EF9774 ;
+    border-radius: 30px;
+    color: black;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
 }
