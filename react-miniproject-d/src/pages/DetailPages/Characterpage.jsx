@@ -11,10 +11,35 @@ import TitleBackground from '../../components/DetailBackground/TitleBackground'
 import { Container , Card} from 'react-bootstrap';
 import DetailNavBtn from '../../components/DetailNavButton.jsx/DetailNavBtn';
 import axios from 'axios';
+import { useParams } from "react-router-dom";
+
+
 
 function Characterpage() {
+    const {id} = useParams();
+console.log(id)
 const number = Math.floor(Math.random() * 10)
 const number2 = Math.floor(Math.random() * 20)
+
+const [detail, setDetail] = useState([])
+//set var movies
+
+const GetDetailMovies = async (url) => {
+try {
+const res = await axios.get(url);
+const data = await res.data;
+setDetail(data)
+//declare variable to save the data
+} catch (error) {
+console.log(error)
+}
+}
+
+useEffect(() => {
+GetDetailMovies(`https://api.themoviedb.org/3/movie/+${id}+?api_key=4c2c9a58431c5b46e098bf4eed17c94b&language=en-US`)
+}, [])
+const backdrop = 'https://image.tmdb.org/t/p/original'
+
 
 // console.log (number)
 
@@ -61,7 +86,7 @@ console.log(charFemale)
 return (
 
 <>
-    <TitleBackground />
+<TitleBackground synopsis={detail.overview} title={detail.title} poster={backdrop+detail.backdrop_path} rating={detail.vote_average/2} trailer={`https://api.themoviedb.org/3/movie/${id}/videos?api_key=ba4ce5d35b9081ae360eeb355f0acda9&language=en-US`} />
     <Container>
         <DetailNavBtn />
         <h1>Character</h1>

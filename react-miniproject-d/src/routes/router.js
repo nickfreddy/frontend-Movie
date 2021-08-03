@@ -19,13 +19,13 @@ const Routers = () => {
         <Route exact path="/">
         <Homepage/>
       </Route>
-      <Route exact path="/DetailPage">
+      <Route exact path="/DetailPage/:id">
         <Detailpage/>
       </Route>
-      <Route exact path ="/DetailPage/Character/">
+      <Route exact path ="/DetailPage/Character/:id">
         <Characterpage/>
       </Route>
-      <Route exact path ="/DetailPage/Review/">
+      <Route exact path ="/DetailPage/Review/:id">
         <Review />
       </Route>
 
