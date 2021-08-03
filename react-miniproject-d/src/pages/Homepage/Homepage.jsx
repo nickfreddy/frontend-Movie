@@ -5,7 +5,7 @@ import Card from '../../components/card/Card'
 import CategoryButton from '../../components/categoryButton/CategoryButton'
 import './homepage.css'
 import Search from '../../components/Search/search'
-import {Link} from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
 
 
 
@@ -115,7 +115,7 @@ function Homepage() {
             <div className="d-flex justify-content-center">
                 <Search search={search}/>
             </div>
-
+            
         </div>
     )
 }
