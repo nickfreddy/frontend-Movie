@@ -1,9 +1,9 @@
 import React from 'react';
-import { Button, ListGroupItem, ListGroup, Navbar, Card, Nav, NavDropdown, Form, FormControl, Container, Row, Col, NavItem, Grid } from 'react-bootstrap'
+import { Navbar, Card, Container, Row, Col } from 'react-bootstrap'
 import back_button from '../../img/back-button.png'
-import '../Profile-page/index.css'
+import './index.css'
 import logo from '../../img/brand-logo.png'
-import AddMovie from './AddMovie';
+import ListMovie from './ListMovie';
 
 
 const AdminPage = () => {
@@ -42,7 +42,8 @@ const AdminPage = () => {
                             </Card>
                         </Col>
                         <Col>
-                            <AddMovie />
+                            {/* <AddMovie /> */}
+                            <ListMovie />
 
                         </Col>
 
@@ -50,7 +51,7 @@ const AdminPage = () => {
                 </Container>
 
             </div>
-            <div className="footer">
+            <div className="footer bg-secondary">
                 <img
                     src={logo}
                     width="50"

@@ -76,3 +76,19 @@
     justify-content: center;
     margin-bottom: 30px;
 }
+
+.list-movie {
+    padding: 20px 30px;
+}
+
+.card-movie-list {
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.list-movie li {
+    font-weight: 700;
+}
