@@ -5,30 +5,45 @@ import Card from '../../components/card/Card'
 import CategoryButton from '../../components/categoryButton/CategoryButton'
 import './homepage.css'
 import Search from '../../components/Search/search'
-import {Link, useParams} from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { loadMovies } from '../../redux/action/movie'
 
 
 
 function Homepage() {
+    const moviesdata = useSelector(state => state.movies.data)
     const [movies, setMovies] = useState([]);
     const [errorMessage, setErrorMessage] = useState(null);
     const [loading, setLoading] = useState(true);
+    const dispatch = useDispatch()
+
 
     useEffect(() => {
-        const getMoviesAll = async (url) => {
-            try {
-                const movies = await axios.get(url);
-                const dataResults = await movies.data;
-                const data = await dataResults.results;
-                setMovies(data)
-                // console.log(data)
-            } catch (error) {
-                console.log(error)
-            }
-        };
+        // const getMoviesAll = async (url) => {
+        //     try {
+        //         const movies = await axios.get(url);
+        //         const dataResults = await movies.data;
+        //         const data = await dataResults.results;
+        //         setMovies(data)
+        //         // console.log(data)
+        //     } catch (error) {
+        //         console.log(error)
+        //     }
+        // };
 
-        getMoviesAll("https://api.themoviedb.org/3/movie/now_playing?api_key=ba4ce5d35b9081ae360eeb355f0acda9")
+        // getMoviesAll("https://api.themoviedb.org/3/movie/now_playing?api_key=ba4ce5d35b9081ae360eeb355f0acda9")
+        dispatch(loadMovies())
     }, []);
+
+
+    useEffect(() => {
+        setMovies(moviesdata)
+
+    }, [moviesdata]);
+
+
+
 
 
 
@@ -75,8 +90,8 @@ function Homepage() {
         <div>
             {/* -------------------------------------------------- */}
             <Carousel >
-                {movies.filter((movie, idx) => idx < 3).map(movie => (
-                    <Carousel.Item style={{ height: '30rem' }}>
+                {movies.filter((movie, idx) => idx < 3).map((movie, idx) => (
+                    <Carousel.Item key={idx} style={{ height: '30rem' }}>
                         <img
                             className="d-block w-100"
                             src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
@@ -101,9 +116,9 @@ function Homepage() {
             <div className="container divider my-1"></div>
 
             <div className="container d-flex flex-wrap justify-content-between my-1">
-                {movies.filter((movie, idx) => idx < 20).map( movie =>(
-                    <div key={movie.idx}><Link className="text-decoration-none text-dark" to={`/detailPage/${movie.id}`}><Card className="skala" title={movie.title} img={`https://image.tmdb.org/t/p/original${movie.poster_path}`} vote={movie.vote_average}/></Link></div>
-                    ))}
+                {movies.filter((movie, idx) => idx < 20).map((movie, idx) => (
+                    <div key={idx}><Link className="text-decoration-none text-dark" to={`/detailPage/${movie.id}`}><Card className="skala" title={movie.title} img={`https://image.tmdb.org/t/p/original${movie.poster_path}`} vote={movie.vote_average} /></Link></div>
+                ))}
             </div>
             {/* -------------end card------------- */}
 
@@ -115,7 +130,7 @@ function Homepage() {
             <div className="d-flex justify-content-center">
                 <Search search={search} />
             </div>
-            
+
         </div>
     )
 }
