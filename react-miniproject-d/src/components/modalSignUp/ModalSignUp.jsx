@@ -6,8 +6,9 @@ import ModalSignIn from '../modalSignIn/ModalSignIn'
 
 
 
-function ModalSignUp() {
+function ModalSignUp(props) {
 
+    const {onClick} = props;
     const [state, setState] = useState({
         name: "",
         email: "",
@@ -53,7 +54,7 @@ function ModalSignUp() {
                             <Button className="mt-4" variant="primary" type="submit" style={{width: '25rem'}}>
                                 SIGN UP
                             </Button>
-                            <p className="text-center mt-3">Already have an account ? <Link to='/SignIn' className="text-warning">Log in</Link></p>
+                            <p className="text-center mt-3">Already have an account ? <a onClick={props.onClick} style={{cursor: 'pointer'}} className="text-warning">Log in</a></p>
                         </Form.Group>
                     </div>
 

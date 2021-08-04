@@ -11,9 +11,18 @@ import ModalSignIn from '../../modalSignIn/ModalSignIn';
 function Navbar_notSign(props) {
 
     const [show, setShow] = useState(false);
+    const [ step, setStep ] = useState(1);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    function goNextPage() {
+        setStep(step => step +1)
+    }
+
+    function goPrevPage() {
+        setStep(step => step -1)
+    }
 
     return (
         <div>
@@ -54,15 +63,9 @@ function Navbar_notSign(props) {
             </Navbar>
 
             {/* ----------modal--------------- */}
-            <Modal className="mt-5" show={show} onHide={handleClose}  >
-                <Switch>
-                <Route exact path='/'>
-                        <ModalSignUp/>
-                    </Route>
-                    <Route path='/SignIn'>
-                        <ModalSignIn/>
-                    </Route>
-                </Switch>
+            <Modal className="mt-5" show={show} onHide={handleClose}>
+                {step === 1 && <ModalSignUp onClick={goNextPage}/>}
+                {step === 2 && <ModalSignIn onClick={goPrevPage}/>}
             </Modal>
 
             

@@ -3,7 +3,8 @@ import { Modal, Button, Form } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import logo from '../../img/brand-logo.png'
 
-function ModalSignIn() {
+function ModalSignIn(props) {
+    const {onClick} = props;
     return (
         <div>
             <Form className="d-flex justify-content-center bg-info rounded-3" >
@@ -28,7 +29,7 @@ function ModalSignIn() {
                             <Button className="mt-4" variant="primary" type="submit" style={{width: '25rem'}}>
                                 SIGN IN
                             </Button>
-                            <p className="text-center mt-3">Don't have an account ? <Link to='/' className=" text-warning">Sign Up</Link></p>
+                            <p className="text-center mt-3">Don't have an account ? <a onClick={props.onClick} style={{cursor: 'pointer'}} className=" text-warning">Sign Up</a></p>
                         </Form.Group>
                     </div>
 
