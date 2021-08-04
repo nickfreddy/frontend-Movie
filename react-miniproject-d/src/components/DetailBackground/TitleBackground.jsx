@@ -51,7 +51,7 @@ url(${poster})`,backgroundRepeat: 'no-repeat',backgroundSize: 'cover',}}>
         <Modal.Header closeButton>
             <Modal.Title id="example-modal-sizes-title-lg">
 
-                Judul
+            {title}
             </Modal.Title>
         </Modal.Header>
         <Modal.Body key='ytplayer' style={{Height:'auto'}}>
