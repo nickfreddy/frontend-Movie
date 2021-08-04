@@ -22,9 +22,6 @@ const Routers = () => {
       <Route exact path="/">
         <Homepage/>
       </Route>
-      <Route exact path="/SignIn">
-        <Homepage/>
-      </Route>
       <Route exact path="/DetailPage/:id">
         <Detailpage/>
       </Route>
