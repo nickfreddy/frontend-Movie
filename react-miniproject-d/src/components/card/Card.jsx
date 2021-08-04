@@ -6,7 +6,7 @@ function Card(props) {
 
     return (        
         <div className="card my-3 skala" style={{width: '13rem', height: '27rem'}}>
-            <img src={img} classNameName="card-img-top " alt="..."/>
+            <img src={img} className="card-img-top " alt="..."/>
                     
             <div className="card-body">
                 <h6>{title}</h6>
