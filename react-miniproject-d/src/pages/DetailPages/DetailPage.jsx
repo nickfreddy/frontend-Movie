@@ -14,7 +14,11 @@ import DetailNavBtn from '../../components/DetailNavButton.jsx/DetailNavBtn';
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-
+import { postReview } from '../../redux/action/postReview';
+// import { GetDetail } from '../../redux/action/details';
+import { loadMovie } from '../../redux/action/load-movie';
+import { useDispatch, useSelector } from "react-redux";
+// import { GetDetail } from "../../redux/action/details"
 
 
 function Detailpage() {
@@ -46,6 +50,11 @@ const GetKey = async (url) => {
     console.log(error)
     }
     }
+
+    // useEffect(() => {
+    //     Dispatch(``);
+        
+    //     }, [])
 
 useEffect(() => {
 GetDetailMovies(`https://api.themoviedb.org/3/movie/+${id}+?api_key=4c2c9a58431c5b46e098bf4eed17c94b&language=en-US`);
