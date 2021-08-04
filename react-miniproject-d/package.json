@@ -19,6 +19,10 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-star-ratings": "^2.3.0",
+<<<<<<< HEAD
+=======
+    "redux": "^4.1.1",
+>>>>>>> c5032c3273fccdb51802b8d3a295a1ccb1e6bc86
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.3.0",
     "sass": "^1.37.2",
