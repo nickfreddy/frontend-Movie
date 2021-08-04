@@ -101,7 +101,7 @@ function Homepage() {
             <div className="container divider my-1"></div>
 
             <div className="container d-flex flex-wrap justify-content-between my-1">
-                {movies.filter((movie, idx) => idx < 20).map( movie =>(
+                {movies.filter((movie, idx) => idx < 60).map( movie =>(
                     <div key={movie.idx}><Link className="text-decoration-none text-dark" to={`/detailPage/${movie.id}`}><Card className="skala" title={movie.title} img={`https://image.tmdb.org/t/p/original${movie.poster_path}`} vote={movie.vote_average}/></Link></div>
                     ))}
             </div>
