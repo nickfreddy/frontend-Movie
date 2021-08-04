@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Badge, Container ,Row, Col} from 'react-bootstrap';
 import { useParams } from "react-router-dom";
+import CategoryButton from '../categoryButton/CategoryButton';
 
 
 function DetailNavBtn() {
@@ -13,13 +14,13 @@ console.log(id)
                 <Col className='LinkBtn' lg={8} md={6} xs={8} >
                 
                 <a href={`/DetailPage/${id}`}>
-                    <Badge pill bg="danger"> Overview </Badge>
+                    <Button variant="Link" > Overview </Button>
                 </a>
                 <a href={`/DetailPage/Character/${id}`}>
-                    <Badge pill bg="danger"> Character </Badge>
+                    <Button variant="Link"> Character </Button>
                 </a>
                 <a href={`/DetailPage/Review/${id}`}>
-                    <Badge pill bg="danger"> Review </Badge>
+                    <Button variant="Link"> Review </Button>
                 </a>
                 </Col>
                 <Col md="auto" xs={2} lg={3}>
@@ -27,7 +28,7 @@ console.log(id)
                 </Col>
                 <Col xs={1} lg={1} className='submitBtn'>
                 <a href='/'>
-                    <Badge pill bg="danger"> Submit </Badge>
+                    <Button variant="Link"> Home Page </Button>
                 </a>
 
                 </Col>

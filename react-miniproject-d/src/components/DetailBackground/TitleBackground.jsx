@@ -35,7 +35,7 @@ url(${poster})`,backgroundRepeat: 'no-repeat',backgroundSize: 'cover',}}>
                     <p>{synopsis}</p>
                 </div>
                 <div className='Tombol'>
-                    <Button variant="danger" size='lg' onClick={()=> setLgShow(true)}>Watch Trailer</Button>
+                    <Button variant="warning" size='lg' onClick={()=> setLgShow(true)}>Watch Trailer</Button>
                     <div className='watchlist-btn'>
                         <Button style={{color:'white'}} variant="outline-secondary" size='lg'>Add to Watchlist</Button>
                     </div>
