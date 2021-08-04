@@ -14,10 +14,9 @@ import axios from 'axios';
 import { useParams } from "react-router-dom";
 
 
-
 function Characterpage() {
     const {id} = useParams();
-console.log(id)
+
 const number = Math.floor(Math.random() * 10)
 const number2 = Math.floor(Math.random() * 20)
 
@@ -67,9 +66,6 @@ const ProfPic = 'https://image.tmdb.org/t/p/w500/'
 // return
 // }))
 
-// const data1 = charMale.results
-// const nama = data1.name()
-// console.log (nama.fisrt)
 return (
 
 <>
@@ -92,8 +88,22 @@ return (
 
                 </div>
                 })}
-                {/* </ul> */}
-            {/* <ul> */}
+
+        {/* <div className="container d-flex flex-wrap justify-content-around"> <ul> */}
+                {/* {charMale.map((item, index)=>{
+                return <div key={index}>
+
+                    <Card style={{ width: '8rem', margin:'0rem 1rem 1rem 1rem' }}>
+                        <Card.Img variant="top" src={ProfPic+item.profile_path} />
+                        <Card.Body>
+                            <p>{item.name}</p>
+
+                        </Card.Body>
+                    </Card>
+
+                </div>
+                })} */}
+          
                 {/* {charFemale.map((item, index)=>{
                 return <div key={index}>
 
@@ -109,7 +119,6 @@ return (
 
                 </div>
                 })} */}
-                {/* </ul> */}
 
         </div>
     </Container>
