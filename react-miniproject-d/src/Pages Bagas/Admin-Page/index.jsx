@@ -47,9 +47,6 @@ const AdminPage = () => {
                         </Col>
                         <Col>
                             {isAddMovie ? <AddMovie /> : <ListMovie />}
-
-
-
                         </Col>
 
                     </Row>
@@ -64,7 +61,7 @@ const AdminPage = () => {
                     className="d-inline-block align-top m-3"
                     alt="React Bootstrap logo"
                 />
-                <h3>De Movie</h3>
+                <h3>deMovie</h3>
             </div>
         </div >
     );
