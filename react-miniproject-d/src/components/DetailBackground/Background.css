@@ -4,6 +4,7 @@
     flex: 0 0 100%;
     /* width: 120rem; */
     max-height: 44rem;
+    /* margin-bottom: 3rem; */
     /* object-fit: cover; */
     /* background-color:black; */
 }
@@ -36,11 +37,11 @@
 }
 
 .Overview {
-    max-width: 66rem;
+    max-width: 70rem;
     /* width: 66rem; */
     display: flex;
     font-weight: 500;
-    font-size: 2.2rem;
+    font-size: 1.9rem;
     line-height: 2.6rem;
     text-align: left;
     color: white;
@@ -90,7 +91,49 @@
 
 }
 
+@media screen and (max-width: 720px) {
 
+    .Judul h1 {
+        padding-top: 3rem;
+        padding-left: 2rem;
+        font-weight: 900;
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+    }
+    
+    .Rating {
+        margin-top: -0.3rem;
+        font-size: 0.7rem;
+        line-height: 0.7rem;
+        display: flex;
+        text-align: left;
+        padding-left: 2rem;
+    }
+    
+    .Overview {
+        max-width: 20rem;
+        display: flex;
+        font-size: 1rem;
+        line-height: 0.9rem;
+        padding-left: 2rem;
+    
+    }
+    .Tombol {
+        padding-bottom: 3rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+
+        font-size: 0.7rem !important;
+        line-height: 0.7rem;
+    }
+
+    .BG-Container {
+        
+        margin-bottom: 1rem;
+      
+    }
+
+}
 
 @media screen and (max-width: 480px) {
 
