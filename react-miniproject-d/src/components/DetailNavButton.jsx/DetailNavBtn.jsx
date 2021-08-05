@@ -10,7 +10,7 @@ function DetailNavBtn() {
 console.log(id)
     return (
         <div>
-            <Container className='NavButton' style={{marginBottom:'3rem'}}>
+            <Container className='NavButton' style={{marginTop:'2rem', marginBottom:'3rem'}}>
             <Row>
                 <Col className='LinkBtn' lg={8} md={8} xs={8} >
                 

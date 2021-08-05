@@ -14,7 +14,11 @@ import DetailNavBtn from '../../components/DetailNavButton.jsx/DetailNavBtn';
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-
+import { postReview } from '../../redux/action/postReview';
+// import { GetDetail } from '../../redux/action/details';
+import { loadMovie } from '../../redux/action/load-movie';
+import { useDispatch, useSelector } from "react-redux";
+// import { GetDetail } from "../../redux/action/details"
 
 
 function Detailpage() {
@@ -47,6 +51,11 @@ function Detailpage() {
         }
     }
 
+    // useEffect(() => {
+    //     Dispatch(``);
+
+    //     }, [])
+
     useEffect(() => {
         GetDetailMovies(`https://api.themoviedb.org/3/movie/+${id}+?api_key=4c2c9a58431c5b46e098bf4eed17c94b&language=en-US`);
         // GetKey(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=ba4ce5d35b9081ae360eeb355f0acda9&language=en-US`)
@@ -68,7 +77,7 @@ function Detailpage() {
 
     return (
         <>
-            <TitleBackground synopsis={detail.overview} title={detail.title} poster={backdrop + detail.backdrop_path} rating={detail.vote_average / 2} trailer={`https://www.youtube.com/embed/${KEY?.key}`} />
+            <TitleBackground synopsis={detail.overview} title={detail.title} poster={backdrop + detail.backdrop_path} rating={detail.vote_average / 2} trailer={`https://www.youtube.com/embed/i6gFRSnE6Ro`} />
             {/* */}
             {/* trailer={"https://www.youtube.com/embed/dY29jgV4YYg"} */}
 

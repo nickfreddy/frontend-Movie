@@ -1,10 +1,17 @@
 import { combineReducers } from "redux";
 import movies from "./movies";
 import user from "./user"
-import reducerDetail from "./detail";
+import reducerDetail from "./details";
+import reducerPost from "./postReview";
+// import reducerMovieDetail from "./movieDetail";
 
-export default combineReducers({
+
+const rootReducers = combineReducers({
     movies,
     user,
     reducerDetail,
+    reducerPost,
+    // reducerMovieDetail,
+
 })
+export default rootReducers;
