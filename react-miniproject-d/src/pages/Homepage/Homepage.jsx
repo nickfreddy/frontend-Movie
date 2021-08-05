@@ -5,7 +5,7 @@ import Card from '../../components/card/Card'
 import CategoryButton from '../../components/categoryButton/CategoryButton'
 import './homepage.css'
 import Search from '../../components/Search/search'
-import Navbar_notSign from '../../components/header/Navbar_notSign'
+// import Navbar_notSign from '../../components/header/Navbar_notSign'
 import { Link, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { loadMovies } from '../../redux/action/movie'
@@ -98,7 +98,7 @@ function Homepage() {
 
     return (
         <div>
-            <Navbar_notSign search={search}/>
+            {/* <Navbar_notSign search={search}/> */}
             {/* -------------------------------------------------- */}
             <Carousel >
                 {movies.filter((movie, idx) => idx < 3).map(movie => (
@@ -129,7 +129,7 @@ function Homepage() {
             <div className="container d-flex flex-wrap justify-content-around my-1">
                 {movies !== []  ? movies.filter((movie, idx) => idx < 20).map( movie =>(
                     <div key={movie.idx}>
-                        <Link className="text-decoration-none text-dark" to={`detailPage/${movie.id}`}>
+                        <Link className="text-decoration-none text-dark" to={`detailPage/${movie._id}`}>
                             <Card className="skala" title={movie.title} img={movie.poster} category={movie.genres.join(', ')}/>
                         </Link>
                     </div> 

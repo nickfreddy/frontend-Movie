@@ -5,6 +5,12 @@ import logo from '../../../img/brand-logo.png'
 import user from '../../../img/user.png'
 
 function Navbar_Sign(props) {
+
+    function LogOut () {
+        localStorage.clear();
+        window.location.replace("/");
+    };
+
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="secondary" className="custom-navbar">
@@ -46,7 +52,7 @@ function Navbar_Sign(props) {
                                 <NavDropdown.Item href="#action4">Setting</NavDropdown.Item>
                                 <NavDropdown.Item href="#action5">Help</NavDropdown.Item>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action5">Sign out</NavDropdown.Item>
+                                <NavDropdown.Item href="#action5" onClick={LogOut}>Sign out</NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>
