@@ -1,14 +1,14 @@
 import {
     GET_DETAIL_BEGIN,
     GET_DETAIL_SUCCESS,
-    GET_DETAIL_FAIL, 
- }     from "../../store/actions/types";
- import axios from "axios";
+    GET_DETAIL_FAIL,
+} from "../../store/actions/types";
+import axios from "axios";
 
- const BASE_URL = "https://api.themoviedb.org/3/movie/";
+const BASE_URL = "https://api.themoviedb.org/3/movie/";
 
 export const GetDetail = (action) => async (dispatch) => {
-    const {error, movies_id} = action;
+    const { error, movies_id } = action;
     dispatch({
         type: GET_DETAIL_BEGIN,
         loading: true,
@@ -22,7 +22,7 @@ export const GetDetail = (action) => async (dispatch) => {
             payload: res.data,
             error: null,
         });
-    }catch (err){
+    } catch (err) {
         dispatch({
             type: GET_DETAIL_FAIL,
             error: error,

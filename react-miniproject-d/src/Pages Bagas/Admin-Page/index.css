@@ -59,8 +59,8 @@
 .footer {
     background-color: #0A4962;
     width: 100%;
-    position: absolute;
-    bottom: 0;
+    margin-top: auto;
+
     display: flex;
     align-items: center;
     color: white;
@@ -91,4 +91,8 @@
 
 .list-movie li {
     font-weight: 700;
+}
+
+.back:hover {
+    transform: scale(1.1, 1.1);
 }

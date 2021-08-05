@@ -22,19 +22,19 @@ function Homepage() {
 
 
     useEffect(() => {
-    //     const getMoviesAll = async (url) => {
-    //         try {
-    //             const movies = await axios.get(url);
-    //             const dataResults = await movies.data;
-    //             const data = await dataResults.dataMovie;
-    //             setMovies(data)
-    //             console.log(data)
-    //         } catch (error) {
-    //             console.log(error)
-    //         }
-    //     };
+        //     const getMoviesAll = async (url) => {
+        //         try {
+        //             const movies = await axios.get(url);
+        //             const dataResults = await movies.data;
+        //             const data = await dataResults.dataMovie;
+        //             setMovies(data)
+        //             console.log(data)
+        //         } catch (error) {
+        //             console.log(error)
+        //         }
+        //     };
 
-    //     getMoviesAll("https://demovie.gabatch13.my.id/movies?page=1&limit=10")
+        //     getMoviesAll("https://demovie.gabatch13.my.id/movies?page=1&limit=10")
         dispatch(loadMovies())
     }, []);
 
@@ -46,7 +46,7 @@ function Homepage() {
 
     const resetFilter = () => {
         setMovies(movies)
-      }
+    }
 
     const handlePagination = (e) => {
         let page = e.target.value;
@@ -79,7 +79,7 @@ function Homepage() {
                 setLoading(false);
             });
     };
-    
+
 
     const search = searchValue => {
         console.log(searchValue)
@@ -119,26 +119,26 @@ function Homepage() {
                     <CategoryButton title={"All"} />
                     <CategoryButton title={"Action"} onClick={handleFilterButton} value={'action'} />
                     <CategoryButton title={"Romances"} onClick={handleFilterButton} value={'romance'} />
-                    <CategoryButton title={"Comedy"} onClick={handleFilterButton} value={'comedy'}/>
-                    <CategoryButton title={"Anime"} onClick={handleFilterButton} value={'anime'}/>
+                    <CategoryButton title={"Comedy"} onClick={handleFilterButton} value={'comedy'} />
+                    <CategoryButton title={"Anime"} onClick={handleFilterButton} value={'anime'} />
                 </div>
             </div>
 
             <div className="container divider my-1 "></div>
 
             <div className="container d-flex flex-wrap justify-content-around my-1">
-                {movies !== []  ? movies.filter((movie, idx) => idx < 20).map( movie =>(
+                {movies !== [] ? movies.filter((movie, idx) => idx < 20).map(movie => (
                     <div key={movie.idx}>
                         <Link className="text-decoration-none text-dark" to={`detailPage/${movie._id}`}>
-                            <Card className="skala" title={movie.title} img={movie.poster} category={movie.genres.join(', ')}/>
+                            <Card className="skala" title={movie.title} img={movie.poster} category={movie.genres.join(', ')} />
                         </Link>
-                    </div> 
-                    )) : <h3>not found</h3>}
+                    </div>
+                )) : <h3>not found</h3>}
             </div>
             {/* -------------end card------------- */}
 
             <div className="my-3">
-                <MyPagination onclick={handlePagination}/>
+                <MyPagination onclick={handlePagination} />
             </div>
 
             {/*  ---------------------- */}
