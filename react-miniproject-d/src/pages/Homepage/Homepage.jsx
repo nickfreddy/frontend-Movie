@@ -6,6 +6,7 @@ import CategoryButton from '../../components/categoryButton/CategoryButton'
 import './homepage.css'
 import Search from '../../components/Search/search'
 import {Link, useParams} from 'react-router-dom'
+import Navbar_notSign from '../../components/header/Navbar_notSign'
 
 
 
@@ -42,7 +43,9 @@ function Homepage() {
         );
     };
 
-
+    const resetFilter = () => {
+        setMovies(movies)
+      }
 
 
 
@@ -53,7 +56,7 @@ function Homepage() {
         const filteredData = movies.filter(movie => movie.vote_count > word)
         // console.log(filteredData)
         setMovies(filteredData)
-
+        resetFilter();
     }
 
     const search = searchValue => {
@@ -73,10 +76,11 @@ function Homepage() {
 
     return (
         <div>
+            <Navbar_notSign search={search} />
             {/* -------------------------------------------------- */}
             <Carousel >
                 {movies.filter((movie, idx) => idx < 3).map(movie => (
-                    <Carousel.Item style={{ height: '30rem' }}>
+                    <Carousel.Item style={{ height: '25rem' }}>
                         <img
                             className="d-block w-100"
                             src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
@@ -98,12 +102,16 @@ function Homepage() {
                 </div>
             </div>
 
-            <div className="container divider my-1"></div>
+            <div className="container divider my-1 "></div>
 
-            <div className="container d-flex flex-wrap justify-content-between my-1">
-                {movies.filter((movie, idx) => idx < 20).map( movie =>(
-                    <Link className="text-decoration-none text-dark" to={`detailPage/${movie.id}`}><Card className="skala" title={movie.title} img={`https://image.tmdb.org/t/p/original${movie.poster_path}`} vote={movie.vote_average}/></Link>
-                    ))}
+            <div className="container d-flex flex-wrap justify-content-around my-1">
+                {movies.length > 0 ? movies.filter((movie, idx) => idx < 20).map( movie =>(
+                    <div key={movie.idx}>
+                        <Link className="text-decoration-none text-dark" to={`detailPage/${movie.id}`}>
+                            <Card className="skala" title={movie.title} img={`https://image.tmdb.org/t/p/original${movie.poster_path}`} vote={movie.vote_average}/>
+                        </Link>
+                    </div> 
+                    )) : <h3>not found</h3>}
             </div>
             {/* -------------end card------------- */}
 
@@ -112,10 +120,6 @@ function Homepage() {
             </div>
 
             {/*  ---------------------- */}
-            <div className="d-flex justify-content-center">
-                <Search search={search} />
-            </div>
-            
         </div>
     )
 }
