@@ -129,7 +129,7 @@ function Homepage() {
             <div className="container d-flex flex-wrap justify-content-around my-1">
                 {movies !== []  ? movies.filter((movie, idx) => idx < 20).map( movie =>(
                     <div key={movie.idx}>
-                        <Link className="text-decoration-none text-dark" to={`detailPage/${movie.id}`}>
+                        <Link className="text-decoration-none text-dark" to={`detailPage/${movie._id}`}>
                             <Card className="skala" title={movie.title} img={movie.poster} category={movie.genres.join(', ')}/>
                         </Link>
                     </div> 

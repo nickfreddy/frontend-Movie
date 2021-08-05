@@ -15,6 +15,7 @@ const Token = localStorage.getItem('Token');
   return (
     // switch -> just like switch case where it read routes/ browser url and return it accordingly
     <>
+    
     {Token ? <Navbar_Sign /> : <Navbar_notSign />  }
     <Switch>
       {/* exact means the path must be the same as the value  */}
