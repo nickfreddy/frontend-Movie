@@ -59,8 +59,7 @@
 .footer {
     background-color: #0A4962;
     width: 100%;
-    position: absolute;
-    bottom: 0;
+    margin-top: 50px;
     display: flex;
     align-items: center;
     color: white;

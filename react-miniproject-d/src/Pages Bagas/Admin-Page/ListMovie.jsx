@@ -1,10 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, Button } from 'react-bootstrap'
+import { useDispatch, useSelector } from 'react-redux';
+import { loadMovies } from '../../redux/action/movie';
 import CardListMovie from './CardMovieList';
 
 
 
 function ListMovie() {
+    const moviesData = useSelector(state => state.movies.data);
+    const [movie, setMovies] = useState([]);
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(loadMovies())
+    }, []);
+
+    useEffect(() => {
+        setMovies(moviesData)
+
+    }, [moviesData])
+
+
+
     return (
         <Card style={{ borderRadius: "10px", boxShadow: "4px 5px 1px #9E9E9E" }}>
             <Card.Body style={{ padding: "0" }}>
@@ -14,7 +31,9 @@ function ListMovie() {
                 </div>
                 <div className="list-movie">
                     <ol>
-                        <li><CardListMovie title={"baracuda"} /></li>
+                        {movie.map((movie, idx) => {
+                            return <li key={idx} ><CardListMovie title={movie.title} /></li>
+                        })}
                     </ol>
                 </div>
             </Card.Body>
