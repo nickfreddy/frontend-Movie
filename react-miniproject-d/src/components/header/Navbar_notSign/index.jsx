@@ -5,13 +5,20 @@ import logo from '../../../img/brand-logo.png'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import ModalSignUp from '../../modalSignUp/ModalSignUp';
 import ModalSignIn from '../../modalSignIn/ModalSignIn';
+import axios from 'axios';
 
 
 
 function Navbar_notSign(props) {
-
+    const {search} = props;
     const [show, setShow] = useState(false);
     const [ step, setStep ] = useState(1);
+    const [searchValue, setSearchValue] = useState("");
+    const [errorMessage, setErrorMessage] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [movies, setMovies] = useState([]);
+    
+    
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -23,6 +30,22 @@ function Navbar_notSign(props) {
     function goPrevPage() {
         setStep(step => step -1)
     }
+
+    const handleSearchInputChanges = (e) => {
+        setSearchValue(e.target.value);
+      }
+    
+    const resetInputField = () => {
+        setSearchValue("")
+      }
+    
+    const callSearchFunction = (e) => {
+        e.preventDefault();
+        search(searchValue);
+        resetInputField();
+      }
+
+      
 
     return (
         <div>
@@ -44,8 +67,12 @@ function Navbar_notSign(props) {
                                     type="search"
                                     placeholder="Search Movie"
                                     aria-label="Search"
+                                    value={searchValue}
+                                    onChange={handleSearchInputChanges}
+                                    
 
                                 />
+                                 <Button onClick={callSearchFunction} type="submit">Search</Button>
                             </Form>
                         </Nav>
                         <Nav>
