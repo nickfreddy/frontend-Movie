@@ -6,7 +6,7 @@ import user from '../../../img/user.png'
 
 function Navbar_Sign(props) {
 
-    function LogOut () {
+    function LogOut() {
         localStorage.clear();
         window.location.replace("/");
     };
@@ -15,7 +15,7 @@ function Navbar_Sign(props) {
         <div>
             <Navbar collapseOnSelect expand="lg" bg="secondary" className="custom-navbar">
                 <Container>
-                <a href='/'><img
+                    <a href='/'><img
                         src={logo}
                         width="40"
                         height="40"
