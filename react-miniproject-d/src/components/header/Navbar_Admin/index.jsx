@@ -9,14 +9,14 @@ function Navbar_Admin(props) {
         <div>
             <Navbar collapseOnSelect expand="lg" bg="secondary" className="custom-navbar">
                 <Container>
-                    <img
+                <a href='/'><img
                         src={logo}
                         width="40"
                         height="40"
                         className="d-inline-block align-top m-3"
                         alt="React Bootstrap logo"
-                    />
-                    <Navbar.Brand className='me-auto' href="#home" style={{ fontWeight: "500" }}>deMovie</Navbar.Brand>
+                    /></a>
+                    <Navbar.Brand className='me-auto' href='/' style={{ fontWeight: "500" }}>deMovie</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="m-auto pe-3" >
