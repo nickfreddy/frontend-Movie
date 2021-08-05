@@ -15,7 +15,7 @@ const ProfilePage = () => {
                             src={back_button}
                             width="50"
                             height="50"
-                            className="d-inline-block align-top"
+                            className="back d-inline-block align-top"
                             alt="React Bootstrap logo"
                         />
                     </Navbar.Brand>
@@ -105,7 +105,7 @@ const ProfilePage = () => {
                 </Container>
 
             </div>
-            <div className="footer bg-secondary">
+            <div className="footerprofile bg-secondary">
                 <img
                     src={logo}
                     width="50"

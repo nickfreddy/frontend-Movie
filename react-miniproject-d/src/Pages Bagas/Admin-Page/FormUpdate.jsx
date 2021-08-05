@@ -5,7 +5,7 @@ import '../Admin-Page/index.css'
 import logo from '../../img/brand-logo.png'
 import example from '../../img/example-movie.png'
 
-const FormMovie = () => {
+const FormMovie = (props) => {
     return (
         <div>
             <div className="back-header">
@@ -15,7 +15,7 @@ const FormMovie = () => {
                             src={back_button}
                             width="50"
                             height="50"
-                            className="d-inline-block align-top"
+                            className="back d-inline-block align-top"
                             alt="React Bootstrap logo"
                         />
                     </Navbar.Brand>
@@ -28,12 +28,12 @@ const FormMovie = () => {
                             <Card style={{ borderRadius: "10px", boxShadow: "4px 5px 1px #9E9E9E" }}>
                                 <Card.Body style={{ padding: "0" }}>
                                     <div className="card-title">
-                                        <h3>Title Movie</h3>
-                                        <p>Genre</p>
+                                        <h3>{props.title}</h3>
+                                        <p>{props.genre}</p>
                                     </div>
                                     <div className="image-movie">
                                         <img
-                                            src={example}
+                                            src={props.poster}
                                             width="350"
                                             height="500"
                                             className="d-inline-block align-top"
@@ -94,7 +94,7 @@ const FormMovie = () => {
                 </Container>
 
             </div>
-            <div className="footer bg-secondary">
+            <div className="footerprofile bg-secondary">
                 <img
                     src={logo}
                     width="50"
