@@ -9,7 +9,7 @@ function CategoryButton(props) {
 
     return (
         <div>
-            <button type="button" className="btnNokay me-2" value={props.value} onClick={props.onClick}>{props.title}</button>
+            <button type="button" className="btnNokay me-2" value={value} onClick={onClick}>{title}</button>
         </div>
     )
 }

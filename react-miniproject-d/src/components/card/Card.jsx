@@ -5,7 +5,7 @@ function Card(props) {
     const { title, img, vote } = props;
 
     return (        
-        <div className="card my-3 skala" style={{width: '13rem', height: '27rem'}}>
+        <div className="card my-3 skala width">
             <img src={img} className="card-img-top " alt="..."/>
                     
             <div className="card-body">
