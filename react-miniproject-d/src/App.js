@@ -10,11 +10,11 @@ import ProfilePage from './Pages Bagas/Profile-page';
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        {/* the routing components */}
-        <Routers />
-      </BrowserRouter>
-
+      {/* <BrowserRouter> */}
+      {/* the routing components */}
+      {/* <Routers />
+      </BrowserRouter> */}
+      <AdminPage />
     </div>
   );
 }

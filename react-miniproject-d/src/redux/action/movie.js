@@ -15,4 +15,4 @@ export const loadMovies = () => async (dispatch) => {
     } catch (error) {
         console.log(error)
     }
-}
+};
