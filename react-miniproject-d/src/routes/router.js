@@ -6,16 +6,16 @@ import Review from "../pages/DetailPages/Reviewpage";
 import Footer from "../components/footer";
 import Navbar_notSign from "../components/header/Navbar_notSign";
 import ProfilePage from "../Pages Bagas/Profile-page";
-
+import Navbar_Sign from "../components/header/Navbar_Sign";
 
 const Routers = () => {
 
-
+const Token = localStorage.getItem('Token');
 
   return (
     // switch -> just like switch case where it read routes/ browser url and return it accordingly
     <>
-    {window.location.pathname !== '/' ? <Navbar_notSign/> : null }
+    {Token ? <Navbar_Sign /> : <Navbar_notSign />  }
     <Switch>
       {/* exact means the path must be the same as the value  */}
         {/* return this component if the router is root aka / */}

@@ -5,7 +5,7 @@ import Card from '../../components/card/Card'
 import CategoryButton from '../../components/categoryButton/CategoryButton'
 import './homepage.css'
 import Search from '../../components/Search/search'
-import Navbar_notSign from '../../components/header/Navbar_notSign'
+// import Navbar_notSign from '../../components/header/Navbar_notSign'
 import { Link, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { loadMovies } from '../../redux/action/movie'
@@ -98,7 +98,7 @@ function Homepage() {
 
     return (
         <div>
-            <Navbar_notSign search={search}/>
+            {/* <Navbar_notSign search={search}/> */}
             {/* -------------------------------------------------- */}
             <Carousel >
                 {movies.filter((movie, idx) => idx < 3).map(movie => (

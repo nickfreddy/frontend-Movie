@@ -16,7 +16,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { postReview } from '../../redux/action/postReview';
 // import { GetDetail } from '../../redux/action/details';
-import { loadMovie } from '../../redux/action/load-movie';
+// import { loadMovie } from '../../redux/action/load-movie';
 import { useDispatch, useSelector } from "react-redux";
 // import { GetDetail } from "../../redux/action/details"
 
