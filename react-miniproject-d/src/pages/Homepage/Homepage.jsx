@@ -38,7 +38,6 @@ function Homepage() {
         dispatch(loadMovies())
     }, []);
 
-
     useEffect(() => {
         setMovies(moviesData)
 
