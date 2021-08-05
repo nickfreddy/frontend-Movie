@@ -7,3 +7,4 @@ export const POST_REVIEW_SUCCESS = "POST_REVIEW_SUCCESS";
 export const POST_REVIEW_FAIL = "POST_REVIEW_FAIL";
 
 export const LOAD_ALL_MOVIE = "LOAD_MOVIE"
+export const ADD_MOVIE = "ADD_MOVIE"

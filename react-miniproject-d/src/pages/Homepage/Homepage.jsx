@@ -36,16 +36,10 @@ function Homepage() {
         dispatch(loadMovies())
     }, []);
 
-
     useEffect(() => {
         setMovies(moviesdata)
 
     }, [moviesdata]);
-
-
-
-
-
 
     let active = 1;
     let items = [];
@@ -56,10 +50,6 @@ function Homepage() {
             </Pagination.Item>,
         );
     };
-
-
-
-
 
     const handleFilterButton = (e) => {
         let word = e.target.value
