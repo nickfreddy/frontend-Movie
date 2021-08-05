@@ -1,10 +1,12 @@
+import { LOAD_ALL_MOVIE } from "../action/types";
+
 const initialState = {
     data: []
 };
 
 const movies = (state = initialState, action) => {
     switch (action.type) {
-        case "LOAD_MOVIE":
+        case LOAD_ALL_MOVIE:
             return {
                 ...state,
                 data: action.payload

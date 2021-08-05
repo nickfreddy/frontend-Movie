@@ -77,7 +77,7 @@ const backdrop = 'https://image.tmdb.org/t/p/original'
 
 return (
 <>
-    <TitleBackground synopsis={detail.overview} title={detail.title} poster={backdrop+detail.backdrop_path} rating={detail.vote_average/2} trailer={`https://www.youtube.com/embed/${KEY?.key}`}   />
+    <TitleBackground synopsis={detail.overview} title={detail.title} poster={backdrop+detail.backdrop_path} rating={detail.vote_average/2} trailer={`https://www.youtube.com/embed/i6gFRSnE6Ro`}   />
     {/* */}
     {/* trailer={"https://www.youtube.com/embed/dY29jgV4YYg"} */}
     

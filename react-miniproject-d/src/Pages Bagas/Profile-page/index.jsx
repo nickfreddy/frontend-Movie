@@ -35,8 +35,9 @@ const ProfilePage = () => {
                                         <h5>Profile</h5>
                                     </div>
                                     <div className="button-profile watchlist">
-                                        <h5>Watch List</h5>
+                                        <h5>Delete Account</h5>
                                     </div>
+
                                 </Card.Body>
                             </Card>
                         </Col>

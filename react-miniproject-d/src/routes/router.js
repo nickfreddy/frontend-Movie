@@ -15,7 +15,7 @@ const Routers = () => {
   return (
     // switch -> just like switch case where it read routes/ browser url and return it accordingly
     <>
-    <Navbar_notSign/>
+    {window.location.pathname !== '/' ? <Navbar_notSign/> : null }
     <Switch>
       {/* exact means the path must be the same as the value  */}
         {/* return this component if the router is root aka / */}
