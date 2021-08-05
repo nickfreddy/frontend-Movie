@@ -16,7 +16,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { postReview } from '../../redux/action/postReview';
 // import { GetDetail } from '../../redux/action/details';
-import { loadMovie } from '../../redux/action/load-movie';
+// import { loadMovie } from '../../redux/action/load-movie';
 import { useDispatch, useSelector } from "react-redux";
 // import { GetDetail } from "../../redux/action/details"
 
@@ -26,30 +26,30 @@ function Detailpage() {
     console.log(id)
 
     const [detail, setDetail] = useState([])
-    const [key, setKey] = useState([])
+    // const [key, setKey] = useState([])
     //set var movies
 
     const GetDetailMovies = async (url) => {
         try {
             const res = await axios.get(url);
             const data = await res.data;
-            setDetail(data)
+            setDetail(data.data)
             //declare variable to save the data
         } catch (error) {
             console.log(error)
         }
     }
 
-    const GetKey = async (url) => {
-        try {
-            const res = await axios.get(url);
-            const data = await res.data;
-            setKey(data.results)
-            //declare variable to save the data
-        } catch (error) {
-            console.log(error)
-        }
-    }
+    // const GetKey = async (url) => {
+    //     try {
+    //     const res = await axios.get(url);
+    //     const data = await res.data;
+    //     setKey(data.results)
+    //     //declare variable to save the data
+    //     } catch (error) {
+    //     console.log(error)
+    //     }
+    //     }
 
     // useEffect(() => {
     //     Dispatch(``);
@@ -57,27 +57,22 @@ function Detailpage() {
     //     }, [])
 
     useEffect(() => {
-        GetDetailMovies(`https://api.themoviedb.org/3/movie/+${id}+?api_key=4c2c9a58431c5b46e098bf4eed17c94b&language=en-US`);
+        GetDetailMovies(`https://demovie.gabatch13.my.id/movies/${id}?revlimit=3&revpage=1`);
         // GetKey(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=ba4ce5d35b9081ae360eeb355f0acda9&language=en-US`)
     }, [])
 
-    useEffect(() => {
-        GetKey(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=ba4ce5d35b9081ae360eeb355f0acda9&language=en-US`)
-    }, [id])
+    // useEffect(() => {
+    //     GetKey(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=ba4ce5d35b9081ae360eeb355f0acda9&language=en-US`)
+    //     }, [id])
 
     console.log(detail)
-    console.log(key)
-    const KEY = (key.slice(0, 1));
-    console.log(KEY)
-
-
-    const backdrop = 'https://image.tmdb.org/t/p/original'
-
-    // console.log(TitleBackground)
+    // console.log(key)
+    // const KEY=(key.slice(0,1));
+    // console.log (KEY)
 
     return (
         <>
-            <TitleBackground synopsis={detail.overview} title={detail.title} poster={backdrop + detail.backdrop_path} rating={detail.vote_average / 2} trailer={`https://www.youtube.com/embed/i6gFRSnE6Ro`} />
+            <TitleBackground synopsis={detail.synopsis} title={detail.title} poster={detail.poster} rating={detail.vote_average / 2} trailer={`https://www.youtube.com/embed/i6gFRSnE6Ro`} />
             {/* */}
             {/* trailer={"https://www.youtube.com/embed/dY29jgV4YYg"} */}
 
@@ -182,7 +177,7 @@ function Detailpage() {
                         </div>
                     </div>
                     <div>
-                        <p> {detail.overview}</p>
+                        <p> {detail.synopsis} </p>
                     </div>
 
                     <div className='MovContainer'>
@@ -194,9 +189,9 @@ function Detailpage() {
                         </div>
                     </div>
                     <div className='infoDetail'>
-                        <p>Release Year : {detail.release_date} </p>
-                        <p>Rating : {detail.vote_average / 2}</p>
-                        <p>Genre :  </p>
+                        <p>Release Year : {detail.release_year} </p>
+                        <p>Rating : {detail.averageRating}</p>
+                        <p>Genre :  {detail?.genres}</p>
                     </div>
 
 

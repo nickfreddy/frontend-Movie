@@ -15,7 +15,7 @@ function App() {
         {/* the routing components */}
         <Routers />
       </BrowserRouter>
-
+      {/* <AdminPage /> */}
     </div>
   );
 }
