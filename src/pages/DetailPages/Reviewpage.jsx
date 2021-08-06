@@ -59,6 +59,8 @@ function Review() {
         }
     }
 
+    
+
     let link = detail.trailer
     console.log(link)
 

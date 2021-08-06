@@ -26,7 +26,7 @@ function ModalSignUp(props) {
         }else{
 
             axios.post(`https://demovie.gabatch13.my.id/auth/register`, state).then(res => {setShow(false);
-        alert(`register sukses`)}) 
+        alert(`register sukses`);}) 
         }
     }
     
