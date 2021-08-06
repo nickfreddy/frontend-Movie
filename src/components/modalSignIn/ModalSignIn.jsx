@@ -21,15 +21,10 @@ function ModalSignIn(props) {
             return;
         } else {
 
-<<<<<<< HEAD
-            axios.post(`https://demovie.gabatch13.my.id/auth/login`, state).then(res => {setShow(false);
-        localStorage.setItem('Token', res.data.token);localStorage.setItem('USERID', res.data._id)}) 
-=======
             axios.post(`https://demovie.gabatch13.my.id/auth/login`, state).then(res => {
                 setShow(false);
                 localStorage.setItem('Token', res.data.token); localStorage.setItem('USERID', res.data._id)
             })
->>>>>>> f69f97de36a91ed67af457f4146044d36d030770
         }
     }
 

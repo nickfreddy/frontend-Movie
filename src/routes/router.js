@@ -16,12 +16,8 @@ import { useParams } from 'react-router';
 const Routers = () => {
   const { id } = useParams()
   const Token = localStorage.getItem('Token');
-<<<<<<< HEAD
-  const USERID = localStorage.getItem('USERID');
-=======
   const hideHeaderFooter = window.location.pathname === '/Admin-page' || window.location.pathname.includes("/Profile-page") || window.location.pathname === '/Review-page' || window.location.pathname.includes("/Update-movie") || window.location.pathname.includes("/Review-page")
 
->>>>>>> f69f97de36a91ed67af457f4146044d36d030770
 
 
   return (
