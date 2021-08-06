@@ -55,7 +55,7 @@ function Review() {
 
             await axios.post(`https://demovie.gabatch13.my.id/movies/${id}/reviews`, state, { headers: { 'Authorization': `Bearer ${Token}` } }).then
                 (alert(`review success`));
-            await axios.get(GetDetailMovies);
+            await axios.get(`https://demovie.gabatch13.my.id/movies/${id}?revlimit=3&revpage=1`).then (res => setDetail (res.data));
         }
     }
 
@@ -77,8 +77,8 @@ console.log(review)
     // user_id
 return (
 <>
-<TitleBackground synopsis={detail.synopsis} title={detail.title} poster={detail.poster}
-        rating={detail.averageRating===null ? `Unrated` : detail.averageRating} trailer={detail.trailer ?
+<TitleBackground synopsis={detail?.synopsis} title={detail?.title} poster={detail?.poster}
+        rating={detail?.averageRating===null ? `Unrated` : detail?.averageRating} trailer={detail?.trailer ?
         sanitizeYTLink(link) : `null`} />   
 
             <div>
@@ -111,7 +111,7 @@ return (
                 <ul>
                 {review?.map((item, index) => (
                     <div key={index}>
-                    <CommentCard photo={item?.user_id?.photo} userID={item?.user_id?.username} comment={item.comment} /></div>
+                    <CommentCard photo={item?.user_id?.photo} userID={item?.user_id?.username} comment={item?.comment} /></div>
                 ))}
                
                 </ul>

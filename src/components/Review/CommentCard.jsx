@@ -1,9 +1,10 @@
 import React from "react";
 import { Figure, Container ,Row, Col, Card} from 'react-bootstrap';
-
+import user from '../../img/user.png'
 
 const CommentCard = (props) => {
   const { userID, comment, photo } = props;
+  const imgSrc= '../../img/user.png';
 
   return (
 
@@ -12,7 +13,7 @@ const CommentCard = (props) => {
 
     <Container style={{display:'flex', }}>
         <Col lg={1} md={2}>
-        <Figure.Image width={171} height={180} alt="171x180" src={photo} />
+        <Figure.Image width={171} height={180} alt={imgSrc} src={photo} />
         </Col>
         <Col>
         <Card border="light" style={{ maxWidth: '70rem' }}>

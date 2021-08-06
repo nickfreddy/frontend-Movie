@@ -80,7 +80,7 @@ function Detailpage() {
                     <div className='infoDetail'>
                         <p>Release Year : {detail.release_year} </p>
                         <p>Rating : {detail.averageRating === null ? `Unrated` : detail.averageRating}</p>
-                        <p>Genre : {detail?.genres}</p>
+                        <p>Genre : {detail?.genres + " "}</p>
                     </div>
                 </Container>
             </div>

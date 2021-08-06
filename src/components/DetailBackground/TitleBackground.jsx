@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './Background.css'
 import { Modal, Button, Col } from 'react-bootstrap';
 // import StarRatings from './react-star-ratings';
-// import { Rating } from '@material-ui/lab';
+import { Rating } from '@material-ui/lab';
 
 
 function TitleBackground(props) {
@@ -22,10 +22,10 @@ url(${poster})`,backgroundRepeat: 'no-repeat',backgroundSize: 'cover',}}>
             <div>
                 <div className='Rating'>
                     <div className="starRating">
-                        {/*
-                        <Rating name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly /> */}
-                        {/*
-                        <StarRatings rating={2.403} starDimension="40px" starSpacing="15px" /> */}
+                        
+                        <Rating name="half-rating-read" defaultValue={rating} precision={0.5} readOnly />
+                        
+                        {/* <StarRatings rating={rating} starDimension="40px" starSpacing="15px" /> */}
                     </div>
                     <div className="totalReview">
                         <p>{rating}</p>
