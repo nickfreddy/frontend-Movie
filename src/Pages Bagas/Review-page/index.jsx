@@ -3,13 +3,10 @@ import { Navbar, Card, Container, Row, Col } from 'react-bootstrap'
 import back_button from '../../img/back-button.png'
 import './index.css'
 import logo from '../../img/brand-logo.png'
-import ListMovie from './ListMovie';
-import AddMovie from './AddMovie';
+import ReviewMovie from './ListReview';
 
 
-const AdminPage = () => {
-    const [isAddMovie, setIsAddMovie] = useState(true)
-
+const ReviewPage = () => {
 
     return (
         <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
@@ -33,20 +30,18 @@ const AdminPage = () => {
                             <Card style={{ borderRadius: "10px", boxShadow: "4px 5px 1px #9E9E9E" }}>
                                 <Card.Body style={{ padding: "0" }}>
                                     <div className="card-title">
-                                        <h3>Movie</h3>
-                                        <p>Admin page for movie CRUD</p>
+                                        <h3>Review</h3>
+                                        <p>Review page for update your review</p>
                                     </div>
-                                    <div className="button-profile" onClick={() => setIsAddMovie(false)}>
-                                        <h5>List Movie</h5>
+                                    <div className="button-profile review">
+                                        <h5>My Review</h5>
                                     </div>
-                                    <div className="button-profile delete" onClick={() => setIsAddMovie(true)}>
-                                        <h5>Add Movie</h5>
-                                    </div>
+
                                 </Card.Body>
                             </Card>
                         </Col>
                         <Col>
-                            {isAddMovie ? <ListMovie /> : <AddMovie />}
+                            <ReviewMovie />
                         </Col>
 
                     </Row>
@@ -67,4 +62,4 @@ const AdminPage = () => {
     );
 };
 
-export default AdminPage;
+export default ReviewPage;

@@ -1,24 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './index.css'
 import { Button, Navbar, Nav, NavDropdown, Form, FormControl, Container, Row, Col, NavItem, Grid, Modal } from 'react-bootstrap'
 import logo from '../../../img/brand-logo.png'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import ModalSignUp from '../../modalSignUp/ModalSignUp';
 import ModalSignIn from '../../modalSignIn/ModalSignIn';
-import axios from 'axios';
+import { searchMovieRdx } from '../../../redux/action/search';
+import { useDispatch } from 'react-redux';
 
 
 
-function Navbar_notSign(props) {
-    const {search} = props;
+
+function Navbar_notSign() {
     const [show, setShow] = useState(false);
     const [ step, setStep ] = useState(1);
     const [searchValue, setSearchValue] = useState("");
-    const [errorMessage, setErrorMessage] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [movies, setMovies] = useState([]);
-    
-    
+    const dispatch = useDispatch()
+
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -41,7 +39,8 @@ function Navbar_notSign(props) {
     
     const callSearchFunction = (e) => {
         e.preventDefault();
-        search(searchValue);
+        // search(searchValue);
+        dispatch(searchMovieRdx(searchValue))
         resetInputField();
       }
 

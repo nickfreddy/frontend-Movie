@@ -1,11 +1,47 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, ListGroupItem, ListGroup, Navbar, Card, Nav, NavDropdown, Form, FormControl, Container, Row, Col, NavItem, Grid } from 'react-bootstrap'
 import back_button from '../../img/back-button.png'
 import '../Profile-page/index.css'
 import user from '../../img/user.png'
 import logo from '../../img/brand-logo.png'
+import axios from 'axios';
 
 const ProfilePage = () => {
+    const USERID = localStorage.getItem('USERID');
+    const Token = localStorage.getItem('Token');
+
+
+    const [state, setState] = useState({
+        photo: "",
+        username: "",
+        email: "",
+        description: ""
+
+    })
+
+
+    const add = async (e) => {
+        e.preventDefault()
+        if (state.username === "" | state.email === "") {
+            alert("Please input your data ")
+            return;
+        } else {
+            await axios.put(`https://demovie.gabatch13.my.id/users/${USERID}`, state, { headers: { 'Authorization': `Bearer ${Token}` } }).then
+                (alert(`Profile Update`));
+        }
+    }
+
+
+    // useEffect(() => {
+    //     axios.put(`https://demovie.gabatch13.my.id/movies/6106ec601f8da01a30374153/reviews/${USERID}`)
+    //     try {
+
+    //     }
+    // })
+
+
+
+
     return (
         <div>
             <div className="back-header">
@@ -51,22 +87,19 @@ const ProfilePage = () => {
                                     <Form style={{ padding: "1px 32px 20px 110px" }}>
                                         <Form.Group className="mb-3 d-flex" controlId="formBasicFirstName">
                                             <Form.Label style={{ width: "30%" }} >Full Name</Form.Label>
-                                            <Form.Control type="text" placeholder="Full Name" />
+                                            <Form.Control value={state.username} onChange={(e) => setState({ ...state, username: e.target.value })} type="text" placeholder="Full Name" />
                                         </Form.Group>
 
                                         <Form.Group className="mb-3 d-flex" controlId="formBasicEmail">
                                             <Form.Label style={{ width: "30%" }}>Email address</Form.Label>
-                                            <Form.Control type="email" placeholder="Enter email" />
+                                            <Form.Control value={state.email} onChange={(e) => setState({ ...state, email: e.target.value })} type="email" placeholder="Enter email" />
                                         </Form.Group>
-                                        <Form.Group className="mb-3 d-flex" controlId="formBasicPassword">
-                                            <Form.Label style={{ width: "30%" }}>Password</Form.Label>
-                                            <Form.Control type="password" placeholder="Password" />
-                                        </Form.Group>
+
                                         <div className="button-submit">
                                             <Button style={{ width: "100px", height: "40px", marginRight: "20px" }} variant="secondary" type="reset">
                                                 Cancel
                                             </Button>
-                                            <Button style={{ width: "100px", height: "40px" }} variant="warning" type="submit">
+                                            <Button onClick={add} style={{ width: "100px", height: "40px" }} variant="warning" type="submit">
                                                 Save
                                             </Button>
                                         </div>
