@@ -3,6 +3,7 @@ import movies from "./movies";
 import user from "./user"
 import reducerDetail from "./details";
 import reducerPost from "./postReview";
+
 // import reducerMovieDetail from "./movieDetail";
 
 
