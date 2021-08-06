@@ -61,11 +61,12 @@
     color: white;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1025px) {
 
     .Judul h1 {
         padding-top: 3rem;
         padding-left: 4rem;
+        font-size: 4rem;
     
     }
     
@@ -77,7 +78,7 @@
     }
     
     .Overview {
-        max-width: 30rem;
+        max-width: 40rem;
         display: flex;
         font-size: 2rem;
         line-height: 2rem;
@@ -91,13 +92,13 @@
 
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 768px) {
 
     .Judul h1 {
         padding-top: 3rem;
         padding-left: 2rem;
         font-weight: 900;
-        font-size: 1.5rem;
+        font-size: 2.5rem;
         line-height: 1.5rem;
     }
     
@@ -111,10 +112,10 @@
     }
     
     .Overview {
-        max-width: 20rem;
+        max-width: 30rem;
         display: flex;
-        font-size: 1rem;
-        line-height: 0.9rem;
+        font-size: 1.5rem;
+        line-height: 1.5rem;
         padding-left: 2rem;
     
     }
