@@ -7,8 +7,10 @@ import { loadReview } from '../../redux/action/ReviewUser';
 
 
 function ReviewMovie() {
+
+    const USERID = localStorage.getItem('USERID');
     const { id } = useParams()
-    // const reviewData = useSelector(state => state.review.data)
+    const reviewData = useSelector(state => state.review.data)
     const [review, setReview] = useState([])
     const dispatch = useDispatch()
 
@@ -16,11 +18,16 @@ function ReviewMovie() {
         dispatch(loadReview())
     }, []);
 
-    // useEffect(() => {
-    //     setReview(reviewData)
-    // }, [reviewData])
+    useEffect(() => {
+        setReview(reviewData)
+    }, [reviewData])
 
-    // console.log(review)
+    console.log(USERID)
+    console.log(review)
+
+    let dataUser = review.user_id
+
+    console.log(dataUser)
 
     return (
         <Card style={{ borderRadius: "10px", boxShadow: "4px 5px 1px #9E9E9E", marginBottom: "50px" }}>
@@ -31,11 +38,24 @@ function ReviewMovie() {
                 </div>
                 <div className="list-movie">
                     <ol>
+                        {
+                            review.filter((item, idx) => item?.user_id?._id === USERID).map((item, index) => {
+                                return (
+                                    <div key={index}>
+                                        <li className="d-flex justify-content-between"><h5>{item.movie_id.title}</h5>
+                                            <div className="button-movie-list pb-3">
+                                                <Button variant="primary" className="me-2">Update</Button>{' '}
+                                                <Button variant="warning">Delete</Button>{' '}
+                                            </div>
+                                        </li>
 
+                                    </div>
+                                );
+                            })}
                     </ol>
                 </div>
             </Card.Body>
-        </Card>
+        </Card >
     );
 }
 

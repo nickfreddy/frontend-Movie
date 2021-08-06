@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Carousel } from 'react-bootstrap'
+import { Button, Carousel } from 'react-bootstrap'
 import axios from 'axios'
 import Card from '../../components/card/Card'
 import CategoryButton from '../../components/categoryButton/CategoryButton'
@@ -19,7 +19,7 @@ function Homepage() {
     const [errorMessage, setErrorMessage] = useState(null);
     const [loading, setLoading] = useState(true);
     const dispatch = useDispatch()
-
+    const USERID = localStorage.getItem('USERID');
 
     useEffect(() => {
         //     const getMoviesAll = async (url) => {
@@ -139,6 +139,7 @@ function Homepage() {
 
             <div className="my-3">
                 <MyPagination onclick={handlePagination} />
+                <Button href={`/Review-page/${USERID}`} ></Button>
             </div>
 
             {/*  ---------------------- */}

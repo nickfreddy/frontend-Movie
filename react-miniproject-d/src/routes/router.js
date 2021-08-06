@@ -45,7 +45,7 @@ const Routers = () => {
         <Route exact path="/Admin-page">
           <AdminPage />
         </Route>
-        <Route exact path="/Review-page/:id">
+        <Route exact path="/Review-page/:USERID">
           <ReviewPage />
         </Route>
         <Route exact path="/Update-movie/:id">

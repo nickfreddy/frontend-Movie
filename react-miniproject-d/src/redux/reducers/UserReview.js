@@ -1,3 +1,4 @@
+import _default from "react-overlays/esm/Modal";
 import { LOAD_ALL_REVIEW } from "../action/types";
 
 
@@ -12,6 +13,9 @@ const review = (state = intialState, action) => {
                 ...state,
                 data: action.payload
             }
+        default:
+            return state;
     }
 }
 
+export default review
