@@ -22,7 +22,7 @@ function ModalSignIn(props) {
         }else{
 
             axios.post(`https://demovie.gabatch13.my.id/auth/login`, state).then(res => {setShow(false);
-        localStorage.setItem('Token', res.data.token)}) 
+        localStorage.setItem('Token', res.data.token);localStorage.setItem('USERID', res.data._id)}) 
         }
     }
 

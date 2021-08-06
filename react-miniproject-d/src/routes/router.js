@@ -12,6 +12,8 @@ import Navbar_Sign from "../components/header/Navbar_Sign";
 
 const Routers = () => {
   const Token = localStorage.getItem('Token');
+  const USERID = localStorage.getItem('USERID');
+
 
   return (
     // switch -> just like switch case where it read routes/ browser url and return it accordingly

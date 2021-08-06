@@ -70,7 +70,11 @@ useEffect(() => {
 
     const Token = localStorage.getItem('Token');
 
+let review = detail.reviews
+console.log(review)
 
+    // userID={detail.reviews?.}
+    // user_id
 return (
 <>
 <TitleBackground synopsis={detail.synopsis} title={detail.title} poster={detail.poster}
@@ -104,7 +108,20 @@ return (
                     </div>
 
                 </Form>
+                <ul>
+                {review?.map((item, index) => (
+                    <div key={index}>
+                    <CommentCard photo={item?.user_id?.photo} userID={item?.user_id?.username} comment={item.comment} /></div>
+                ))}
+               
+                </ul>
+                    <Row >
+                        <Col></Col>
+                        <Col style={{ display: 'flex', justifyContent: 'space-evenly', }}><Button  >Load More</Button></Col>
+                        <Col></Col>
+                    </Row>
 
+                    {/* comment={review.comment ? review.comment : null} */}
                     {/* <Row>
                         <Col lg={1} md={2}>
                             <Figure.Image width={137} height={143} alt="171x180"
