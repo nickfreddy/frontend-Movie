@@ -82,19 +82,21 @@ function Homepage() {
     };
     
 
-    const search = searchValue => {
-        console.log(searchValue)
+    const search = async (searchValue) => {
+        // console.log(searchValue)
         setLoading(true);
         setErrorMessage(null);
 
         axios.get(`https://demovie.gabatch13.my.id/movies/search?title=${searchValue}&page=1&limit=5`)
-            .then(response => response.data)
-            .then(res => res.dataMovie)
-            .then(jsonResponse => {
-                setMovies(jsonResponse);
-                setLoading(false);
-            });
+        try {
+            const movies = await axios.get(`https://demovie.gabatch13.my.id/movies/search?title=${searchValue}&page=1&limit=5`);
+            const dataResults = await movies.data;
+            const data = await dataResults.dataMovie;
+            setMovies(data)
+            console.log(data)
+        } catch (error) {setMovies([])}
     };
+
     console.log(movies)
 
     return (
@@ -128,13 +130,13 @@ function Homepage() {
             <div className="container divider my-1 "></div>
 
             <div className="container d-flex flex-wrap justify-content-around my-1">
-                {movies !== []  ? movies.filter((movie, idx) => idx < 20).map( movie =>(
+                {movies.length > 0 ?  movies.filter((movie, idx) => idx < 20).map( movie =>(
                     <div key={movie.idx}>
                         <Link className="text-decoration-none text-dark" to={`detailPage/${movie.id}`}>
                             <Card className="skala" title={movie.title} img={movie.poster} category={movie.genres.join(', ')}/>
                         </Link>
                     </div> 
-                    )) : <h3>not found</h3>}
+                    )) : <h3>not found</h3>  }
             </div>
             {/* -------------end card------------- */}
 
