@@ -1,4 +1,4 @@
-import { DELETE_MOVIE, LOAD_ALL_MOVIE } from "./types"
+import { GET_MOVIE, DELETE_MOVIE } from "./types"
 import axios from "axios";
 
 export const loadMovies = () => async (dispatch) => {
@@ -8,7 +8,7 @@ export const loadMovies = () => async (dispatch) => {
         const data = await dataResults.dataMovie;
         console.log(data)
         dispatch({
-            type: LOAD_ALL_MOVIE,
+            type: GET_MOVIE,
             payload: data
         })
         // console.log(data)

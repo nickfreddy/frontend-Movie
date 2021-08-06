@@ -23,7 +23,6 @@ function ReviewMovie() {
     }, [reviewData])
 
     console.log(USERID)
-    console.log(review)
 
     let dataUser = review.user_id
 
