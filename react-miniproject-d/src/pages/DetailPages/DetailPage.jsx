@@ -28,71 +28,71 @@ function Detailpage() {
     const [detail, setDetail] = useState([])
 
     const GetDetailMovies = async (url) => {
-    try {
-    const res = await axios.get(url);
-    const data = await res.data;
-    setDetail(data.data)
-    } catch (error) {
-    console.log(error)
-    }
+        try {
+            const res = await axios.get(url);
+            const data = await res.data;
+            setDetail(data.data)
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     useEffect(() => {
-    GetDetailMovies(`https://demovie.gabatch13.my.id/movies/${id}?revlimit=3&revpage=1`);
+        GetDetailMovies(`https://demovie.gabatch13.my.id/movies/${id}?revlimit=3&revpage=1`);
     }, [])
 
     console.log(detail)
     let link = detail.trailer
-    console.log (link)
+    console.log(link)
 
     function sanitizeYTLink(link) {
-    return link.includes("watch")
-    ? `https://www.youtube.com/embed/${link.split("=")[1]}`
-    : `https://www.youtube.com/embed/${link.split("/")[3]}`;
+        return link.includes("watch")
+            ? `https://www.youtube.com/embed/${link.split("=")[1]}`
+            : `https://www.youtube.com/embed/${link.split("/")[3]}`;
     };
 
 
-return (
-<>
-    <TitleBackground synopsis={detail.synopsis} title={detail.title} poster={detail.poster}
-        rating={detail.averageRating===null ? `Unrated` : detail.averageRating} trailer={detail.trailer ?
-        sanitizeYTLink(link) : `null`} />
+    return (
+        <>
+            <TitleBackground synopsis={detail.synopsis} title={detail.title} poster={detail.poster}
+                rating={detail.averageRating === null ? `Unrated` : detail.averageRating} trailer={detail.trailer ?
+                    sanitizeYTLink(link) : `null`} />
 
 
-    <div className="PageContainer">
+            <div className="PageContainer">
 
 
-        <Container>
-            <DetailNavBtn />
+                <Container>
+                    <DetailNavBtn />
 
-            <div className='SynopContainer'>
-                <h1>Synopsis</h1>
-                <div className='LineContainer' style={{ color: 'white' }}>
-                    line
-                    <div className='Line'></div>
-                </div>
+                    <div className='SynopContainer'>
+                        <h1>Synopsis</h1>
+                        <div className='LineContainer' style={{ color: 'white' }}>
+                            line
+                            <div className='Line'></div>
+                        </div>
+                    </div>
+                    <div>
+                        <p> {detail.synopsis} </p>
+                    </div>
+
+                    <div className='MovContainer'>
+                        <h1>Movie Info</h1>
+
+                        <div className='LineContainer' style={{ color: 'white' }}>
+                            line
+                            <div className='Line'></div>
+                        </div>
+                    </div>
+                    <div className='infoDetail'>
+                        <p>Release Year : {detail.release_year} </p>
+                        <p>Rating : {detail.averageRating === null ? `Unrated` : detail.averageRating}</p>
+                        <p>Genre : {detail?.genres}</p>
+                    </div>
+                </Container>
             </div>
-            <div>
-                <p> {detail.synopsis} </p>
-            </div>
-
-            <div className='MovContainer'>
-                <h1>Movie Info</h1>
-
-                <div className='LineContainer' style={{ color: 'white' }}>
-                    line
-                    <div className='Line'></div>
-                </div>
-            </div>
-            <div className='infoDetail'>
-                <p>Release Year : {detail.release_year} </p>
-                <p>Rating : {detail.averageRating === null ? `Unrated` : detail.averageRating}</p>
-                <p>Genre : {detail?.genres}</p>
-            </div>
-        </Container>
-    </div>
-</>
-)
+        </>
+    )
 }
 
 export default Detailpage

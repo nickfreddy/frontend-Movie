@@ -56,7 +56,7 @@
     padding-left: 10rem;
 }
 
-.watchlist-btn{
+.watchlist-btn {
     margin-left: 2rem;
     color: white;
 }
@@ -67,24 +67,25 @@
         padding-top: 3rem;
         padding-left: 4rem;
         font-size: 4rem;
-    
+
     }
-    
+
     .Rating {
         margin-top: -1rem;
         font-size: 1.5rem;
         line-height: 1.5rem;
         padding-left: 4rem;
     }
-    
+
     .Overview {
         max-width: 40rem;
         display: flex;
         font-size: 2rem;
         line-height: 2rem;
         padding-left: 4rem;
-    
+
     }
+
     .Tombol {
         padding-bottom: 3rem;
         padding-left: 4rem;
@@ -101,7 +102,7 @@
         font-size: 2.5rem;
         line-height: 1.5rem;
     }
-    
+
     .Rating {
         margin-top: -0.3rem;
         font-size: 0.7rem;
@@ -110,15 +111,16 @@
         text-align: left;
         padding-left: 2rem;
     }
-    
+
     .Overview {
         max-width: 30rem;
         display: flex;
         font-size: 1.5rem;
         line-height: 1.5rem;
         padding-left: 2rem;
-    
+
     }
+
     .Tombol {
         padding-bottom: 3rem;
         padding-left: 2rem;
@@ -129,9 +131,9 @@
     }
 
     .BG-Container {
-        
+
         margin-bottom: 1rem;
-      
+
     }
 
 }
@@ -145,7 +147,7 @@
         font-size: 1.5rem;
         line-height: 1.5rem;
     }
-    
+
     .Rating {
         margin-top: -0.3rem;
         font-size: 0.7rem;
@@ -154,15 +156,16 @@
         text-align: left;
         padding-left: 2rem;
     }
-    
+
     .Overview {
         max-width: 20rem;
         display: flex;
         font-size: 1rem;
         line-height: 0.9rem;
         padding-left: 2rem;
-    
+
     }
+
     .Tombol {
         padding-bottom: 3rem;
         padding-left: 2rem;
