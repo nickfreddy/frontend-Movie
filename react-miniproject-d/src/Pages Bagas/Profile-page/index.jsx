@@ -10,7 +10,7 @@ const ProfilePage = () => {
         <div>
             <div className="back-header">
                 <div className="back-button p-3">
-                    <Navbar.Brand className="ms-4" href="#home">
+                    <Navbar.Brand className="ms-4" href="/">
                         <img
                             src={back_button}
                             width="50"
@@ -113,7 +113,7 @@ const ProfilePage = () => {
                     className="d-inline-block align-top m-3"
                     alt="React Bootstrap logo"
                 />
-                <h3>De Movie</h3>
+                <h3>deMovie</h3>
             </div>
         </div >
     );
