@@ -58,7 +58,7 @@ function Navbar_notSign(props) {
                         className="d-inline-block align-top m-3"
                         alt="React Bootstrap logo"
                     /></a>
-                    <Navbar.Brand className='me-auto text-light' href="#home" style={{ fontWeight: "500" }}>deMovie</Navbar.Brand>
+                    <Navbar.Brand className='me-auto text-light' href='/' style={{ fontWeight: "500" }}>deMovie</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="m-auto pe-3" >
@@ -91,8 +91,8 @@ function Navbar_notSign(props) {
 
             {/* ----------modal--------------- */}
             <Modal className="mt-5" show={show} onHide={handleClose}>
-                {step === 1 && <ModalSignUp onClick={goNextPage}/>}
-                {step === 2 && <ModalSignIn onClick={goPrevPage}/>}
+                {step === 1 && <ModalSignUp onClick={goNextPage} setShow={setShow}/>}
+                {step === 2 && <ModalSignIn onClick={goPrevPage} setShow={setShow} />}
             </Modal>
 
             

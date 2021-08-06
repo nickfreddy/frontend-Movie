@@ -5,7 +5,7 @@ import Card from '../../components/card/Card'
 import CategoryButton from '../../components/categoryButton/CategoryButton'
 import './homepage.css'
 import Search from '../../components/Search/search'
-import Navbar_notSign from '../../components/header/Navbar_notSign'
+// import Navbar_notSign from '../../components/header/Navbar_notSign'
 import { Link, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { loadMovies } from '../../redux/action/movie'
@@ -22,22 +22,21 @@ function Homepage() {
 
 
     useEffect(() => {
-    //     const getMoviesAll = async (url) => {
-    //         try {
-    //             const movies = await axios.get(url);
-    //             const dataResults = await movies.data;
-    //             const data = await dataResults.dataMovie;
-    //             setMovies(data)
-    //             console.log(data)
-    //         } catch (error) {
-    //             console.log(error)
-    //         }
-    //     };
+        //     const getMoviesAll = async (url) => {
+        //         try {
+        //             const movies = await axios.get(url);
+        //             const dataResults = await movies.data;
+        //             const data = await dataResults.dataMovie;
+        //             setMovies(data)
+        //             console.log(data)
+        //         } catch (error) {
+        //             console.log(error)
+        //         }
+        //     };
 
-    //     getMoviesAll("https://demovie.gabatch13.my.id/movies?page=1&limit=10")
+        //     getMoviesAll("https://demovie.gabatch13.my.id/movies?page=1&limit=10")
         dispatch(loadMovies())
     }, []);
-
 
     useEffect(() => {
         setMovies(moviesData)
@@ -47,7 +46,7 @@ function Homepage() {
 
     const resetFilter = () => {
         setMovies(movies)
-      }
+    }
 
     const handlePagination = (e) => {
         let page = e.target.value;
@@ -80,7 +79,7 @@ function Homepage() {
                 setLoading(false);
             });
     };
-    
+
 
     const search = async (searchValue) => {
         // console.log(searchValue)
@@ -101,7 +100,7 @@ function Homepage() {
 
     return (
         <div>
-            <Navbar_notSign search={search}/>
+            {/* <Navbar_notSign search={search}/> */}
             {/* -------------------------------------------------- */}
             <Carousel >
                 {movies.filter((movie, idx) => idx < 3).map(movie => (
@@ -122,26 +121,35 @@ function Homepage() {
                     <CategoryButton title={"All"} />
                     <CategoryButton title={"Action"} onClick={handleFilterButton} value={'action'} />
                     <CategoryButton title={"Romances"} onClick={handleFilterButton} value={'romance'} />
-                    <CategoryButton title={"Comedy"} onClick={handleFilterButton} value={'comedy'}/>
-                    <CategoryButton title={"Anime"} onClick={handleFilterButton} value={'anime'}/>
+                    <CategoryButton title={"Comedy"} onClick={handleFilterButton} value={'comedy'} />
+                    <CategoryButton title={"Anime"} onClick={handleFilterButton} value={'anime'} />
                 </div>
             </div>
 
             <div className="container divider my-1 "></div>
 
             <div className="container d-flex flex-wrap justify-content-around my-1">
+<<<<<<< HEAD
                 {movies.length > 0 ?  movies.filter((movie, idx) => idx < 20).map( movie =>(
+=======
+                {movies !== [] ? movies.filter((movie, idx) => idx < 20).map(movie => (
+>>>>>>> 432dcc140a23a20a61b911bf01f6ff909cf65b75
                     <div key={movie.idx}>
-                        <Link className="text-decoration-none text-dark" to={`detailPage/${movie.id}`}>
-                            <Card className="skala" title={movie.title} img={movie.poster} category={movie.genres.join(', ')}/>
+                        <Link className="text-decoration-none text-dark" to={`detailPage/${movie._id}`}>
+                            <Card className="skala" title={movie.title} img={movie.poster} category={movie.genres.join(', ')} />
                         </Link>
+<<<<<<< HEAD
                     </div> 
                     )) : <h3>not found</h3>  }
+=======
+                    </div>
+                )) : <h3>not found</h3>}
+>>>>>>> 432dcc140a23a20a61b911bf01f6ff909cf65b75
             </div>
             {/* -------------end card------------- */}
 
             <div className="my-3">
-                <MyPagination onclick={handlePagination}/>
+                <MyPagination onclick={handlePagination} />
             </div>
 
             {/*  ---------------------- */}

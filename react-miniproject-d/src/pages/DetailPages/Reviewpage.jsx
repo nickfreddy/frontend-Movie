@@ -28,7 +28,7 @@ const GetDetailMovies = async (url) => {
 try {
 const res = await axios.get(url);
 const data = await res.data;
-setDetail(data)
+setDetail(data.data)
 //declare variable to save the data
 } catch (error) {
 console.log(error)
@@ -36,47 +36,67 @@ console.log(error)
 }
 
 useEffect(() => {
-GetDetailMovies(`https://api.themoviedb.org/3/movie/+${id}+?api_key=4c2c9a58431c5b46e098bf4eed17c94b&language=en-US`)
-}, [])
+    GetDetailMovies(`https://demovie.gabatch13.my.id/movies/${id}?revlimit=3&revpage=1`);
+    // GetKey(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=ba4ce5d35b9081ae360eeb355f0acda9&language=en-US`)
+    }, [])
 
-const backdrop = 'https://image.tmdb.org/t/p/original'
+    console.log(detail)
+
+    const [state, setState] = useState({
+        rating: 0,
+        comment: "",
+        
+    });
+
+    const add = async (e) => {
+        e.preventDefault()
+        if(state.rating === 0 | state.comment === "" ){
+          alert("tolong diisi terlebih dahulu")
+          return;
+        }else{
+
+            await axios.post(`https://demovie.gabatch13.my.id/movies/${id}/reviews`, state).then 
+            (alert(`review telah disimpan`));
+            await axios.get(GetDetailMovies);
+        }
+    }
+    
+
 
 return (
 <>
-<TitleBackground synopsis={detail.overview} title={detail.title} poster={backdrop+detail.backdrop_path} rating={detail.vote_average/2} trailer={`https://api.themoviedb.org/3/movie/${id}/videos?api_key=ba4ce5d35b9081ae360eeb355f0acda9&language=en-US`} />
-    {/* <Container className='NavButton'>
-        <Row>
-            <Col className='LinkBtn' lg={8} md={6} xs={8}>
-            <a href='/'>
-                <Badge pill bg="danger"> All </Badge>
-            </a>
-            <a href='/'>
-                <Badge pill bg="danger"> Danger </Badge>
-            </a>
-            <a href='/DetailPage/Character/'>
-                <Badge pill bg="danger"> Character </Badge>
-            </a>
-            <a href='/DetailPage/Review/'>
-                <Badge pill bg="danger"> Review </Badge>
-            </a>
-            </Col>
-            <Col md="auto" xs={2} lg={3}>
-
-            </Col>
-            <Col xs={1} lg={1} className='submitBtn'>
-            <a href='/'>
-                <Badge pill bg="danger"> Submit </Badge>
-            </a>
-
-            </Col>
-        </Row>
-    </Container> */}
+<TitleBackground synopsis={detail.synopsis} title={detail.title} poster={detail.poster} rating={detail.averageRating} trailer={`https://www.youtube.com/embed/i6gFRSnE6Ro`}   />
+   
 
             <div>
                 <Container className='PageContainer'>
                     <DetailNavBtn />
 
-                    <Row>
+                    <Form  className="d-flex justify-content-center bg-info rounded-3" >
+                    <div style={{height: '30rem'}}>
+
+                       
+
+                        <Form.Group className="mb-3" >
+                            <Form.Label>Rating</Form.Label>
+                            <Rating name="half-rating" value={state.rating} onChange={(e) => setState({...state, rating: e.target.value})} defaultValue={0} precision={0.5} />
+                            
+                        </Form.Group>
+
+                        <Form.Group className="mb-3" >
+                            <Form.Label>Comment</Form.Label>
+                            <Form.Control as="textarea" value={state.comment} onChange={(e) => setState({...state, comment: e.target.value})} placeholder="Leave a review" style={{ height: '200px' }} />
+
+                            {/* <Form.Control  type="email" placeholder="Enter email" style={{width: '25rem'}} /> */}
+                        </Form.Group>
+                        <Button onClick={add}  >Submit</Button>
+
+                      
+                    </div>
+
+                </Form>
+
+                    {/* <Row>
                         <Col lg={1} md={2}>
                             <Figure.Image width={137} height={143} alt="171x180"
                                 src="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco/v1499159723/kjmiibei1rnx1qj8guco.png" />
@@ -86,7 +106,7 @@ return (
                                 <h5>user id</h5>
                             </Row>
                             <Row>
-                                <Rating name="half-rating" defaultValue={0} precision={0.5} />
+                                
                             </Row>
                         </Col>
                     </Row>
@@ -101,7 +121,7 @@ return (
                         <Col></Col>
                         <Col style={{ display: 'flex', justifyContent: 'space-evenly', }}><CategoryButton title={"Load More"} /></Col>
                         <Col></Col>
-                    </Row>
+                    </Row> */}
                 </Container>
 
             </div>

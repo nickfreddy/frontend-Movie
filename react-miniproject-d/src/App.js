@@ -2,6 +2,9 @@
 import './Custom.scss'
 import { BrowserRouter } from "react-router-dom";
 import Routers from './routes/router';
+import AdminPage from './Pages Bagas/Admin-Page';
+import ProfilePage from './Pages Bagas/Profile-page';
+import FormMovie from './Pages Bagas/Admin-Page/FormUpdate';
 
 
 
@@ -9,11 +12,10 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-              {/* the routing components */}
+        {/* the routing components */}
         <Routers />
       </BrowserRouter>
-
-
+      {/* <AdminPage /> */}
     </div>
   );
 }

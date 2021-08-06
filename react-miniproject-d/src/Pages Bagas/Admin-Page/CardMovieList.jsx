@@ -8,7 +8,7 @@ function CardListMovie(props) {
             <div className="title-card">
                 <h5>{props.title}</h5>
             </div>
-            <div className="button-movie-list">
+            <div className="button-movie-list pb-3">
                 <Button variant="primary" className="me-2">Update</Button>{' '}
                 <Button variant="warning">Delete</Button>{' '}
             </div>

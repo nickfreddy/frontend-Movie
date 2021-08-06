@@ -15,7 +15,7 @@ const ProfilePage = () => {
                             src={back_button}
                             width="50"
                             height="50"
-                            className="d-inline-block align-top"
+                            className="back d-inline-block align-top"
                             alt="React Bootstrap logo"
                         />
                     </Navbar.Brand>
@@ -35,8 +35,9 @@ const ProfilePage = () => {
                                         <h5>Profile</h5>
                                     </div>
                                     <div className="button-profile watchlist">
-                                        <h5>Watch List</h5>
+                                        <h5>Delete Account</h5>
                                     </div>
+
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -104,7 +105,7 @@ const ProfilePage = () => {
                 </Container>
 
             </div>
-            <div className="footer bg-secondary">
+            <div className="footerprofile bg-secondary">
                 <img
                     src={logo}
                     width="50"
