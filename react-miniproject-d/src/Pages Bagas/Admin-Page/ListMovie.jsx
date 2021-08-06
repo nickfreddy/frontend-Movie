@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux';
-import { loadMovies } from '../../redux/action/movie';
+import { deletemovie, loadMovies } from '../../redux/action/movie';
 import CardListMovie from './CardMovieList';
 
 
 
 function ListMovie() {
+    const token = localStorage.getItem('Token');
     const moviesData = useSelector(state => state.movies.data);
     const [movie, setMovies] = useState([]);
     const dispatch = useDispatch()
@@ -17,7 +18,6 @@ function ListMovie() {
 
     useEffect(() => {
         setMovies(moviesData)
-
     }, [moviesData])
 
 
@@ -32,7 +32,13 @@ function ListMovie() {
                 <div className="list-movie">
                     <ol>
                         {movie.map((movie, idx) => {
-                            return <li key={idx} ><CardListMovie title={movie.title} /></li>
+                            return <li key={idx} className="d-flex justify-content-between" >
+                                <CardListMovie title={movie.title} />
+                                <div className="button-movie-list pb-3">
+                                    <Button variant="primary" className="me-2" href={`/Update-movie/${movie._id}`}>Update</Button>{' '}
+                                    <Button variant="warning" onClick={() => dispatch(deletemovie(movie._id, token))}>Delete</Button>{' '}
+                                </div>
+                            </li>
                         })}
                     </ol>
                 </div>

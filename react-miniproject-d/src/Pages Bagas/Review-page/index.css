@@ -1,0 +1,103 @@
+.button-profile {
+    padding: 20px 32px;
+    font-weight: 300;
+}
+
+.button-profile h5 {
+    font-weight: 300;
+}
+
+.review {
+    margin-bottom: 20px;
+}
+
+
+.button-profile:hover {
+    background-color: #DEDCDC;
+    cursor: pointer;
+}
+
+.card-title {
+    padding: 20px 32px 10px;
+}
+
+.card-title h5 {
+    font-weight: 700;
+}
+
+.card-title p {
+    font-weight: 200;
+}
+
+.form-setting-profile {
+    margin-left: 90px;
+    display: flex;
+}
+
+.form-profile {
+    width: 100%;
+}
+
+.button-submit {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.profile-pitcure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+
+}
+
+.input-image {
+    padding: 40px 20px 10px;
+}
+
+
+.profile-pitcure img {
+    border-radius: 100%;
+}
+
+.footer {
+    background-color: #0A4962;
+    width: 100%;
+    margin-top: auto;
+
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.footer h3 {
+    font-weight: 500;
+    padding-top: 7px;
+}
+
+.image-movie {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.list-movie {
+    padding: 20px 30px;
+}
+
+.card-movie-list {
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.list-movie li {
+    font-weight: 700;
+}
+
+.back:hover {
+    transform: scale(1.1, 1.1);
+}

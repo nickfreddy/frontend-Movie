@@ -8,17 +8,26 @@ import Navbar_notSign from "../components/header/Navbar_notSign";
 import ProfilePage from "../Pages Bagas/Profile-page";
 import AdminPage from "../Pages Bagas/Admin-Page";
 import Navbar_Sign from "../components/header/Navbar_Sign";
+import ReviewPage from "../Pages Bagas/Review-page";
+import FormMovie from "../Pages Bagas/Admin-Page/FormUpdate";
+import { useParams } from 'react-router';
 
 
 const Routers = () => {
+  const { id } = useParams()
   const Token = localStorage.getItem('Token');
+<<<<<<< HEAD
   const USERID = localStorage.getItem('USERID');
+=======
+  const hideHeaderFooter = window.location.pathname === '/Admin-page' || window.location.pathname.includes("/Profile-page") || window.location.pathname === '/Review-page' || window.location.pathname.includes("/Update-movie") || window.location.pathname.includes("/Review-page")
+
+>>>>>>> f69f97de36a91ed67af457f4146044d36d030770
 
 
   return (
     // switch -> just like switch case where it read routes/ browser url and return it accordingly
     <>
-      {window.location.pathname === '/Admin-page' || window.location.pathname === '/Profile-page' ? null : Token ? <Navbar_Sign /> : <Navbar_notSign />}
+      {hideHeaderFooter ? null : Token ? <Navbar_Sign /> : <Navbar_notSign />}
       <Switch>
         {/* exact means the path must be the same as the value  */}
         {/* return this component if the router is root aka / */}
@@ -34,11 +43,17 @@ const Routers = () => {
         <Route exact path="/DetailPage/Review/:id">
           <Review />
         </Route>
-        <Route exact path="/Profile-page">
+        <Route exact path="/Profile-page/:USERID">
           <ProfilePage />
         </Route>
         <Route exact path="/Admin-page">
           <AdminPage />
+        </Route>
+        <Route exact path="/Review-page/:USERID">
+          <ReviewPage />
+        </Route>
+        <Route exact path="/Update-movie/:id">
+          <FormMovie />
         </Route>
 
         {/*  * is for all routes that is not registered in here */}
@@ -48,7 +63,7 @@ const Routers = () => {
           </div>
         </Route>
       </Switch>
-      {window.location.pathname === '/Admin-page' || window.location.pathname === '/Profile-page' ? null : <Footer />}
+      {hideHeaderFooter ? null : <Footer />}
     </>
   );
 };

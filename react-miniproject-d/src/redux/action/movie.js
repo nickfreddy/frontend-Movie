@@ -1,4 +1,4 @@
-import { LOAD_ALL_MOVIE } from "./types"
+import { GET_MOVIE, DELETE_MOVIE } from "./types"
 import axios from "axios";
 
 export const loadMovies = () => async (dispatch) => {
@@ -8,7 +8,7 @@ export const loadMovies = () => async (dispatch) => {
         const data = await dataResults.dataMovie;
         console.log(data)
         dispatch({
-            type: LOAD_ALL_MOVIE,
+            type: GET_MOVIE,
             payload: data
         })
         // console.log(data)
@@ -16,3 +16,25 @@ export const loadMovies = () => async (dispatch) => {
         console.log(error)
     }
 };
+
+// export const addMovie = (e) => {
+//     e.preventDefault()
+//     if (movie === "") return;
+//     const newMovie = {
+//     }
+// }
+
+export const deletemovie = (id, token) => async (dispatch) => {
+    console.log("masuk")
+    try {
+        const res = await axios.delete(`https://demovie.gabatch13.my.id/movies/${id}`, { headers: { Authorization: token } })
+        await dispatch({
+            type: DELETE_MOVIE,
+            payload: id
+        })
+        console.log(id)
+        console.log(res)
+    } catch (error) {
+        console.log({ error })
+    }
+}
