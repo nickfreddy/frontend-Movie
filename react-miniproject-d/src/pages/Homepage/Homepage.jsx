@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Carousel } from 'react-bootstrap'
+import { Button, Carousel } from 'react-bootstrap'
 import axios from 'axios'
 import Card from '../../components/card/Card'
 import CategoryButton from '../../components/categoryButton/CategoryButton'
@@ -23,11 +23,11 @@ function Homepage() {
     const [errorMessage, setErrorMessage] = useState(null);
     const [loading, setLoading] = useState(true);
     const dispatch = useDispatch()
-
+    const USERID = localStorage.getItem('USERID');
 
     useEffect(() => {
         dispatch(loadMovies())
-        
+
     }, []);
 
     useEffect(() => {
@@ -62,8 +62,8 @@ function Homepage() {
         setLoading(true);
         setErrorMessage(null);
 
-        if ( word === 'all') {
-           return setMovies(moviesData)
+        if (word === 'all') {
+            return setMovies(moviesData)
         };
 
         axios.get(`https://demovie.gabatch13.my.id/movies/genres/${word}?page=1&limit=0`)
@@ -130,18 +130,20 @@ function Homepage() {
             <div className="container divider my-1 "></div>
 
             <div className="container d-flex flex-wrap justify-content-around my-1">
-                {movies.length > 0 ?  movies.filter((movie, idx) => idx < 20).map( movie =>(
+                {movies.length > 0 ? movies.filter((movie, idx) => idx < 20).map(movie => (
                     <div key={movie.idx}>
                         <Link className="text-decoration-none text-dark" to={`detailPage/${movie._id}`}>
                             <Card className="skala" title={movie.title} img={movie.poster} category={movie.genres.join(', ')} />
                         </Link>
-                    </div> 
-                    )) : <h3>not found</h3>  }
+                    </div>
+                )) : <h3>not found</h3>}
             </div>
             {/* -------------end card------------- */}
 
             <div className="my-3">
                 <MyPagination onclick={handlePagination} />
+                {/* <Button href={`/Review-page/${USERID}`} ></Button> */}
+                <Button href={`/Profile-page/${USERID}`} ></Button>
             </div>
 
             {/*  ---------------------- */}
