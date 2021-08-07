@@ -62,16 +62,18 @@ function Navbar_notSign() {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="m-auto pe-3" >
                             <Form className="d-flex" style={{ width: "500px" }}>
-                                <FormControl
+                            {window.location.pathname === '/' ?
+                            <Form className="d-flex" style={{ width: "500px" }}>
+                            <FormControl
                                     type="search"
                                     placeholder="Search Movie"
                                     aria-label="Search"
                                     value={searchValue}
                                     onChange={handleSearchInputChanges}
-                                    
-
                                 />
                                  <Button onClick={callSearchFunction} type="submit">Search</Button>
+                            </Form> : null
+                            }
                             </Form>
                         </Nav>
                         <Nav>
