@@ -9,7 +9,29 @@ import axios from 'axios';
 const ProfilePage = () => {
     const USERID = localStorage.getItem('USERID');
     const Token = localStorage.getItem('Token');
+    const refreshPage = ()=>{
+        window.location.reload();
+     }
 
+     const [user, setUser] = useState([])
+
+     const GetUserData = async (url) => {
+         try {
+             const res = await axios.get(url);
+             const data = await res.data;
+             setUser(data)
+             //declare variable to save the data
+         } catch (error) {
+             console.log(error)
+         }
+     }
+ 
+     useEffect(() => {
+         GetUserData(`https://demovie.gabatch13.my.id/users/${USERID}
+         `);
+     }, [])
+ 
+     console.log(user)
 
     const [state, setState] = useState({
         photo: "",
@@ -21,14 +43,10 @@ const ProfilePage = () => {
 
 
     const add = async (e) => {
-        e.preventDefault()
-        if (state.username === "" | state.email === "") {
-            alert("Please input your data ")
-            return;
-        } else {
+        
             await axios.put(`https://demovie.gabatch13.my.id/users/${USERID}`, state, { headers: { 'Authorization': `Bearer ${Token}` } }).then
-                (alert(`Profile Update`));
-        }
+                (alert(`Profile Updated`));refreshPage();
+        
     }
 
 
@@ -81,7 +99,7 @@ const ProfilePage = () => {
                             <Card style={{ borderRadius: "10px", boxShadow: "4px 5px 1px #9E9E9E" }}>
                                 <Card.Body style={{ padding: "0" }}>
                                     <div className="card-title">
-                                        <h3>Profile</h3>
+                                        <h3>Edit Profile</h3>
                                         <p>Change profile information</p>
                                     </div>
                                     <Form style={{ padding: "1px 32px 20px 110px" }}>
@@ -95,12 +113,14 @@ const ProfilePage = () => {
                                             <Form.Control value={state.email} onChange={(e) => setState({ ...state, email: e.target.value })} type="email" placeholder="Enter email" />
                                         </Form.Group>
 
+                                     
+
                                         <div className="button-submit">
                                             <Button style={{ width: "100px", height: "40px", marginRight: "20px" }} variant="secondary" type="reset">
                                                 Cancel
                                             </Button>
                                             <Button onClick={add} style={{ width: "100px", height: "40px" }} variant="warning" type="submit">
-                                                Save
+                                                Update
                                             </Button>
                                         </div>
                                     </Form>
@@ -112,12 +132,13 @@ const ProfilePage = () => {
                             <Card style={{ borderRadius: "10px", boxShadow: "4px 5px 1px #9E9E9E" }}>
                                 <Card.Body style={{ padding: "0" }}>
                                     <div className="card-title">
-                                        <h3>My profile Pitcure</h3>
+                                        <h3>{user.username}</h3>
+                                        <p>{user.description}</p>
                                         <p>Customize profile pitcure</p>
                                     </div>
                                     <div className="profile-pitcure">
                                         <img
-                                            src={user}
+                                            src={user.photo}
                                             width="200"
                                             height="200"
                                             className="d-inline-block align-top m-3"
