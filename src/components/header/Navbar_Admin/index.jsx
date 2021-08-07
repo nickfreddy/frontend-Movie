@@ -40,7 +40,7 @@ function Navbar_Admin(props) {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="m-auto pe-3" >
                             {window.location.pathname === '/' ?
-                                <Form className="d-flex" style={{ width: "500px" }}>
+                                <Form className="d-flex" style={{ maxWidth: "500px" }}>
                                     <FormControl
                                         type="search"
                                         placeholder="Search Movie"

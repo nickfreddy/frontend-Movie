@@ -61,9 +61,9 @@ function Navbar_notSign() {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="m-auto pe-3" >
-                            <Form className="d-flex" style={{ width: "500px" }}>
+                            <Form className="d-flex" style={{ maxWidth: "50rem" }}>
                                 {window.location.pathname === '/' ?
-                                    <Form className="d-flex" style={{ width: "500px" }}>
+                                    <Form className="d-flex" style={{ maxWidth: "50rem" }}>
                                         <FormControl
                                             type="search"
                                             placeholder="Search Movie"
