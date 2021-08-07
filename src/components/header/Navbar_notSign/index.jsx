@@ -13,7 +13,7 @@ import { useDispatch } from 'react-redux';
 
 function Navbar_notSign() {
     const [show, setShow] = useState(false);
-    const [ step, setStep ] = useState(1);
+    const [step, setStep] = useState(1);
     const [searchValue, setSearchValue] = useState("");
     const dispatch = useDispatch()
 
@@ -22,35 +22,35 @@ function Navbar_notSign() {
     const handleShow = () => setShow(true);
 
     function goNextPage() {
-        setStep(step => step +1)
+        setStep(step => step + 1)
     }
 
     function goPrevPage() {
-        setStep(step => step -1)
+        setStep(step => step - 1)
     }
 
     const handleSearchInputChanges = (e) => {
         setSearchValue(e.target.value);
-      }
-    
+    }
+
     const resetInputField = () => {
         setSearchValue("")
-      }
-    
+    }
+
     const callSearchFunction = (e) => {
         e.preventDefault();
         // search(searchValue);
         dispatch(searchMovieRdx(searchValue))
         resetInputField();
-      }
+    }
 
-      
+
 
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="secondary" className="custom-navbar">
                 <Container>
-                <a href='/'><img
+                    <a href='/'><img
                         src={logo}
                         width="40"
                         height="40"
@@ -68,10 +68,10 @@ function Navbar_notSign() {
                                     aria-label="Search"
                                     value={searchValue}
                                     onChange={handleSearchInputChanges}
-                                    
+
 
                                 />
-                                 <Button onClick={callSearchFunction} type="submit">Search</Button>
+                                <Button onClick={callSearchFunction} type="submit">Search</Button>
                             </Form>
                         </Nav>
                         <Nav>
@@ -90,14 +90,14 @@ function Navbar_notSign() {
 
             {/* ----------modal--------------- */}
             <Modal className="mt-5" show={show} onHide={handleClose}>
-                {step === 1 && <ModalSignUp onClick={goNextPage} setShow={setShow}/>}
+                {step === 1 && <ModalSignUp onClick={goNextPage} setShow={setShow} />}
                 {step === 2 && <ModalSignIn onClick={goPrevPage} setShow={setShow} />}
             </Modal>
 
-            
+
         </div >
 
-        
+
     );
 }
 
