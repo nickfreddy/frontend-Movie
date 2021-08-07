@@ -10,7 +10,6 @@ const CommentCard = (props) => {
 
   <>
     
-
     <Container style={{display:'flex', margin:'1rem 0 1rem 0', }}>
         <Col lg={1} md={2}>
         <Figure.Image style={{borderRadius:'10px', maxWidth:'5rem'}}  alt={userID} src={photo} />

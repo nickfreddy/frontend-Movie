@@ -15,7 +15,7 @@ function Review() {
     const { id } = useParams();
     const USERID = localStorage.getItem('USERID');
     const Token = localStorage.getItem('Token');
-    
+   
     const refreshPage = ()=>{
         window.location.reload();
      }
@@ -61,7 +61,7 @@ function Review() {
                 alert("leave your comment & rating first");
             return;
         } else {
-            await axios.put(`https://demovie.gabatch13.my.id/movies/${id}/reviews/${USERID}`, state, { headers: { 'Authorization': `Bearer ${Token}` } }).then
+            await axios.put(`https://demovie.gabatch13.my.id/movies/${id}/reviews/${comment}`, state, { headers: { 'Authorization': `Bearer ${Token}` } }).then
                 (alert(`edit success`));refreshPage();
         }
     }
@@ -75,10 +75,22 @@ function Review() {
             : `https://www.youtube.com/embed/${link.split("/")[3]}`;
     };
 
-    
+    // function reviewID (review) {
+    //     return review.filter()
+    // }
 
-let review = detail.reviews
+let review = detail?.reviews
 console.log(review)
+// let reviewID = review?._id
+// console.log(reviewID)
+
+let reviewID = review?.filter(item => item?.user_id?._id === USERID);
+   console .log (reviewID);
+let comment = reviewID?.map(item => item?._id);
+    console.log (comment)
+let pengguna = reviewID?.map(item => item?.user_id?._id);
+console.log (pengguna)
+console.log (USERID)
 
 return (
 <>
@@ -108,11 +120,12 @@ return (
                                 {/* <Form.Control  type="email" placeholder="Enter email" style={{width: '25rem'}} /> */}
                             </Form.Group>
                             <Button onClick={add} style={{ float: 'right', marginRight: '1rem' }} >Submit</Button>
-                           { USERID ? <Button onClick={edit} style={{ float: 'right', marginRight: '1rem' }} >Edit</Button> : null }
+                           { pengguna == USERID ? <Button onClick={edit} style={{ float: 'right', marginRight: '1rem' }} >Edit</Button> : null }
 
                         </div>
 
                 </Form>
+            
 
                 <ul>
                 {review?.map((item, index) => (

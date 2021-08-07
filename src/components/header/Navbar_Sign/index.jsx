@@ -6,6 +6,8 @@ import user from '../../../img/user.png'
 
 function Navbar_Sign(props) {
 
+
+    
     function LogOut() {
         localStorage.clear();
         window.location.replace("/");
@@ -49,6 +51,7 @@ function Navbar_Sign(props) {
                             </div>} id="navbarScrollingDropdown">
                                 <Dropdown.ItemText style={{ fontWeight: "500", fontSize: "18px" }}>User Name</Dropdown.ItemText>
                                 <NavDropdown.Item href="#action3">Profile</NavDropdown.Item>
+                                <NavDropdown.Item href="/Admin-page">Add Movie</NavDropdown.Item>
                                 <NavDropdown.Item href="#action4">Setting</NavDropdown.Item>
                                 <NavDropdown.Item href="#action5">Help</NavDropdown.Item>
                                 <NavDropdown.Divider />
