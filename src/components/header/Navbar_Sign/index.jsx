@@ -31,6 +31,9 @@ function Navbar_Sign(props) {
         resetInputField();
     }
 
+
+
+
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="secondary" className="custom-navbar">
@@ -42,7 +45,7 @@ function Navbar_Sign(props) {
                         className="d-inline-block align-top m-3"
                         alt="React Bootstrap logo"
                     /></a>
-                    <Navbar.Brand className='me-auto' href='/' style={{ fontWeight: "500" }}>deMovie</Navbar.Brand>
+                    <Navbar.Brand className='me-auto text-light' href='/' style={{ fontWeight: "500" }}>deMovie</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="m-auto pe-3" >
@@ -59,8 +62,6 @@ function Navbar_Sign(props) {
                                 </Form> : null}
                         </Nav>
                         <Nav>
-
-
                             <NavDropdown title={<div className="user-profile">
                                 <img
                                     src={user}
@@ -73,6 +74,7 @@ function Navbar_Sign(props) {
                                 <Dropdown.ItemText style={{ fontWeight: "500", fontSize: "18px" }}>User Name</Dropdown.ItemText>
                                 <NavDropdown.Item href={`/Profile-page/${USERID}`}>Profile</NavDropdown.Item>
                                 <NavDropdown.Item href={`/Review-page/${USERID}`} >My Review</NavDropdown.Item>
+                                <NavDropdown.Item href={`/Admin-page/${USERID}`} >Setting Movie</NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item onClick={LogOut}>Sign out</NavDropdown.Item>
                             </NavDropdown>
