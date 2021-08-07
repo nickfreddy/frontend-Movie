@@ -26,11 +26,11 @@ build:
   only:
     - development
 
-testing:
-  stage: testing
-  script:
-   - npm install
-   - CI=true npm run test #CI = continous integration
+# testing:
+#   stage: testing
+#   script:
+#    - npm install
+#    - CI=true npm run test #CI = continous integration
 
 deploy:
   # untuk upload aplikasi produk ke server
