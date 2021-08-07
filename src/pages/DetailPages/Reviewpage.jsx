@@ -119,7 +119,7 @@ return (
 
                                 {/* <Form.Control  type="email" placeholder="Enter email" style={{width: '25rem'}} /> */}
                             </Form.Group>
-                            <Button onClick={add} style={{ float: 'right', marginRight: '1rem' }} >Submit</Button>
+                           { USERID ?  <Button onClick={add} style={{ float: 'right', marginRight: '1rem' }} >Submit</Button> : null }
                            { pengguna == USERID ? <Button onClick={edit} style={{ float: 'right', marginRight: '1rem' }} >Edit</Button> : null }
 
                         </div>

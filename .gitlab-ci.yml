@@ -50,7 +50,7 @@ deploy:
   # untuk menambah url dari heroku dan jenis environment (test/ production)
   environment:
     name: test
-    url: https://fe-binar-glints.herokuapp.com/
+    url: https://demovie-gabatch13.herokuapp.com/
   
   # untuk menunjuk spesifikasi branch mana yang akan di deploy di server
   only:
