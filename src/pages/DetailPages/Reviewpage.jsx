@@ -85,7 +85,7 @@ console.log(review)
 // console.log(reviewID)
 
 let reviewID = review?.filter(item => item?.user_id?._id === USERID);
-   console .log (reviewID);
+   console.log (reviewID);
 let comment = reviewID?.map(item => item?._id);
     console.log (comment)
 let pengguna = reviewID?.map(item => item?.user_id?._id);
@@ -120,6 +120,7 @@ return (
                                 {/* <Form.Control  type="email" placeholder="Enter email" style={{width: '25rem'}} /> */}
                             </Form.Group>
                            { USERID ?  <Button onClick={add} style={{ float: 'right', marginRight: '1rem' }} >Submit</Button> : null }
+                            {/* eslint-disable-next-line eqeqeq */}
                            { pengguna == USERID ? <Button onClick={edit} style={{ float: 'right', marginRight: '1rem' }} >Edit</Button> : null }
 
                         </div>
