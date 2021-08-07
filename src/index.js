@@ -10,7 +10,6 @@ import store from "./redux/store"
 // import { transitions, positions, Provider as AlertProvider } from 'react-alert'
 // import AlertTemplate from 'react-alert-template-basic'
 
-
 ReactDOM.render(
   <BrowserRouter>
     {/* <AlertProvider template={AlertTemplate}> */}
