@@ -1,10 +1,3 @@
-// import {
-// BrowserRouter as Router,
-// Switch,
-// Route,
-// Link,
-// useParams
-// } from "react-router-dom";
 import './Background.css'
 import { Button, Badge, Container, Row, Col } from 'react-bootstrap';
 import React from 'react'
@@ -87,7 +80,7 @@ function Detailpage() {
                     <div className='infoDetail'>
                         <p>Release Year : {detail.release_year} </p>
                         <p>Rating : {detail.averageRating === null ? `Unrated` : detail.averageRating}</p>
-                        <p>Genre : {detail?.genres}</p>
+                        <p>Genre : {detail?.genres + " "}</p>
                     </div>
                 </Container>
             </div>

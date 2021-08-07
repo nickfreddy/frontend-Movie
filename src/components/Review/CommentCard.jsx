@@ -1,30 +1,26 @@
 import React from "react";
-import { Figure, Container ,Row, Col, Card} from 'react-bootstrap';
+import { Figure, Container , Col, Card} from 'react-bootstrap';
+// import user from '../../img/user.png'
 
+const CommentCard = (props) => {
+  const { userID, comment, photo } = props;
+  // const imgSrc= '../../img/user.png';
 
-const CommentCard = ({ /*postsToRender*/ }) => {return (
+  return (
 
   <>
-    {/* <ul>
-      {postsToRender.map((post, index) => (
-        <li key={index}>
-          <strong>{post.id}</strong>
-          &nbsp;{post.title}
-        </li>
-      ))}
-    </ul> */}
+    
 
-    <Container style={{display:'flex', }}>
+    <Container style={{display:'flex', margin:'1rem 0 1rem 0', }}>
         <Col lg={1} md={2}>
-        <Figure.Image width={171} height={180} alt="171x180" src="holder.js/171x180" />
+        <Figure.Image style={{borderRadius:'10px', maxWidth:'5rem'}}  alt={userID} src={photo} />
         </Col>
         <Col>
-        <Card border="light" style={{ maxWidth: '70rem' }}>
-            <Card.Header>User Id</Card.Header>
+        <Card border="light"  style={{ maxWidth: '75rem', borderRadius:'10px',}}>
+            <Card.Header style={{backgroundColor:'#D6E0E3'}}>{userID}</Card.Header>
             <Card.Body >
                 <Card.Text>
-                    Some quick example text to build on the card title and make up the bulk
-                    of the card's content.
+                    {comment}
                 </Card.Text>
             </Card.Body>
         </Card>

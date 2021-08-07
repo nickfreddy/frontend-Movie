@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux';
-import { deletemovie, loadMovies } from '../../redux/action/movie';
+import { loadMovies } from '../../redux/action/movie';
 import CardListMovie from './CardMovieList';
-
+// deletemovie
 
 
 function ListMovie() {
@@ -36,7 +36,7 @@ function ListMovie() {
                                 <CardListMovie title={movie.title} />
                                 <div className="button-movie-list pb-3">
                                     <Button variant="primary" className="me-2" href={`/Update-movie/${movie._id}`}>Update</Button>{' '}
-                                    <Button variant="warning" onClick={() => dispatch(deletemovie(movie._id, token))}>Delete</Button>{' '}
+                                    {/* <Button variant="warning" onClick={() => dispatch(deletemovie(movie._id, token))}>Delete</Button>{' '} */}
                                 </div>
                             </li>
                         })}

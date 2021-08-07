@@ -8,7 +8,9 @@ import axios from 'axios'
 
 function ModalSignIn(props) {
     const { onClick, setShow } = props;
-
+    const refreshPage = ()=>{
+        window.location.reload();
+     }
     const [state, setState] = useState({
         email: "",
         password: ""
@@ -23,7 +25,7 @@ function ModalSignIn(props) {
 
             axios.post(`https://demovie.gabatch13.my.id/auth/login`, state).then(res => {
                 setShow(false);
-                localStorage.setItem('Token', res.data.token); localStorage.setItem('USERID', res.data._id)
+                localStorage.setItem('Token', res.data.token); localStorage.setItem('USERID', res.data._id);refreshPage(); 
             })
         }
     }

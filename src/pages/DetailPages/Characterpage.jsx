@@ -1,11 +1,3 @@
-// import {
-// BrowserRouter as Router,
-// Switch,
-// Route,
-// Link,
-// useParams
-// } from "react-router-dom";
-
 import React, { useEffect, useState } from 'react';
 import TitleBackground from '../../components/DetailBackground/TitleBackground'
 import { Container, Card } from 'react-bootstrap';
