@@ -143,7 +143,8 @@ function Homepage() {
             <div className="my-3">
                 <MyPagination onclick={handlePagination} />
                 {/* <Button href={`/Review-page/${USERID}`} ></Button> */}
-                <Button href={`/Profile-page/${USERID}`} ></Button>
+                {/* <Button href={`/Profile-page/${USERID}`} ></Button> */}
+                <Button href={`/Admin-page/${USERID}`} ></Button>
             </div>
 
             {/*  ---------------------- */}

@@ -5,6 +5,7 @@ import logo from '../../../img/brand-logo.png'
 import user from '../../../img/user.png'
 
 function Navbar_Sign(props) {
+    const USERID = localStorage.getItem('USERID');
 
     function LogOut() {
         localStorage.clear();
@@ -48,11 +49,10 @@ function Navbar_Sign(props) {
                                 />
                             </div>} id="navbarScrollingDropdown">
                                 <Dropdown.ItemText style={{ fontWeight: "500", fontSize: "18px" }}>User Name</Dropdown.ItemText>
-                                <NavDropdown.Item href="#action3">Profile</NavDropdown.Item>
-                                <NavDropdown.Item href="#action4">Setting</NavDropdown.Item>
-                                <NavDropdown.Item href="#action5">Help</NavDropdown.Item>
+                                <NavDropdown.Item href={`/Profile-page/${USERID}`}>Profile</NavDropdown.Item>
+                                <NavDropdown.Item href={`/Review-page/${USERID}`} >My Review</NavDropdown.Item>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action5" onClick={LogOut}>Sign out</NavDropdown.Item>
+                                <NavDropdown.Item onClick={LogOut}>Sign out</NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>

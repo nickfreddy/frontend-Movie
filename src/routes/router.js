@@ -14,11 +14,12 @@ import { useParams } from 'react-router';
 
 
 const Routers = () => {
+  const role = localStorage.getItem('role')
   const { id } = useParams()
   const Token = localStorage.getItem('Token');
-  const hideHeaderFooter = window.location.pathname === '/Admin-page' || window.location.pathname.includes("/Profile-page") || window.location.pathname === '/Review-page' || window.location.pathname.includes("/Update-movie") || window.location.pathname.includes("/Review-page")
+  const hideHeaderFooter = window.location.pathname.includes("/Admin-page") || window.location.pathname.includes("/Profile-page") || window.location.pathname === '/Review-page' || window.location.pathname.includes("/Update-movie") || window.location.pathname.includes("/Review-page")
 
-
+  console.log(role)
 
   return (
     // switch -> just like switch case where it read routes/ browser url and return it accordingly
@@ -42,7 +43,7 @@ const Routers = () => {
         <Route exact path="/Profile-page/:USERID">
           <ProfilePage />
         </Route>
-        <Route exact path="/Admin-page">
+        <Route exact path="/Admin-page/:USERID">
           <AdminPage />
         </Route>
         <Route exact path="/Review-page/:USERID">

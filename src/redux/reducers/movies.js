@@ -24,10 +24,9 @@ const movies = (state = initialState, action) => {
                 ]
             }
         case DELETE_MOVIE:
-            const afterDelete = state.movie.filter(item => item.id !== action.payload)
             return {
                 ...state,
-                movie: afterDelete
+                data: state.data.filter(item => item.id !== action.payload)
             }
 
 
