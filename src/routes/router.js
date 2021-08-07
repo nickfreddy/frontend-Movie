@@ -10,11 +10,11 @@ import AdminPage from "../Pages Bagas/Admin-Page";
 import Navbar_Sign from "../components/header/Navbar_Sign";
 import ReviewPage from "../Pages Bagas/Review-page";
 import FormMovie from "../Pages Bagas/Admin-Page/FormUpdate";
-import { useParams } from 'react-router';
+// import { useParams } from 'react-router';
 
 
 const Routers = () => {
-  const { id } = useParams()
+  // const { id } = useParams()
   const Token = localStorage.getItem('Token');
   const hideHeaderFooter = window.location.pathname === '/Admin-page' || window.location.pathname.includes("/Profile-page") || window.location.pathname === '/Review-page' || window.location.pathname.includes("/Update-movie") || window.location.pathname.includes("/Review-page")
 
@@ -23,6 +23,7 @@ const Routers = () => {
   return (
     // switch -> just like switch case where it read routes/ browser url and return it accordingly
     <>
+      {/* eslint-disable-next-line react/jsx-pascal-case */}
       {hideHeaderFooter ? null : Token ? <Navbar_Sign /> : <Navbar_notSign />}
       <Switch>
         {/* exact means the path must be the same as the value  */}
