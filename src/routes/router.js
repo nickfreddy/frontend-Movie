@@ -10,6 +10,8 @@ import AdminPage from "../Pages Bagas/Admin-Page";
 import Navbar_Sign from "../components/header/Navbar_Sign";
 import ReviewPage from "../Pages Bagas/Review-page";
 import FormMovie from "../Pages Bagas/Admin-Page/FormUpdate";
+import { useParams } from "react-router";
+
 // import { useParams } from 'react-router';
 
 
