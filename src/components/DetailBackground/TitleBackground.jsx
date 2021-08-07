@@ -23,7 +23,7 @@ url(${poster})`,backgroundRepeat: 'no-repeat',backgroundSize: 'cover',}}>
                 <div className='Rating'>
                     <div className="starRating">
                         
-                        <Rating name="half-rating-read" defaultValue={2} precision={0.5} readOnly />
+                        <Rating name="half-rating-read" defaultValue={rating} precision={0.5} readOnly />
                         
                         {/* <StarRatings rating={rating} starDimension="40px" starSpacing="15px" /> */}
                     </div>
