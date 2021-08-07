@@ -40,7 +40,7 @@ function Navbar_Admin(props) {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="m-auto pe-3" >
                             {window.location.pathname === '/' ?
-                                <Form className="d-flex" style={{ width: "500px" }}>
+                                <Form className="d-flex" style={{ maxWidth: "500px" }}>
                                     <FormControl
                                         type="search"
                                         placeholder="Search Movie"
@@ -65,8 +65,7 @@ function Navbar_Admin(props) {
                                 />
                             </div>} id="navbarScrollingDropdown">
                                 <Dropdown.ItemText style={{ fontWeight: "500", fontSize: "18px" }}>User Name</Dropdown.ItemText>
-                                <NavDropdown.Item href="#action3">Add Movie</NavDropdown.Item>
-
+                                <NavDropdown.Item href="#action3">Setting Movie</NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item href="#action5">Sign out</NavDropdown.Item>
                             </NavDropdown>

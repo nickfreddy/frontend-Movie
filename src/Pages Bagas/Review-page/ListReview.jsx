@@ -32,7 +32,6 @@ function ReviewMovie() {
         )
     })
 
-
     const Dellete = async (e) => {
         e.preventDefault()
         try {

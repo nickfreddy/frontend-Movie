@@ -3,25 +3,25 @@ import axios from 'axios';
 import React, { useState } from 'react';
 
 function AddMovie() {
+    const refreshPage = () => {
+        window.location.reload();
+    }
+
     const Token = localStorage.getItem('Token');
 
-    // const refreshPage = () => {
-    //     window.location.reload();
-    // }
-
     const [state, setState] = useState({
-        title: "Inoki the greet boy",
-        genres: "action",
-        release_year: "2020",
-        poster: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/7ElKH7Ql2MIMvG0SqsGP6Iiwp5e.jpg",
-        trailer: "https://www.youtube.com/results?search_query=anatomi+grey+teaser+",
-        synopsis: "good movie"
+        title: "",
+        genres: "",
+        release_year: "",
+        poster: "",
+        trailer: "",
+        synopsis: ""
     })
 
     const add = async (e) => {
         e.preventDefault()
         try {
-            const res = await axios.post(`https://demovie.gabatch13.my.id/movies/`, state, { headers: { Authorization: `Bearer ${Token}` } })
+            const res = await axios.post(`https://demovie.gabatch13.my.id/movies/`, state, { headers: { Authorization: `Bearer ${Token}` } }); refreshPage();
             console.log(res)
         } catch (error) {
             console.log({ error })
