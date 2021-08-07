@@ -1,0 +1,35 @@
+.skala:hover{
+    transform: scale(1.03);
+    -webkit-transform: scale(1.03);
+    -moz-transform: scale(1.03);
+    -ms-transform: scale(1.03);
+    -o-transform: scale(1.03);
+    transition: 0.3s;
+    cursor: pointer;
+    background-color: #F4EEE8;
+    border: 2px solid #c0b7ae;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+.divider{
+    border-bottom: 2px solid #F4EEE8;
+    border-radius: 5px;
+    
+}
+
+
+.width{
+    width: 13rem;
+    height: 27rem;
+}
+
+/* @media screen and (max-width: 1000px) {
+    .width {
+        width: 10rem;
+        height: 24rem;
+    }
+} */
