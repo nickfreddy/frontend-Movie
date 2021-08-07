@@ -123,9 +123,9 @@ function Review() {
                             {/* eslint-disable-next-line eqeqeq */}
                             {pengguna == USERID ? <Button onClick={edit} style={{ float: 'right', marginRight: '1rem' }} >Edit</Button> : null}
 
-                        </div>
+                        </div >
 
-                    </Form>
+                    </Form >
 
 
                     <ul>
@@ -141,9 +141,9 @@ function Review() {
                         <Col></Col>
                     </Row>
 
-                </Container>
+                </Container >
 
-            </div>
+            </div >
 
 
 
