@@ -44,7 +44,7 @@ deploy:
     - apt-get update -qy
     - apt-get install -y ruby-dev
     - gem install dpl
-    - dpl --provider=heroku --app=fe-binar-glints --api-key=$HEROKU_API_KEY
+    - dpl --provider=heroku --app=demovie-gabatch13 --api-key=$HEROKU_API_KEY
     - echo "Deployed to testing server"
   
   # untuk menambah url dari heroku dan jenis environment (test/ production)
