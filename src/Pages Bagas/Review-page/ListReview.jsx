@@ -7,12 +7,14 @@ import { loadReview } from '../../redux/action/ReviewUser';
 
 
 function ReviewMovie() {
-
+    const token = localStorage.getItem('Token');
     const USERID = localStorage.getItem('USERID');
-    const { id } = useParams()
     const reviewData = useSelector(state => state.review.data)
     const [review, setReview] = useState([])
     const dispatch = useDispatch()
+    const refreshPage = () => {
+        window.location.reload();
+    }
 
     useEffect(() => {
         dispatch(loadReview())
@@ -24,9 +26,22 @@ function ReviewMovie() {
 
     console.log(USERID)
 
-    let dataUser = review.user_id
+    let reviewID = review.filter((item, idx) => item?.user_id?._id === USERID).map((item, index) => {
+        return (
+            item._id
+        )
+    })
 
-    console.log(dataUser)
+
+    const Dellete = async (e) => {
+        e.preventDefault()
+        try {
+            await axios.delete(`https://demovie.gabatch13.my.id/movies/${USERID}/reviews/${reviewID}`, { headers: { Authorization: `Bearer ${token}` } }); refreshPage();
+        } catch (error) {
+            console.log({ error })
+        }
+    }
+
 
     return (
         <Card style={{ borderRadius: "10px", boxShadow: "4px 5px 1px #9E9E9E", marginBottom: "50px" }}>
@@ -42,8 +57,7 @@ function ReviewMovie() {
                                 return (
                                     <li key={index} className="d-flex justify-content-between"><h5>{item.movie_id.title} , My comment: {item.comment}</h5>
                                         <div className="button-movie-list pb-3">
-                                            <Button variant="primary" className="me-2">Update</Button>{' '}
-                                            <Button variant="warning">Delete</Button>{' '}
+                                            <Button variant="warning" onClick={Dellete} >Delete</Button>{' '}
                                         </div>
                                     </li>
                                 );

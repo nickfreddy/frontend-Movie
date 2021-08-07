@@ -1,4 +1,4 @@
-import { Form, Button, Container, Row, Col} from 'react-bootstrap';
+import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import React from 'react'
 import CommentCard from '../../components/Review/CommentCard';
 import TitleBackground from '../../components/DetailBackground/TitleBackground';
@@ -15,10 +15,10 @@ function Review() {
     const { id } = useParams();
     const USERID = localStorage.getItem('USERID');
     const Token = localStorage.getItem('Token');
-   
-    const refreshPage = ()=>{
+
+    const refreshPage = () => {
         window.location.reload();
-     }
+    }
 
     const [detail, setDetail] = useState([])
 
@@ -48,21 +48,21 @@ function Review() {
     const add = async (e) => {
         e.preventDefault()
         if (state.rating === 0 || state.comment === "") {
-                alert("leave your comment & rating first");
+            alert("leave your comment & rating first");
             return;
         } else {
             await axios.post(`https://demovie.gabatch13.my.id/movies/${id}/reviews`, state, { headers: { 'Authorization': `Bearer ${Token}` } }).then
-                (alert(`review success`));refreshPage();
+                (alert(`review success`)); refreshPage();
         }
     }
     const edit = async (e) => {
         e.preventDefault()
         if (state.rating === 0 || state.comment === "") {
-                alert("leave your comment & rating first");
+            alert("leave your comment & rating first");
             return;
         } else {
             await axios.put(`https://demovie.gabatch13.my.id/movies/${id}/reviews/${comment}`, state, { headers: { 'Authorization': `Bearer ${Token}` } }).then
-                (alert(`edit success`));refreshPage();
+                (alert(`edit success`)); refreshPage();
         }
     }
 
@@ -79,24 +79,24 @@ function Review() {
     //     return review.filter()
     // }
 
-let review = detail?.reviews
-console.log(review)
-// let reviewID = review?._id
-// console.log(reviewID)
+    let review = detail?.reviews
+    console.log(review)
+    // let reviewID = review?._id
+    // console.log(reviewID)
 
-let reviewID = review?.filter(item => item?.user_id?._id === USERID);
-   console.log (reviewID);
-let comment = reviewID?.map(item => item?._id);
-    console.log (comment)
-let pengguna = reviewID?.map(item => item?.user_id?._id);
-console.log (pengguna)
-console.log (USERID)
+    let reviewID = review?.filter(item => item?.user_id?._id === USERID);
+    console.log(reviewID);
+    let comment = reviewID?.map(item => item?._id);
+    console.log(comment)
+    let pengguna = reviewID?.map(item => item?.user_id?._id);
+    console.log(pengguna)
+    console.log(USERID)
 
-return (
-<>
-<TitleBackground synopsis={detail?.synopsis} title={detail?.title} poster={detail?.poster}
-        rating={detail?.averageRating===null ? `Unrated` : detail?.averageRating} trailer={detail?.trailer ?
-        sanitizeYTLink(link) : `null`} />   
+    return (
+        <>
+            <TitleBackground synopsis={detail?.synopsis} title={detail?.title} poster={detail?.poster}
+                rating={detail?.averageRating === null ? `Unrated` : detail?.averageRating} trailer={detail?.trailer ?
+                    sanitizeYTLink(link) : `null`} />
 
             <div>
                 <Container className='PageContainer '>
@@ -119,22 +119,22 @@ return (
 
                                 {/* <Form.Control  type="email" placeholder="Enter email" style={{width: '25rem'}} /> */}
                             </Form.Group>
-                           { USERID ?  <Button onClick={add} style={{ float: 'right', marginRight: '1rem' }} >Submit</Button> : null }
+                            {USERID ? <Button onClick={add} style={{ float: 'right', marginRight: '1rem' }} >Submit</Button> : null}
                             {/* eslint-disable-next-line eqeqeq */}
-                           { pengguna == USERID ? <Button onClick={edit} style={{ float: 'right', marginRight: '1rem' }} >Edit</Button> : null }
+                            {pengguna == USERID ? <Button onClick={edit} style={{ float: 'right', marginRight: '1rem' }} >Edit</Button> : null}
 
                         </div>
 
-                </Form>
-            
+                    </Form>
 
-                <ul>
-                {review?.map((item, index) => (
-                    <div key={index}>
-                    <CommentCard photo={item?.user_id?.photo} userID={item?.user_id?.username} comment={item?.comment} /></div>
-                ))}
-               <div style={{margin:"1rem 0 1rem 0", height:'5px'}}></div>
-                </ul>
+
+                    <ul>
+                        {review?.map((item, index) => (
+                            <div key={index}>
+                                <CommentCard photo={item?.user_id?.photo} userID={item?.user_id?.username} comment={item?.comment} /></div>
+                        ))}
+                        <div style={{ margin: "1rem 0 1rem 0", height: '5px' }}></div>
+                    </ul>
                     <Row >
                         <Col></Col>
                         <Col style={{ display: 'flex', justifyContent: 'space-evenly', }}><Button  >Load More</Button></Col>
