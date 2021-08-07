@@ -12,7 +12,6 @@ function CardListMovie(props) {
             <div className="title-card">
                 <h5>{props.title}</h5>
             </div>
-
         </div>
     );
 }

@@ -35,7 +35,6 @@ function ModalSignUp(props) {
 
     return (
         <div>
-
             <Form onSubmit={add} className="d-flex justify-content-center bg-info rounded-3" >
                 <div style={{ height: '30rem' }}>
 

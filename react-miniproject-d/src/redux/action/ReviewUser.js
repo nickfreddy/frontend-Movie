@@ -15,5 +15,4 @@ export const loadReview = () => async (dispatch) => {
     } catch (error) {
         console.log(error)
     }
-
 };
