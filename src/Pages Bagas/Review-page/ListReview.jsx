@@ -40,15 +40,12 @@ function ReviewMovie() {
                         {
                             review.filter((item, idx) => item?.user_id?._id === USERID).map((item, index) => {
                                 return (
-                                    <div key={index}>
-                                        <li className="d-flex justify-content-between"><h5>{item.movie_id.title}</h5>
-                                            <div className="button-movie-list pb-3">
-                                                <Button variant="primary" className="me-2">Update</Button>{' '}
-                                                <Button variant="warning">Delete</Button>{' '}
-                                            </div>
-                                        </li>
-
-                                    </div>
+                                    <li key={index} className="d-flex justify-content-between"><h5>{item.movie_id.title} , My comment: {item.comment}</h5>
+                                        <div className="button-movie-list pb-3">
+                                            <Button variant="primary" className="me-2">Update</Button>{' '}
+                                            <Button variant="warning">Delete</Button>{' '}
+                                        </div>
+                                    </li>
                                 );
                             })}
                     </ol>

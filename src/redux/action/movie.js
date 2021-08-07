@@ -25,9 +25,8 @@ export const loadMovies = () => async (dispatch) => {
 // }
 
 export const deletemovie = (id, token) => async (dispatch) => {
-    console.log("masuk")
     try {
-        const res = await axios.delete(`https://demovie.gabatch13.my.id/movies/${id}`, { headers: { Authorization: token } })
+        const res = await axios.delete(`https://demovie.gabatch13.my.id/movies/${id}`, { headers: { Authorization: `Bearer ${token}` } })
         await dispatch({
             type: DELETE_MOVIE,
             payload: id

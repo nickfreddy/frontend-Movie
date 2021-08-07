@@ -9,8 +9,6 @@ import AddMovie from './AddMovie';
 
 const AdminPage = () => {
     const [isAddMovie, setIsAddMovie] = useState(true)
-
-
     return (
         <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
             <div className="back-header">
@@ -36,10 +34,10 @@ const AdminPage = () => {
                                         <h3>Movie</h3>
                                         <p>Admin page for movie CRUD</p>
                                     </div>
-                                    <div className="button-profile" onClick={() => setIsAddMovie(false)}>
+                                    <div className="button-profile" onClick={() => setIsAddMovie(true)}>
                                         <h5>List Movie</h5>
                                     </div>
-                                    <div className="button-profile delete" onClick={() => setIsAddMovie(true)}>
+                                    <div className="button-profile delete" onClick={() => setIsAddMovie(false)}>
                                         <h5>Add Movie</h5>
                                     </div>
                                 </Card.Body>
@@ -47,6 +45,7 @@ const AdminPage = () => {
                         </Col>
                         <Col>
                             {isAddMovie ? <ListMovie /> : <AddMovie />}
+
                         </Col>
 
                     </Row>

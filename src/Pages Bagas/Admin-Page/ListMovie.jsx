@@ -3,14 +3,16 @@ import { Card, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux';
 import { loadMovies } from '../../redux/action/movie';
 import CardListMovie from './CardMovieList';
-// deletemovie
-
+import { deletemovie } from '../../redux/action/movie';
+import MyPagination from '../../components/pagination/MyPagination';
+import axios from 'axios';
 
 function ListMovie() {
     const token = localStorage.getItem('Token');
     const moviesData = useSelector(state => state.movies.data);
     const [movie, setMovies] = useState([]);
     const dispatch = useDispatch()
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         dispatch(loadMovies())
@@ -19,6 +21,18 @@ function ListMovie() {
     useEffect(() => {
         setMovies(moviesData)
     }, [moviesData])
+
+    const handlePagination = (e) => {
+        let page = e.target.value;
+
+        axios.get(`https://demovie.gabatch13.my.id/movies?page=${page}&limit=15`)
+            .then(response => response.data)
+            .then(res => res.dataMovie)
+            .then(jsonResponse => {
+                setMovies(jsonResponse);
+                setLoading(false);
+            });
+    }
 
 
 
@@ -36,11 +50,12 @@ function ListMovie() {
                                 <CardListMovie title={movie.title} />
                                 <div className="button-movie-list pb-3">
                                     <Button variant="primary" className="me-2" href={`/Update-movie/${movie._id}`}>Update</Button>{' '}
-                                    {/* <Button variant="warning" onClick={() => dispatch(deletemovie(movie._id, token))}>Delete</Button>{' '} */}
+                                    <Button variant="warning" onClick={() => dispatch(deletemovie(movie._id, token))}>Delete</Button>{' '}
                                 </div>
                             </li>
                         })}
                     </ol>
+                    <MyPagination onclick={handlePagination} />
                 </div>
             </Card.Body>
         </Card>

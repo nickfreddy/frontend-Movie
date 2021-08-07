@@ -1,16 +1,15 @@
-import React, { useState } from 'react'
 import { Modal, Button, Form } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import logo from '../../img/brand-logo.png'
 import axios from 'axios'
-
+import React, { useEffect, useState } from 'react';
 
 
 function ModalSignIn(props) {
     const { onClick, setShow } = props;
-    const refreshPage = ()=>{
+    const refreshPage = () => {
         window.location.reload();
-     }
+    }
     const [state, setState] = useState({
         email: "",
         password: ""
@@ -18,14 +17,14 @@ function ModalSignIn(props) {
 
     const add = (e) => {
         e.preventDefault()
-        if (state.email === "" | state.password === "") {
+        if (state.movieTitile === "" | state.genre === "" | state.release === "" | state.trailer === "" | state.synopsis === "") {
             alert("kolom kosong, tolong diisi terlebih dahulu")
             return;
         } else {
 
             axios.post(`https://demovie.gabatch13.my.id/auth/login`, state).then(res => {
                 setShow(false);
-                localStorage.setItem('Token', res.data.token); localStorage.setItem('USERID', res.data._id);refreshPage(); 
+                localStorage.setItem('Token', res.data.token); localStorage.setItem('USERID', res.data._id); refreshPage();
             })
         }
     }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Navbar, Card,  Form,  Container, Row, Col,   } from 'react-bootstrap'
+import { Button, Navbar, Card, Form, Container, Row, Col, } from 'react-bootstrap'
 import back_button from '../../img/back-button.png'
 import '../Profile-page/index.css'
 // import user from '../../img/user.png'
@@ -9,29 +9,29 @@ import axios from 'axios';
 const ProfilePage = () => {
     const USERID = localStorage.getItem('USERID');
     const Token = localStorage.getItem('Token');
-    const refreshPage = ()=>{
+    const refreshPage = () => {
         window.location.reload();
-     }
+    }
 
-     const [user, setUser] = useState([])
+    const [user, setUser] = useState([])
 
-     const GetUserData = async (url) => {
-         try {
-             const res = await axios.get(url);
-             const data = await res.data;
-             setUser(data)
-             //declare variable to save the data
-         } catch (error) {
-             console.log(error)
-         }
-     }
- 
-     useEffect(() => {
-         GetUserData(`https://demovie.gabatch13.my.id/users/${USERID}
-         `);
-     }, [USERID])
- 
-     console.log(user)
+    const GetUserData = async (url) => {
+        try {
+            const res = await axios.get(url);
+            const data = await res.data;
+            setUser(data)
+            //declare variable to save the data
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    useEffect(() => {
+        GetUserData(`https://demovie.gabatch13.my.id/users/${USERID}
+        `);
+    }, [USERID])
+
+    console.log(user)
 
     const [state, setState] = useState({
         photo: "",
@@ -43,22 +43,11 @@ const ProfilePage = () => {
 
 
     const add = async (e) => {
-        
-            await axios.put(`https://demovie.gabatch13.my.id/users/${USERID}`, state, { headers: { 'Authorization': `Bearer ${Token}` } }).then
-                (alert(`Profile Updated`));refreshPage();
-        
+
+        await axios.put(`https://demovie.gabatch13.my.id/users/${USERID}`, state, { headers: { 'Authorization': `Bearer ${Token}` } }).then
+            (alert(`Profile Updated`)); refreshPage();
+
     }
-
-
-    // useEffect(() => {
-    //     axios.put(`https://demovie.gabatch13.my.id/movies/6106ec601f8da01a30374153/reviews/${USERID}`)
-    //     try {
-
-    //     }
-    // })
-
-
-
 
     return (
         <div>
@@ -112,9 +101,6 @@ const ProfilePage = () => {
                                             <Form.Label style={{ width: "30%" }}>Email address</Form.Label>
                                             <Form.Control value={state.email} onChange={(e) => setState({ ...state, email: e.target.value })} type="email" placeholder="Enter email" />
                                         </Form.Group>
-
-                                     
-
                                         <div className="button-submit">
                                             <Button style={{ width: "100px", height: "40px", marginRight: "20px" }} variant="secondary" type="reset">
                                                 Cancel

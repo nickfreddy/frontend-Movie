@@ -5,11 +5,13 @@ import logo from '../../../img/brand-logo.png'
 import user from '../../../img/user.png'
 
 function Navbar_Admin(props) {
+    const USERID = localStorage.getItem('USERID');
+
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="secondary" className="custom-navbar">
                 <Container>
-                <a href='/'><img
+                    <a href='/'><img
                         src={logo}
                         width="40"
                         height="40"
