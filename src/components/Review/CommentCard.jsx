@@ -11,13 +11,13 @@ const CommentCard = (props) => {
   <>
     
 
-    <Container style={{display:'flex', }}>
+    <Container style={{display:'flex', margin:'1rem 0 1rem 0', }}>
         <Col lg={1} md={2}>
-        <Figure.Image width={171} height={180} alt={imgSrc} src={photo} />
+        <Figure.Image style={{borderRadius:'10px'}} width={100} height={100} alt={imgSrc} src={photo} />
         </Col>
         <Col>
-        <Card border="light" style={{ maxWidth: '70rem' }}>
-            <Card.Header>{userID}</Card.Header>
+        <Card border="light" bg-info style={{ maxWidth: '70rem', borderRadius:'10px' }}>
+            <Card.Header className='bg-info' >{userID}</Card.Header>
             <Card.Body >
                 <Card.Text>
                     {comment}

@@ -59,7 +59,7 @@ function Review() {
         }
     }
 
-    
+
 
     let link = detail.trailer
     console.log(link)
@@ -84,7 +84,7 @@ return (
         sanitizeYTLink(link) : `null`} />   
 
             <div>
-                <Container className='PageContainer'>
+                <Container className='PageContainer '>
                     <DetailNavBtn />
 
                     <Form className="d-flex justify-content-center rounded-3" style={{ backgroundColor: '#D6E0E3' }} >
@@ -110,12 +110,13 @@ return (
                         </div>
 
                 </Form>
+
                 <ul>
                 {review?.map((item, index) => (
                     <div key={index}>
                     <CommentCard photo={item?.user_id?.photo} userID={item?.user_id?.username} comment={item?.comment} /></div>
                 ))}
-               
+               <div style={{margin:"1rem 0 1rem 0", height:'5px'}}></div>
                 </ul>
                     <Row >
                         <Col></Col>
