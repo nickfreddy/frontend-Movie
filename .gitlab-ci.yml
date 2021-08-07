@@ -1,5 +1,5 @@
 # untuk mendefinisikan spesifikasi nodejs yang dipakai
-image: node:12.16.1
+image: node:latest
 
 # menuliskan perintah awal, sebelum docker image program di ambil
 before_script:
@@ -44,13 +44,13 @@ deploy:
     - apt-get update -qy
     - apt-get install -y ruby-dev
     - gem install dpl
-    - dpl --provider=heroku --app=demovie-gabatch13 --api-key=$HEROKU_API_KEY
+    - dpl --provider=heroku --app=$HEROKU_APP --api-key=$HEROKU_API_KEY
     - echo "Deployed to testing server"
   
   # untuk menambah url dari heroku dan jenis environment (test/ production)
-  environment:
-    name: test
-    url: https://demovie-gabatch13.herokuapp.com/
+  # environment:
+  #   name: test
+  #   url: https://demovie-gabatch13.herokuapp.com/
   
   # untuk menunjuk spesifikasi branch mana yang akan di deploy di server
   only:
