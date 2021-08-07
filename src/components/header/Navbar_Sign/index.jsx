@@ -1,12 +1,14 @@
 import React from 'react';
 import '../Navbar_Sign/index.css'
-import { Button, Navbar, Nav, NavDropdown, Form, FormControl, Container, Dropdown } from 'react-bootstrap'
+import {  Navbar, Nav, NavDropdown, Form, FormControl, Container, Dropdown } from 'react-bootstrap'
 import logo from '../../../img/brand-logo.png'
 import user from '../../../img/user.png'
 
 function Navbar_Sign(props) {
     const USERID = localStorage.getItem('USERID');
 
+
+    
     function LogOut() {
         localStorage.clear();
         window.location.replace("/");
@@ -49,8 +51,15 @@ function Navbar_Sign(props) {
                                 />
                             </div>} id="navbarScrollingDropdown">
                                 <Dropdown.ItemText style={{ fontWeight: "500", fontSize: "18px" }}>User Name</Dropdown.ItemText>
+<<<<<<< HEAD
                                 <NavDropdown.Item href={`/Profile-page/${USERID}`}>Profile</NavDropdown.Item>
                                 <NavDropdown.Item href={`/Review-page/${USERID}`} >My Review</NavDropdown.Item>
+=======
+                                <NavDropdown.Item href="#action3">Profile</NavDropdown.Item>
+                                <NavDropdown.Item href="/Admin-page">Add Movie</NavDropdown.Item>
+                                <NavDropdown.Item href="#action4">Setting</NavDropdown.Item>
+                                <NavDropdown.Item href="#action5">Help</NavDropdown.Item>
+>>>>>>> 460f69a58a6bba384d40f472f324db9a36d2d4ea
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item onClick={LogOut}>Sign out</NavDropdown.Item>
                             </NavDropdown>

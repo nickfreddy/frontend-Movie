@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Button, ListGroupItem, ListGroup, Navbar, Card, Nav, NavDropdown, Form, FormControl, Container, Row, Col, NavItem, Grid } from 'react-bootstrap'
+import { Button, Navbar, Card, Form, Container, Row, Col, } from 'react-bootstrap'
 import back_button from '../../img/back-button.png'
 import '../Profile-page/index.css'
-import user from '../../img/user.png'
+// import user from '../../img/user.png'
 import logo from '../../img/brand-logo.png'
 import axios from 'axios';
 
@@ -29,7 +29,7 @@ const ProfilePage = () => {
     useEffect(() => {
         GetUserData(`https://demovie.gabatch13.my.id/users/${USERID}
         `);
-    }, [])
+    }, [USERID])
 
     console.log(user)
 

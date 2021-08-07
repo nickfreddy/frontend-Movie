@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './Background.css'
 import { Modal, Button, Col } from 'react-bootstrap';
-import StarRatings from "react-star-ratings";
+// import StarRatings from "react-star-ratings";
 
 
 function TitleBackground(props) {
@@ -22,10 +22,10 @@ url(${poster})`,backgroundRepeat: 'no-repeat',backgroundSize: 'cover',}}>
                 <div className='Rating'>
                     <div className="starRating">
 
-                        <StarRatings rating={rating} starRatedColor="#FFD700" starDimension="2rem" numberOfStars={5} />
+                        {/* <StarRatings rating={rating === null ? rating : null} starRatedColor="#FFD700" starDimension="2rem" numberOfStars={5} /> */}
                     </div>
                     <div className="totalReview">
-                        {/* <p>{rating}</p> */}
+                        <p>{rating}</p>
                     </div>
                 </div>
                 <div className='Overview'>
