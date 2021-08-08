@@ -24,22 +24,18 @@ function ReviewMovie() {
         setReview(reviewData)
     }, [reviewData])
 
-    console.log(USERID)
 
-    let reviewID = review.filter((item, idx) => item?.user_id?._id === USERID).map((item, index) => {
-        return (
-            item._id
-        )
-    })
-
-    const Dellete = async (e) => {
+    const Delete = (movieid, reviewid) => async (e) => {
         e.preventDefault()
+        console.log(movieid, reviewid)
         try {
-            await axios.delete(`https://demovie.gabatch13.my.id/movies/${USERID}/reviews/${reviewID}`, { headers: { Authorization: `Bearer ${token}` } }); refreshPage();
+            await axios.delete(`https://demovie.gabatch13.my.id/movies/${movieid}/reviews/${reviewid}`, { headers: { Authorization: `Bearer ${token}` } }); refreshPage();
         } catch (error) {
             console.log({ error })
         }
     }
+
+
 
 
     return (
@@ -56,7 +52,7 @@ function ReviewMovie() {
                                 return (
                                     <li key={index} className="d-flex justify-content-between"><h5>{item.movie_id.title} , My comment: {item.comment}</h5>
                                         <div className="button-movie-list pb-3">
-                                            <Button variant="warning" onClick={Dellete} >Delete</Button>{' '}
+                                            <Button variant="warning" onClick={Delete(item.movie_id, item._id)} >Delete</Button>{' '}
                                         </div>
                                     </li>
                                 );
