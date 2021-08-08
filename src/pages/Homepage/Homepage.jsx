@@ -20,7 +20,11 @@ function Homepage() {
     const [loading, setLoading] = useState(true);
     const [show, setShow] = useState(true)
     const dispatch = useDispatch()
-     const USERID = localStorage.getItem('USERID');
+    const USERID = localStorage.getItem('USERID');
+    const ROLE = localStorage.getItem('ROLE');
+
+    console.log(ROLE)
+
 
 
     useEffect(() => {

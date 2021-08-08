@@ -13,6 +13,7 @@ const ProfilePage = () => {
         window.location.reload();
     }
 
+
     const [user, setUser] = useState([])
 
     const GetUserData = async (url) => {
@@ -35,18 +36,18 @@ const ProfilePage = () => {
 
     const [state, setState] = useState({
         photo: "",
-        username: "",
-        email: "",
-        description: ""
-
+        username: user.username,
+        email: user.email,
+        description: user.description
     })
 
-
     const add = async (e) => {
-
-        await axios.put(`https://demovie.gabatch13.my.id/users/${USERID}`, state, { headers: { 'Authorization': `Bearer ${Token}` } }).then
-            (alert(`Profile Updated`)); refreshPage();
-
+        e.preventDefault()
+        try {
+            const res = await axios.put(`https://demovie.gabatch13.my.id/users/${USERID}`, state, { headers: { Authorization: `Bearer ${Token}` } }); (alert(`Profile Updated`)); refreshPage();
+        } catch (error) {
+            console.log({ error })
+        }
     }
 
     return (
@@ -100,6 +101,11 @@ const ProfilePage = () => {
                                         <Form.Group className="mb-3 d-flex" controlId="formBasicEmail">
                                             <Form.Label style={{ width: "30%" }}>Email address</Form.Label>
                                             <Form.Control value={state.email} onChange={(e) => setState({ ...state, email: e.target.value })} type="email" placeholder="Enter email" />
+                                        </Form.Group>
+
+                                        <Form.Group className="mb-3 d-flex" controlId="formBasicEmail">
+                                            <Form.Label style={{ width: "30%" }}>Descriptioon</Form.Label>
+                                            <Form.Control value={state.description} onChange={(e) => setState({ ...state, description: e.target.value })} type="text" placeholder="description" />
                                         </Form.Group>
                                         <div className="button-submit">
                                             <Button style={{ width: "100px", height: "40px", marginRight: "20px" }} variant="secondary" type="reset">
