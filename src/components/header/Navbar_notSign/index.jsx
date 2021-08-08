@@ -22,6 +22,9 @@ function Navbar_notSign() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const handleClose2 = () => setShow(false);
+    const handleShow2 = () => setShow(true);
+
     function goNextPage() {
         setStep(step => step + 1)
     }
@@ -66,7 +69,7 @@ function Navbar_notSign() {
                         
                         <Nav className="m-auto  d-flex justify-content-center align-content-between" >
                             <Form className="">
-                                {hideHeaderFooter ? null :
+                                {window.location.pathname === "/" ? 
                                     <Form className="d-flex" style={{ maxWidth: "50rem" }}>
                                         <FormControl
                                             type="search"
@@ -75,14 +78,17 @@ function Navbar_notSign() {
                                             value={searchValue}
                                             onChange={handleSearchInputChanges}
                                         />
-                                        <Button onClick={callSearchFunction} style={{ width: "10rem" }} type="submit">Search</Button>
-                                    </Form> 
+                                        <Button onClick={callSearchFunction} style={{ width: "5rem" }} type="submit">Search</Button>
+                                    </Form> : null
                                 }
                             </Form>
                         </Nav>
 
                         <Nav>
-                            <Button style={{ fontWeight: "500", color: "black" }} variant="info text-dark mx-auto" style={{maxWidth: '8rem'}} onClick={handleShow}>Sign Up</Button>
+                            <div className="d-flex p-nokay">
+                                <Button style={{ fontWeight: "500", color: "black" }} variant="secondary text-light me-1 m-nokay" style={{maxWidth: '8rem'}} onClick={handleShow}>Sign Up</Button>
+                                <Button style={{ fontWeight: "500", color: "black" }} variant="secondary text-light m-nokay" style={{maxWidth: '8rem'}} onClick={handleShow2}>Sign In</Button>
+                            </div>
                         </Nav>
 
                     </Navbar.Collapse>
@@ -93,6 +99,12 @@ function Navbar_notSign() {
             <Modal className="mt-5" show={show} onHide={handleClose}>
                 {step === 1 && <ModalSignUp onClick={goNextPage} setShow={setShow} />}
                 {step === 2 && <ModalSignIn onClick={goPrevPage} setShow={setShow} />}
+            </Modal>
+
+            <Modal className="mt-5" show={show} onHide={handleClose2}>
+                {step === 1 && <ModalSignIn onClick={goNextPage} setShow={setShow} />}
+                {step === 2 && <ModalSignUp onClick={goPrevPage} setShow={setShow} />}
+                
             </Modal>
 
 

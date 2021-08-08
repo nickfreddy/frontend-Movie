@@ -96,9 +96,9 @@ function Homepage() {
     return (
         <div>
 
-            <Carousel >
+            <Carousel className="height-nokay"  >
                 {backdrops.map(backdrop => (
-                    <Carousel.Item style={{ height: '25rem' }}>
+                    <Carousel.Item className="height-nokay">
                         <img
                             className="d-block w-100"
                             src={backdrop}
