@@ -12,6 +12,7 @@ import { useDispatch } from 'react-redux';
 
 
 function Navbar_notSign() {
+
     const [show, setShow] = useState(false);
     const [step, setStep] = useState(1);
     const [searchValue, setSearchValue] = useState("");
@@ -44,11 +45,13 @@ function Navbar_notSign() {
         resetInputField();
     }
 
+    const hideHeaderFooter = window.location.pathname.includes("/Admin-page") || window.location.pathname.includes("/Profile-page") || window.location.pathname.includes("/Update-movie") || window.location.pathname.includes("/Review-page") || window.location.pathname.includes("/DetailPage");
+
 
 
     return (
         <div>
-            <Navbar collapseOnSelect expand="lg" bg="secondary" className="custom-navbar">
+            <Navbar collapseOnSelect expand="lg" bg="secondary" className="custom-navbar d-flex">
                 <Container>
                     <a href='/'><img
                         src={logo}
@@ -60,9 +63,10 @@ function Navbar_notSign() {
                     <Navbar.Brand className='me-auto text-light' href='/' style={{ fontWeight: "500" }}>deMovie</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="m-auto pe-3" >
-                            <Form className="d-flex" style={{ maxWidth: "50rem" }}>
-                                {window.location.pathname === '/' ?
+                        
+                        <Nav className="m-auto  d-flex justify-content-center align-content-between" >
+                            <Form className="">
+                                {hideHeaderFooter ? null :
                                     <Form className="d-flex" style={{ maxWidth: "50rem" }}>
                                         <FormControl
                                             type="search"
@@ -71,21 +75,16 @@ function Navbar_notSign() {
                                             value={searchValue}
                                             onChange={handleSearchInputChanges}
                                         />
-                                        <Button onClick={callSearchFunction} type="submit">Search</Button>
-                                    </Form> : null
+                                        <Button onClick={callSearchFunction} style={{ width: "10rem" }} type="submit">Search</Button>
+                                    </Form> 
                                 }
                             </Form>
                         </Nav>
+
                         <Nav>
-                            <Switch>
-                                <Route exact path='/'>
-                                    <Button style={{ fontWeight: "500", color: "black" }} variant="outline-secondary text-light" onClick={handleShow}>Sign Up</Button>
-                                </Route>
-                                <Route exact path='/SignIn'>
-                                    <Button style={{ fontWeight: "500", color: "black" }} variant="outline-secondary text-light" onClick={handleShow}>Sign in</Button>
-                                </Route>
-                            </Switch>
+                            <Button style={{ fontWeight: "500", color: "black" }} variant="info text-dark mx-auto" style={{maxWidth: '8rem'}} onClick={handleShow}>Sign Up</Button>
                         </Nav>
+
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
