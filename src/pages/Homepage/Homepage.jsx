@@ -57,7 +57,7 @@ function Homepage() {
         setErrorMessage(null);
 
         if (word === 'all') {
-            return setMovies(moviesData)
+            dispatch(loadMovies())
         };
 
         axios.get(`https://demovie.gabatch13.my.id/movies/genres/${word}?page=1&limit=0`)
@@ -114,7 +114,7 @@ function Homepage() {
 
                 <h2 className="mt-3">Browse by Category</h2>
 
-                <div className="d-flex">
+                <div className="d-flex flex-wrap">
                     <CategoryButton title={"All"} onClick={() => {
                         handleFilterButton('all');
                         handleShowPagination()
