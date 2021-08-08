@@ -11,6 +11,7 @@ import Navbar_Sign from "../components/header/Navbar_Sign";
 import ReviewPage from "../Pages Bagas/Review-page";
 import FormMovie from "../Pages Bagas/Admin-Page/FormUpdate";
 import { useParams } from 'react-router';
+import Photo from "../pages/DetailPages/Photo";
 
 
 const Routers = () => {
@@ -53,6 +54,9 @@ const Routers = () => {
         </Route>
         <Route exact path="/Update-movie/:id">
           <FormMovie />
+        </Route>
+        <Route exact path="/Photo/:USERID">
+          <Photo />
         </Route>
 
         {/*  * is for all routes that is not registered in here */}

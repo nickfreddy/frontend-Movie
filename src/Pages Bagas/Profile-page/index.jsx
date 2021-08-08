@@ -35,7 +35,6 @@ const ProfilePage = () => {
     console.log(user)
 
     const [state, setState] = useState({
-        photo: "",
         username: user.username,
         email: user.email,
         description: user.description
@@ -51,7 +50,23 @@ const ProfilePage = () => {
         }
     }
 
-    
+    const [statePhoto, setPhoto] = useState({
+        photo: null,
+       
+    })
+
+
+
+    const photo = async (e) => {
+        e.preventDefault();let form_data = new FormData(); form_data.append('image', this.state.image, this.state.image.name);
+
+        try {
+            // eslint-disable-next-line no-unused-vars
+            const res = await axios.put(`https://demovie.gabatch13.my.id/users/${USERID}`, form_data, { headers: { Authorization: `Bearer ${Token}` } }); (alert(`Profile Updated`)); refreshPage();
+        } catch (error) {
+            console.log({ error })
+        }
+    }
 
     // const add = async (a) => {
     // await axios.put(`https://demovie.gabatch13.my.id/users/${USERID}`, state, { headers: { 'Authorization': `Bearer ${Token}` } })
@@ -158,9 +173,13 @@ const ProfilePage = () => {
                                             alt="React Bootstrap logo"
                                         />
                                         <div className="input-image">
+                                            <Form>
                                             <Form.Group controlId="formFile" className="mb-3 ">
-                                                <Form.Control type="file" />
+                                                <Form.Control type="file" value={statePhoto.photo} onChange={(e) => setPhoto({ ...statePhoto, photo: e.target.files[0] })}/>
                                             </Form.Group>
+                                            <Button onClick={photo}  style={{ width: "100px", height: "40px" }} variant="warning" >Photo</Button>
+
+                                            </Form>
                                         </div>
 
                                     </div>

@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { loadMovies } from '../../redux/action/movie'
 import MyPagination from '../../components/pagination/MyPagination'
 import NoResult from '../../components/noResult/NoResult'
+import { Button } from 'bootstrap'
 // import { Button } from 'react-bootstrap'
 
 
@@ -154,7 +155,7 @@ function Homepage() {
                 )) : <NoResult />}
 
             </div>
-
+<a href={`Photo/${USERID}`}><button >tes foto</button></a>
             {/* --------------------------------------------------------------- */}
 
             <div className="my-3">
