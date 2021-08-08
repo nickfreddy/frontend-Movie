@@ -51,27 +51,24 @@ comment: "",
         alert("leave your comment & rating first");
         return;
          } else {
-            await axios.post(`https://demovie.gabatch13.my.id/movies/${id}/reviews`, state, { headers: { 'Authorization': `Bearer
-            ${Token}` } }).then
-            (alert(`review success`)); refreshPage();
+            await axios.post(`https://demovie.gabatch13.my.id/movies/${id}/reviews`, state, { headers: { 'Authorization': `Bearer ${Token}` }}).then(alert(`review success`)); refreshPage();
             }
             }
+
     const edit = async (e) => {
         e.preventDefault()
         if (state.rating === 0 || state.comment === "") {
         alert("leave your comment & rating first");
         return;
         } else {
-            await axios.put(`https://demovie.gabatch13.my.id/movies/${id}/reviews/${comment}`, state, { headers: { 'Authorization':
-            `Bearer ${Token}` } }).then
+            await axios.put(`https://demovie.gabatch13.my.id/movies/${id}/reviews/${comment}`, state, { headers: { 'Authorization':`Bearer ${Token}` } }).then
                 (alert(`edit success`)); refreshPage();
                 }
                 }
 
     const Delete = async (e) => {
         try {
-        await axios.delete(`https://demovie.gabatch13.my.id/movies/${USERID}/reviews/${comment}`, { headers: { Authorization:
-        `Bearer ${Token}` } }); refreshPage();
+        await axios.delete(`https://demovie.gabatch13.my.id/movies/${USERID}/reviews/${comment}`, { headers: { Authorization:`Bearer ${Token}` } }); refreshPage();
             } catch (error) {
             console.log({ error })
             }
@@ -131,18 +128,15 @@ return (
                         <Form.Control as="textarea" value={state.comment} onChange={(e)=> setState({ ...state, comment:
                             e.target.value })} placeholder="Leave a review" style={{ Width: '70rem', height: '200px' }}
                             />
-
-                            {/*
-                            <Form.Control type="email" placeholder="Enter email" style={{width: '25rem'}} /> */}
+                           
                     </Form.Group>
-                    {USERID ? <Button onClick={add} style={{ float: 'right', marginRight: '1rem' }}>Submit</Button> :
-                    null}
+                    {USERID ? <Button onClick={add} style={{ float: 'right', marginRight: '1rem' }}>Submit</Button> : null}
                     {/* eslint-disable-next-line eqeqeq */}
                     {pengguna == USERID ? <Button onClick={edit} variant='warning'
                         style={{ float: 'right', marginRight: '1rem' }}>Edit</Button> : null}
                     {/* eslint-disable-next-line eqeqeq */}
-                    {pengguna == USERID ? <Button onClick={Delete} variant='warning'
-                        style={{ float: 'left', marginRight: '1rem' }}>Delete</Button> : null}
+                    {pengguna == USERID ? <Button onClick={Delete} 
+                        style={{ float: 'left', marginLeft: '1rem', backgroundColor:'#CD113B', borderColor:"#FF7600"}}>Delete</Button> : null}
                 </div>
 
             </Form>
