@@ -2,12 +2,15 @@ import React, { useState } from 'react'
 import './Background.css'
 import { Modal, Button, Col } from 'react-bootstrap';
 // import StarRatings from "react-star-ratings";
+import Rating from '@material-ui/lab/Rating';
 
 
 function TitleBackground(props) {
 const { title, poster, trailer, rating, synopsis, } = props;
 
 const [lgShow, setLgShow] = useState(false);
+console.log(rating)
+// let angka = rating?;
 
 return (
 <>
@@ -21,7 +24,7 @@ url(${poster})`,backgroundRepeat: 'no-repeat',backgroundSize: 'cover',}}>
             <div>
                 <div className='Rating'>
                     <div className="starRating">
-
+                    <Rating name="half-rating-read" defaultValue={rating} precision={0.5} readOnly />
                         {/* <StarRatings rating={rating === null ? rating : null} starRatedColor="#FFD700" starDimension="2rem" numberOfStars={5} /> */}
                     </div>
                     <div className="totalReview">
