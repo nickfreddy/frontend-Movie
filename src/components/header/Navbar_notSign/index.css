@@ -3,3 +3,13 @@
 body {
     font-family: 'Roboto', sans-serif;
 }
+
+@media screen and (max-width: 991px ) {
+    .p-nokay{
+        margin-top: 10px;
+    }
+
+    .m-nokay{
+        margin: 0 auto;
+    }
+}
