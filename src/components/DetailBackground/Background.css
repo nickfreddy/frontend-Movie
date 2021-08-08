@@ -104,8 +104,8 @@
     }
 
     .Rating {
-        margin-top: -0.3rem;
-        font-size: 0.7rem;
+        margin-top: 1rem;
+        font-size: 1.5rem;
         line-height: 0.7rem;
         display: flex;
         text-align: left;
@@ -149,8 +149,8 @@
     }
 
     .Rating {
-        margin-top: -0.3rem;
-        font-size: 0.7rem;
+        margin-top: -0.4rem;
+        font-size: 1rem;
         line-height: 0.7rem;
         display: flex;
         text-align: left;

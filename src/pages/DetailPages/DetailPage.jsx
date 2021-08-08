@@ -32,7 +32,7 @@ function Detailpage() {
 
     useEffect(() => {
         GetDetailMovies(`https://demovie.gabatch13.my.id/movies/${id}?revlimit=3&revpage=1`);
-    }, [])
+    }, [id])
 
     console.log(detail)
     let link = detail.trailer

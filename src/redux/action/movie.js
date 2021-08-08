@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const loadMovies = () => async (dispatch) => {
     try {
-        const movies = await axios.get("https://demovie.gabatch13.my.id/movies?page=1&limit=0");
+        const movies = await axios.get("https://demovie.gabatch13.my.id/movies?page=1&limit=18");
         const dataResults = await movies.data;
         const data = await dataResults.dataMovie;
         console.log(data)

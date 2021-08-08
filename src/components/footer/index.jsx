@@ -33,17 +33,17 @@ function Footer() {
                     </Col>
                     <Col>
                         <div className="about-us">
-                            <h5>Tentang Kami</h5>
+                            <h5>About Us</h5>
                             <h5>Blog</h5>
-                            <h5>Layanan</h5>
-                            <h5>Karir</h5>
-                            <h5>Pusat Media</h5>
+                            <h5>Service</h5>
+                            <h5>Career</h5>
+                            <h5>Media Center</h5>
                         </div>
 
                     </Col>
                     <Col className="pt-2">
                         <h5 className="pb-1">Download</h5>
-                        <div className="download" className="pb-5">
+                        <div className="download pb-5">
                             <img
                                 src={googleplay}
                                 width="175"

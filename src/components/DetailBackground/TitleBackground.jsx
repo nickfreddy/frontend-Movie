@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './Background.css'
 import { Modal, Button, Col } from 'react-bootstrap';
 // import StarRatings from "react-star-ratings";
-import Rating from '@material-ui/lab/Rating';
+// import Rating from '@material-ui/lab/Rating';
 
 
 function TitleBackground(props) {
@@ -24,7 +24,7 @@ url(${poster})`,backgroundRepeat: 'no-repeat',backgroundSize: 'cover',}}>
             <div>
                 <div className='Rating'>
                     <div className="starRating">
-                    <Rating name="half-rating-read" defaultValue={rating} precision={0.5} readOnly />
+                    {/* <Rating name="half-rating-read" defaultValue={rating ? rating : 1} precision={0.5} readOnly /> */}
                         {/* <StarRatings rating={rating === null ? rating : null} starRatedColor="#FFD700" starDimension="2rem" numberOfStars={5} /> */}
                     </div>
                     <div className="totalReview">
@@ -37,7 +37,7 @@ url(${poster})`,backgroundRepeat: 'no-repeat',backgroundSize: 'cover',}}>
                 <div className='Tombol'>
                     <Button variant="warning" size='lg' onClick={()=> setLgShow(true)}>Watch Trailer</Button>
                     <div className='watchlist-btn'>
-                        <Button style={{color:'white'}} variant="outline-secondary" size='lg'>Add to Watchlist</Button>
+                        <Button style={{color:'white'}} variant="outline-secondary disabled" size='lg'>Add to Watchlist (comming soon)</Button>
                     </div>
                 </div>
             </div>

@@ -37,7 +37,7 @@ function Homepage() {
 
     const handlePagination = (e) => {
         let page = e.target.value;
-        axios.get(`https://demovie.gabatch13.my.id/movies?page=${page}&limit=15`)
+        axios.get(`https://demovie.gabatch13.my.id/movies?page=${page}&limit=18`)
             .then(response => response.data)
             .then(res => res.dataMovie)
             .then(jsonResponse => {
