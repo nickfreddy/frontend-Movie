@@ -91,7 +91,7 @@ function Homepage() {
 
     return (
         <div>
-    
+
             <Carousel >
                 {backdrops.map(backdrop => (
                     <Carousel.Item style={{ height: '25rem' }}>
@@ -114,25 +114,25 @@ function Homepage() {
                     <CategoryButton title={"All"}  onClick={() => { 
                         handleFilterButton('all');
                         handleShowPagination()
-                    }}  />
-                    <CategoryButton title={"Action"}  onClick={() => { 
+                    }} />
+                    <CategoryButton title={"Action"} onClick={() => {
                         handleFilterButton('action');
                         handleHidePagination()
-                    }}  />
-                    <CategoryButton title={"Romances"} onClick={() => { 
+                    }} />
+                    <CategoryButton title={"Romances"} onClick={() => {
                         handleFilterButton('romance');
                         handleHidePagination()
-                    }}  />
-                    <CategoryButton title={"Comedy"} onClick={() => { 
+                    }} />
+                    <CategoryButton title={"Comedy"} onClick={() => {
                         handleFilterButton('comedy');
                         handleHidePagination()
-                    }}  />
-                    <CategoryButton title={"Anime"} onClick={() => { 
+                    }} />
+                    <CategoryButton title={"Anime"} onClick={() => {
                         handleFilterButton('anime');
                         handleHidePagination()
-                    }}  />
+                    }} />
                 </div>
-                
+
             </div>
 
             {/* ------------------------------------------------------------ */}
@@ -141,13 +141,13 @@ function Homepage() {
 
             <div className="container d-flex flex-wrap justify-content-around my-1">
 
-                {movies.length > 0 ?  movies.filter((movie, idx) => idx < 20).map( movie =>(
-                <div key={movie.idx}>
-                    <Link className="text-decoration-none text-dark" to={`detailPage/${movie._id}`}>
-                        <Card className="skala" title={movie.title} img={movie.poster} category={movie.genres.join(', ')} />
-                    </Link>
-                </div> 
-                )) : <NoResult/> }
+                {movies.length > 0 ? movies.filter((movie, idx) => idx < 20).map(movie => (
+                    <div key={movie.idx}>
+                        <Link className="text-decoration-none text-dark" to={`detailPage/${movie._id}`}>
+                            <Card className="skala" title={movie.title} img={movie.poster} category={movie.genres.join(', ')} />
+                        </Link>
+                    </div>
+                )) : <NoResult />}
 
             </div>
 
@@ -155,13 +155,7 @@ function Homepage() {
 
             <div className="my-3">
                 {show ? <MyPagination onclick={handlePagination} /> : null}
-                {/* <Button href={`/Review-page/${USERID}`} ></Button> */}
-                {/* <Button href={`/Profile-page/${USERID}`} ></Button> */}
-                <Button href={`/Admin-page/${USERID}`} ></Button>
             </div>
-
-            
-
         </div>
     )
 }
