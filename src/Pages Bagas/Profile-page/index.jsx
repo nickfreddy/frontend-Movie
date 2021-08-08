@@ -34,21 +34,38 @@ const ProfilePage = () => {
     console.log(user)
 
     const [state, setState] = useState({
-        photo: "",
+        photo: '',
         username: "",
         email: "",
         description: ""
 
     })
 
+    
+    const formData = new FormData();
 
-    const add = async (e) => {
 
-        await axios.put(`https://demovie.gabatch13.my.id/users/${USERID}`, state, { headers: { 'Authorization': `Bearer ${Token}` } }).then
-            (alert(`Profile Updated`)); refreshPage();
+    formData.append(
+        "myFile",
+        this.state.selectedFile,
+        this.state.selectedFile.name
+      );
+
+
+    const add = async (a) => {
+    await axios.put(`https://demovie.gabatch13.my.id/users/${USERID}`, state, { headers: { 'Authorization': `Bearer ${Token}` } })
+    .then(alert(`Profile Updated`));  refreshPage();
+        
 
     }
-
+    
+    const photo = async (a) => {
+        await axios.put(`https://demovie.gabatch13.my.id/users/${USERID}`, formData, { headers: { 'Authorization': `Bearer ${Token}` } })
+        .then(alert(`Profile Updated`));  refreshPage();
+            
+    
+        }
+   
     return (
         <div>
             <div className="back-header">
@@ -94,21 +111,31 @@ const ProfilePage = () => {
                                     <Form style={{ padding: "1px 32px 20px 110px" }}>
                                         <Form.Group className="mb-3 d-flex" controlId="formBasicFirstName">
                                             <Form.Label style={{ width: "30%" }} >Full Name</Form.Label>
-                                            <Form.Control value={state.username} onChange={(e) => setState({ ...state, username: e.target.value })} type="text" placeholder="Full Name" />
+                                            <Form.Control value={state.username} onChange={(a) => setState({ ...state, username: a.target.value })} type="text" placeholder="Full Name" />
                                         </Form.Group>
 
                                         <Form.Group className="mb-3 d-flex" controlId="formBasicEmail">
                                             <Form.Label style={{ width: "30%" }}>Email address</Form.Label>
-                                            <Form.Control value={state.email} onChange={(e) => setState({ ...state, email: e.target.value })} type="email" placeholder="Enter email" />
+                                            <Form.Control value={state.email} onChange={(a) => setState({ ...state, email: a.target.value })} type="email" placeholder="Enter email" />
                                         </Form.Group>
-                                        <div className="button-submit">
+                                        <Form.Group className="mb-3 d-flex" controlId="formBasicDescription">
+                                            <Form.Label style={{ width: "30%" }}>Description</Form.Label>
+                                            <Form.Control value={state.description} onChange={(a) => setState({ ...state, description: a.target.value })} type="text" placeholder="description" />
+                                        </Form.Group>
+                                        {/* <div className="input-image"> */}
+                                            <Form.Group controlId="formFile" className="mb-3 ">
+                                                <Form.Control value={state.photo} onChange={(a) => setState({ ...state,photo: a.target.files[0],})} type="file" />
+                                            </Form.Group>
+                                        {/* </div> */}
+
+                                        {/* <div className="button-submit">
                                             <Button style={{ width: "100px", height: "40px", marginRight: "20px" }} variant="secondary" type="reset">
                                                 Cancel
-                                            </Button>
-                                            <Button onClick={add} style={{ width: "100px", height: "40px" }} variant="warning" type="submit">
+                                            </Button> */}
+                                            <Button onClick={add}  style={{ width: "100px", height: "40px" }} variant="warning" >
                                                 Update
                                             </Button>
-                                        </div>
+                                        {/* </div> */}
                                     </Form>
                                 </Card.Body>
                             </Card>
@@ -130,11 +157,11 @@ const ProfilePage = () => {
                                             className="d-inline-block align-top m-3"
                                             alt="React Bootstrap logo"
                                         />
-                                        <div className="input-image">
+                                        {/* <div className="input-image">
                                             <Form.Group controlId="formFile" className="mb-3 ">
                                                 <Form.Control type="file" />
                                             </Form.Group>
-                                        </div>
+                                        </div> */}
 
                                     </div>
 
@@ -145,7 +172,7 @@ const ProfilePage = () => {
                 </Container>
 
             </div>
-            <div className="footerprofile bg-secondary">
+            {/* <div className="footerprofile bg-secondary">
                 <img
                     src={logo}
                     width="50"
@@ -154,7 +181,7 @@ const ProfilePage = () => {
                     alt="React Bootstrap logo"
                 />
                 <h3>deMovie</h3>
-            </div>
+            </div> */}
         </div >
     );
 };

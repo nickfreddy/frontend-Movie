@@ -25,7 +25,7 @@ function Homepage() {
 
     useEffect(() => {
         dispatch(loadMovies())
-    }, []);
+    }, [dispatch]);
 
     useEffect(() => {
         setMovies(moviesData)
@@ -37,7 +37,7 @@ function Homepage() {
 
     const handlePagination = (e) => {
         let page = e.target.value;
-        axios.get(`https://demovie.gabatch13.my.id/movies?page=${page}&limit=18`)
+        axios.get(`https://demovie.gabatch13.my.id/movies?page=${page}&limit=15`)
             .then(response => response.data)
             .then(res => res.dataMovie)
             .then(jsonResponse => {
@@ -106,7 +106,7 @@ function Homepage() {
 
             {/* ------------------------------------------------------------ */}
 
-            <div className="container">
+            <div className="container w-75">
 
                 <h2 className="mt-3">Browse by Category</h2>
 
@@ -139,9 +139,9 @@ function Homepage() {
 
             <div className="container divider my-1 "></div>
 
-            <div className="container d-flex flex-wrap justify-content-around my-1">
+            <div className="w-75 container d-flex flex-wrap justify-content-around my-1">
 
-                {movies.length > 0 ? movies.filter((movie, idx) => idx < 20).map(movie => (
+                {movies.length > 0 ? movies.filter((movie, idx) => idx < 15).map(movie => (
                     <div key={movie.idx}>
                         <Link className="text-decoration-none text-dark" to={`detailPage/${movie._id}`}>
                             <Card className="skala" title={movie.title} img={movie.poster} category={movie.genres.join(', ')} />
