@@ -66,7 +66,7 @@ function Navbar_notSign() {
                         
                         <Nav className="m-auto  d-flex justify-content-center align-content-between" >
                             <Form className="">
-                                {hideHeaderFooter ? null :
+                                {window.location.pathname === "/" ? 
                                     <Form className="d-flex" style={{ maxWidth: "50rem" }}>
                                         <FormControl
                                             type="search"
@@ -76,7 +76,7 @@ function Navbar_notSign() {
                                             onChange={handleSearchInputChanges}
                                         />
                                         <Button onClick={callSearchFunction} style={{ width: "10rem" }} type="submit">Search</Button>
-                                    </Form> 
+                                    </Form> : null
                                 }
                             </Form>
                         </Nav>
