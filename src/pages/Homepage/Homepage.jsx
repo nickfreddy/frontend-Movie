@@ -52,8 +52,8 @@ function Homepage() {
         setLoading(true);
         setErrorMessage(null);
 
-        if (word === 'all') {
-            return setMovies(moviesData)
+        if ( word === 'all') {
+            dispatch(loadMovies())
         };
 
         axios.get(`https://demovie.gabatch13.my.id/movies/genres/${word}?page=1&limit=0`)
@@ -92,9 +92,9 @@ function Homepage() {
     return (
         <div>
 
-            <Carousel >
+            <Carousel className="height-nokay"  >
                 {backdrops.map(backdrop => (
-                    <Carousel.Item style={{ height: '25rem' }}>
+                    <Carousel.Item className="height-nokay">
                         <img
                             className="d-block w-100"
                             src={backdrop}
@@ -110,8 +110,8 @@ function Homepage() {
 
                 <h2 className="mt-3">Browse by Category</h2>
 
-                <div className="d-flex">
-                    <CategoryButton title={"All"} onClick={() => {
+                <div className="d-flex flex-wrap">
+                    <CategoryButton title={"All"}  onClick={() => { 
                         handleFilterButton('all');
                         handleShowPagination()
                     }} />

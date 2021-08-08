@@ -6,11 +6,11 @@ function MyPagination(props) {
     return (
         <div className="d-flex justify-content-center">
             <ButtonGroup aria-label="Basic example">
-                <Button variant="outline-primary" ></Button>
+                <Button variant="secondary disabled" ></Button>
                 <Button variant="outline-primary" onClick={onclick} value='1'>1</Button>
                 <Button variant="outline-primary" onClick={onclick} value='2'>2</Button>
                 <Button variant="outline-primary" onClick={onclick} value='3'>3</Button>
-                <Button variant="outline-primary" ></Button>
+                <Button variant="secondary disabled" ></Button>
             </ButtonGroup>
         </div>
     )
