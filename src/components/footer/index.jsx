@@ -28,7 +28,7 @@ function Footer() {
                             <h5 className="pt-2">deMovie</h5>
                         </div>
                         <p className="ps-3 pe-5" style={{ fontWeight: "300" }}>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.printing and typesetting industry. Lorem Ipsum has been the industry's standard
+                        deMovie is the world's most laidback source for movie, and celebrity content. Find ratings and reviews for some movie.
                         </p>
                     </Col>
                     <Col>

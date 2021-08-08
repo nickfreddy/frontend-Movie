@@ -154,7 +154,7 @@ return (
             <Row>
                 <Col>
                 </Col>
-                <Col style={{ display: 'flex', justifyContent: 'space-evenly', }}><Button>Load More</Button></Col>
+                {/* <Col style={{ display: 'flex', justifyContent: 'space-evenly', }}><Button>Load More</Button></Col> */}
                 <Col>
                 </Col>
             </Row>

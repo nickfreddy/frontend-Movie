@@ -15,6 +15,7 @@ function Navbar_Sign(props) {
     const USERID = localStorage.getItem('USERID');
 
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const GetAllUser = async () => {
         try {
             const res = await axios.get(`https://demovie.gabatch13.my.id/users/${USERID}`);
@@ -75,9 +76,9 @@ function Navbar_Sign(props) {
                     <Navbar.Brand className='me-auto text-light' href='/' style={{ fontWeight: "500" }}>deMovie</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="m-auto pe-3" >
+                        <Nav className="m-auto pe-3 searchBar" >
                             {window.location.pathname === '/' ?
-                                <Form className="d-flex" style={{ maxWidth: "50rem" }}>
+                                <Form className="d-flex searchBar" >
                                     <FormControl
                                         type="search"
                                         placeholder="Search Movie"

@@ -3,7 +3,7 @@ import { Button, Navbar, Card, Form, Container, Row, Col, } from 'react-bootstra
 import back_button from '../../img/back-button.png'
 import '../Profile-page/index.css'
 // import user from '../../img/user.png'
-import logo from '../../img/brand-logo.png'
+// import logo from '../../img/brand-logo.png'
 import axios from 'axios';
 
 const ProfilePage = () => {
@@ -44,6 +44,7 @@ const ProfilePage = () => {
     const add = async (e) => {
         e.preventDefault()
         try {
+            // eslint-disable-next-line no-unused-vars
             const res = await axios.put(`https://demovie.gabatch13.my.id/users/${USERID}`, state, { headers: { Authorization: `Bearer ${Token}` } }); (alert(`Profile Updated`)); refreshPage();
         } catch (error) {
             console.log({ error })
@@ -81,10 +82,10 @@ const ProfilePage = () => {
                     </Navbar.Brand>
                 </div>
             </div >
-            <div className="Profile-page">
-                <Container>
+            <div className="Profile-page d-flex justify-content-between ">
+                <Container className='d-flex '>
                     <Row>
-                        <Col xs={2}>
+                        <Col xs={7} lg={2} md={2} >
                             <Card style={{ borderRadius: "10px", boxShadow: "4px 5px 1px #9E9E9E" }}>
                                 <Card.Body style={{ padding: "0" }}>
                                     <div className="card-title">
@@ -101,14 +102,14 @@ const ProfilePage = () => {
                                 </Card.Body>
                             </Card>
                         </Col>
-                        <Col xs={7}>
+                        <Col sm={10} lg={7} md={8} >
                             <Card style={{ borderRadius: "10px", boxShadow: "4px 5px 1px #9E9E9E" }}>
                                 <Card.Body style={{ padding: "0" }}>
                                     <div className="card-title">
                                         <h3>Edit Profile</h3>
                                         <p>Change profile information</p>
                                     </div>
-                                    <Form style={{ padding: "1px 32px 20px 110px" }}>
+                                    <Form style={{ padding: "1rem 1rem 2rem 2.5rem" }}>
                                         <Form.Group className="mb-3 d-flex" controlId="formBasicFirstName">
                                             <Form.Label style={{ width: "30%" }} >Full Name</Form.Label>
                                             <Form.Control value={state.username} onChange={(a) => setState({ ...state, username: a.target.value })} type="text" placeholder="Full Name" />
@@ -123,12 +124,12 @@ const ProfilePage = () => {
                                             <Form.Control value={state.description} onChange={(a) => setState({ ...state, description: a.target.value })} type="text" placeholder="description" />
                                         </Form.Group>
 
-                                        <Form.Group className="mb-3 d-flex" controlId="formBasicEmail">
+                                        {/* <Form.Group className="mb-3 d-flex" controlId="formBasicEmail">
                                             <Form.Label style={{ width: "30%" }}>Descriptioon</Form.Label>
                                             <Form.Control value={state.description} onChange={(e) => setState({ ...state, description: e.target.value })} type="text" placeholder="description" />
-                                        </Form.Group>
+                                        </Form.Group> */}
                                         <div className="button-submit">
-                                            <Button style={{ width: "100px", height: "40px", marginRight: "20px" }} variant="secondary" type="reset">
+                                            <Button href="/" style={{ width: "100px", height: "40px", marginRight: "20px" }} variant="secondary" type="reset">
                                                 Cancel
                                             </Button> 
                                             <Button onClick={add}  style={{ width: "100px", height: "40px" }} variant="warning" >
@@ -140,7 +141,7 @@ const ProfilePage = () => {
                             </Card>
 
                         </Col>
-                        <Col>
+                        <Col lg={3} md={2}>
                             <Card style={{ borderRadius: "10px", boxShadow: "4px 5px 1px #9E9E9E" }}>
                                 <Card.Body style={{ padding: "0" }}>
                                     <div className="card-title">
@@ -156,11 +157,11 @@ const ProfilePage = () => {
                                             className="d-inline-block align-top m-3"
                                             alt="React Bootstrap logo"
                                         />
-                                        {/* <div className="input-image">
+                                        <div className="input-image">
                                             <Form.Group controlId="formFile" className="mb-3 ">
                                                 <Form.Control type="file" />
                                             </Form.Group>
-                                        </div> */}
+                                        </div>
 
                                     </div>
 

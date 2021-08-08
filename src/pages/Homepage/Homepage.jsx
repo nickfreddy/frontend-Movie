@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { loadMovies } from '../../redux/action/movie'
 import MyPagination from '../../components/pagination/MyPagination'
 import NoResult from '../../components/noResult/NoResult'
-import { Button } from 'react-bootstrap'
+// import { Button } from 'react-bootstrap'
 
 
 function Homepage() {

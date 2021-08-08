@@ -1,0 +1,15 @@
+
+/* .ButtonList{
+
+}
+.MovieList{
+
+} */
+
+.list-movie{
+    justify-content: space-between !important;
+}
+
+.ButtonList{
+justify-content: flex-end !important;
+}
