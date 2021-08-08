@@ -13,6 +13,7 @@ const ProfilePage = () => {
         window.location.reload();
     }
 
+
     const [user, setUser] = useState([])
 
     const GetUserData = async (url) => {
@@ -34,37 +35,36 @@ const ProfilePage = () => {
     console.log(user)
 
     const [state, setState] = useState({
-        photo: '',
-        username: "",
-        email: "",
-        description: ""
-
+        photo: "",
+        username: user.username,
+        email: user.email,
+        description: user.description
     })
 
+    const add = async (e) => {
+        e.preventDefault()
+        try {
+            const res = await axios.put(`https://demovie.gabatch13.my.id/users/${USERID}`, state, { headers: { Authorization: `Bearer ${Token}` } }); (alert(`Profile Updated`)); refreshPage();
+        } catch (error) {
+            console.log({ error })
+        }
+    }
+
     
-    const formData = new FormData();
 
-
-    formData.append(
-        "myFile",
-        this.state.selectedFile,
-        this.state.selectedFile.name
-      );
-
-
-    const add = async (a) => {
-    await axios.put(`https://demovie.gabatch13.my.id/users/${USERID}`, state, { headers: { 'Authorization': `Bearer ${Token}` } })
-    .then(alert(`Profile Updated`));  refreshPage();
+    // const add = async (a) => {
+    // await axios.put(`https://demovie.gabatch13.my.id/users/${USERID}`, state, { headers: { 'Authorization': `Bearer ${Token}` } })
+    // .then(alert(`Profile Updated`));  refreshPage();
         
 
-    }
+    // }
     
-    const photo = async (a) => {
-        await axios.put(`https://demovie.gabatch13.my.id/users/${USERID}`, formData, { headers: { 'Authorization': `Bearer ${Token}` } })
-        .then(alert(`Profile Updated`));  refreshPage();
+    // const photo = async (a) => {
+    //     await axios.put(`https://demovie.gabatch13.my.id/users/${USERID}`, formData, { headers: { 'Authorization': `Bearer ${Token}` } })
+    //     .then(alert(`Profile Updated`));  refreshPage();
             
     
-        }
+    //     }
    
     return (
         <div>
@@ -122,20 +122,19 @@ const ProfilePage = () => {
                                             <Form.Label style={{ width: "30%" }}>Description</Form.Label>
                                             <Form.Control value={state.description} onChange={(a) => setState({ ...state, description: a.target.value })} type="text" placeholder="description" />
                                         </Form.Group>
-                                        {/* <div className="input-image"> */}
-                                            <Form.Group controlId="formFile" className="mb-3 ">
-                                                <Form.Control value={state.photo} onChange={(a) => setState({ ...state,photo: a.target.files[0],})} type="file" />
-                                            </Form.Group>
-                                        {/* </div> */}
 
-                                        {/* <div className="button-submit">
+                                        <Form.Group className="mb-3 d-flex" controlId="formBasicEmail">
+                                            <Form.Label style={{ width: "30%" }}>Descriptioon</Form.Label>
+                                            <Form.Control value={state.description} onChange={(e) => setState({ ...state, description: e.target.value })} type="text" placeholder="description" />
+                                        </Form.Group>
+                                        <div className="button-submit">
                                             <Button style={{ width: "100px", height: "40px", marginRight: "20px" }} variant="secondary" type="reset">
                                                 Cancel
-                                            </Button> */}
+                                            </Button> 
                                             <Button onClick={add}  style={{ width: "100px", height: "40px" }} variant="warning" >
                                                 Update
                                             </Button>
-                                        {/* </div> */}
+                                        </div>
                                     </Form>
                                 </Card.Body>
                             </Card>

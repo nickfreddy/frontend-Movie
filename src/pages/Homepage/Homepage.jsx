@@ -20,7 +20,11 @@ function Homepage() {
     const [loading, setLoading] = useState(true);
     const [show, setShow] = useState(true)
     const dispatch = useDispatch()
-     const USERID = localStorage.getItem('USERID');
+    const USERID = localStorage.getItem('USERID');
+    const ROLE = localStorage.getItem('ROLE');
+
+    console.log(ROLE)
+
 
 
     useEffect(() => {
@@ -52,7 +56,7 @@ function Homepage() {
         setLoading(true);
         setErrorMessage(null);
 
-        if ( word === 'all') {
+        if (word === 'all') {
             dispatch(loadMovies())
         };
 
@@ -111,7 +115,7 @@ function Homepage() {
                 <h2 className="mt-3">Browse by Category</h2>
 
                 <div className="d-flex flex-wrap">
-                    <CategoryButton title={"All"}  onClick={() => { 
+                    <CategoryButton title={"All"} onClick={() => {
                         handleFilterButton('all');
                         handleShowPagination()
                     }} />
