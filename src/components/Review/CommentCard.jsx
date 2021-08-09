@@ -16,7 +16,7 @@ const CommentCard = (props) => {
         </Col>
         <Col>
         <Card border="light"  style={{ maxWidth: '75rem', borderRadius:'10px',}}>
-            <Card.Header style={{backgroundColor:'#D6E0E3'}}>{userID}</Card.Header>
+            <Card.Header style={{backgroundColor:'#D6E0E3', borderRadius:'5px'}}>{userID}</Card.Header>
             <Card.Body >
                 <Card.Text>
                     {comment}

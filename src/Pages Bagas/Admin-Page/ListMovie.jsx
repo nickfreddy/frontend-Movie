@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Card, Button } from 'react-bootstrap'
+import { Card, Button, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux';
 import { loadMovies } from '../../redux/action/movie';
 import CardListMovie from './CardMovieList';
 import { deletemovie } from '../../redux/action/movie';
 import MyPagination from '../../components/pagination/MyPagination';
 import axios from 'axios';
+
 
 function ListMovie() {
     const token = localStorage.getItem('Token');
@@ -43,15 +44,19 @@ function ListMovie() {
                     <h3>Movie List</h3>
                     <p>Welcome admin you can update and delete movie </p>
                 </div>
-                <div className="list-movie">
+                <div className="list-movie  justify-content-between ">
                     <ol>
                         {movie.map((movie, idx) => {
-                            return <li key={idx} className="d-flex justify-content-between" >
-                                <CardListMovie title={movie.title} />
-                                <div className="button-movie-list pb-3">
+                            return <li key={idx} className="d-flex  justify-content-between my-1" style={{justifyContent:'flex-end'}} >
+                                    <Col className='MovieList justify-content-between' md={8} xs={8} lg={8} >
+                                <CardListMovie title={movie.title} /></Col>
+                                {/* <Col lg={2}></Col> */}
+                                <Col className='ButtonList' style={{justifyContent:'flex-end'}} md={4} lg={4} >
+                                <div className="button-movie-list "  style={{justifyContent:'flex-end'}}>
                                     <Button variant="primary" className="me-2" href={`/Update-movie/${movie._id}`}>Update</Button>{' '}
                                     <Button variant="warning" onClick={() => dispatch(deletemovie(movie._id, token))}>Delete</Button>{' '}
                                 </div>
+                                </Col>
                             </li>
                         })}
                     </ol>

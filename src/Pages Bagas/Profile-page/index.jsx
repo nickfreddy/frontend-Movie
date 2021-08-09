@@ -3,7 +3,7 @@ import { Button, Navbar, Card, Form, Container, Row, Col, } from 'react-bootstra
 import back_button from '../../img/back-button.png'
 import '../Profile-page/index.css'
 // import user from '../../img/user.png'
-import logo from '../../img/brand-logo.png'
+// import logo from '../../img/brand-logo.png'
 import axios from 'axios';
 
 const ProfilePage = () => {
@@ -12,6 +12,7 @@ const ProfilePage = () => {
     const refreshPage = () => {
         window.location.reload();
     }
+
 
     const [user, setUser] = useState([])
 
@@ -35,20 +36,37 @@ const ProfilePage = () => {
 
     const [state, setState] = useState({
         photo: "",
-        username: "",
-        email: "",
-        description: ""
-
+        username: user.username,
+        email: user.email,
+        description: user.description
     })
 
-
     const add = async (e) => {
-
-        await axios.put(`https://demovie.gabatch13.my.id/users/${USERID}`, state, { headers: { 'Authorization': `Bearer ${Token}` } }).then
-            (alert(`Profile Updated`)); refreshPage();
-
+        e.preventDefault()
+        try {
+            // eslint-disable-next-line no-unused-vars
+            const res = await axios.put(`https://demovie.gabatch13.my.id/users/${USERID}`, state, { headers: { Authorization: `Bearer ${Token}` } }); (alert(`Profile Updated`)); refreshPage();
+        } catch (error) {
+            console.log({ error })
+        }
     }
 
+    
+
+    // const add = async (a) => {
+    // await axios.put(`https://demovie.gabatch13.my.id/users/${USERID}`, state, { headers: { 'Authorization': `Bearer ${Token}` } })
+    // .then(alert(`Profile Updated`));  refreshPage();
+        
+
+    // }
+    
+    // const photo = async (a) => {
+    //     await axios.put(`https://demovie.gabatch13.my.id/users/${USERID}`, formData, { headers: { 'Authorization': `Bearer ${Token}` } })
+    //     .then(alert(`Profile Updated`));  refreshPage();
+            
+    
+    //     }
+   
     return (
         <div>
             <div className="back-header">
@@ -64,10 +82,10 @@ const ProfilePage = () => {
                     </Navbar.Brand>
                 </div>
             </div >
-            <div className="Profile-page">
-                <Container>
+            <div className="Profile-page d-flex justify-content-between ">
+                <Container className='d-flex '>
                     <Row>
-                        <Col xs={2}>
+                        <Col xs={7} lg={2} md={2} >
                             <Card style={{ borderRadius: "10px", boxShadow: "4px 5px 1px #9E9E9E" }}>
                                 <Card.Body style={{ padding: "0" }}>
                                     <div className="card-title">
@@ -84,28 +102,37 @@ const ProfilePage = () => {
                                 </Card.Body>
                             </Card>
                         </Col>
-                        <Col xs={7}>
+                        <Col sm={10} lg={7} md={8} >
                             <Card style={{ borderRadius: "10px", boxShadow: "4px 5px 1px #9E9E9E" }}>
                                 <Card.Body style={{ padding: "0" }}>
                                     <div className="card-title">
                                         <h3>Edit Profile</h3>
                                         <p>Change profile information</p>
                                     </div>
-                                    <Form style={{ padding: "1px 32px 20px 110px" }}>
+                                    <Form style={{ padding: "1rem 1rem 2rem 2.5rem" }}>
                                         <Form.Group className="mb-3 d-flex" controlId="formBasicFirstName">
                                             <Form.Label style={{ width: "30%" }} >Full Name</Form.Label>
-                                            <Form.Control value={state.username} onChange={(e) => setState({ ...state, username: e.target.value })} type="text" placeholder="Full Name" />
+                                            <Form.Control value={state.username} onChange={(a) => setState({ ...state, username: a.target.value })} type="text" placeholder="Full Name" />
                                         </Form.Group>
 
                                         <Form.Group className="mb-3 d-flex" controlId="formBasicEmail">
                                             <Form.Label style={{ width: "30%" }}>Email address</Form.Label>
-                                            <Form.Control value={state.email} onChange={(e) => setState({ ...state, email: e.target.value })} type="email" placeholder="Enter email" />
+                                            <Form.Control value={state.email} onChange={(a) => setState({ ...state, email: a.target.value })} type="email" placeholder="Enter email" />
                                         </Form.Group>
+                                        <Form.Group className="mb-3 d-flex" controlId="formBasicDescription">
+                                            <Form.Label style={{ width: "30%" }}>Description</Form.Label>
+                                            <Form.Control value={state.description} onChange={(a) => setState({ ...state, description: a.target.value })} type="text" placeholder="description" />
+                                        </Form.Group>
+
+                                        {/* <Form.Group className="mb-3 d-flex" controlId="formBasicEmail">
+                                            <Form.Label style={{ width: "30%" }}>Descriptioon</Form.Label>
+                                            <Form.Control value={state.description} onChange={(e) => setState({ ...state, description: e.target.value })} type="text" placeholder="description" />
+                                        </Form.Group> */}
                                         <div className="button-submit">
-                                            <Button style={{ width: "100px", height: "40px", marginRight: "20px" }} variant="secondary" type="reset">
+                                            <Button href="/" style={{ width: "100px", height: "40px", marginRight: "20px" }} variant="secondary" type="reset">
                                                 Cancel
-                                            </Button>
-                                            <Button onClick={add} style={{ width: "100px", height: "40px" }} variant="warning" type="submit">
+                                            </Button> 
+                                            <Button onClick={add}  style={{ width: "100px", height: "40px" }} variant="warning" >
                                                 Update
                                             </Button>
                                         </div>
@@ -114,7 +141,7 @@ const ProfilePage = () => {
                             </Card>
 
                         </Col>
-                        <Col>
+                        <Col lg={3} md={2}>
                             <Card style={{ borderRadius: "10px", boxShadow: "4px 5px 1px #9E9E9E" }}>
                                 <Card.Body style={{ padding: "0" }}>
                                     <div className="card-title">
@@ -145,7 +172,7 @@ const ProfilePage = () => {
                 </Container>
 
             </div>
-            <div className="footerprofile bg-secondary">
+            {/* <div className="footerprofile bg-secondary">
                 <img
                     src={logo}
                     width="50"
@@ -154,7 +181,7 @@ const ProfilePage = () => {
                     alt="React Bootstrap logo"
                 />
                 <h3>deMovie</h3>
-            </div>
+            </div> */}
         </div >
     );
 };

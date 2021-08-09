@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { loadMovies } from '../../redux/action/movie'
 import MyPagination from '../../components/pagination/MyPagination'
 import NoResult from '../../components/noResult/NoResult'
-import { Button } from 'react-bootstrap'
+// import { Button } from 'react-bootstrap'
 
 
 function Homepage() {
@@ -20,12 +20,16 @@ function Homepage() {
     const [loading, setLoading] = useState(true);
     const [show, setShow] = useState(true)
     const dispatch = useDispatch()
-     const USERID = localStorage.getItem('USERID');
+    const USERID = localStorage.getItem('USERID');
+    const ROLE = localStorage.getItem('ROLE');
+
+    console.log(ROLE)
+
 
 
     useEffect(() => {
         dispatch(loadMovies())
-    }, []);
+    }, [dispatch]);
 
     useEffect(() => {
         setMovies(moviesData)
@@ -52,7 +56,7 @@ function Homepage() {
         setLoading(true);
         setErrorMessage(null);
 
-        if ( word === 'all') {
+        if (word === 'all') {
             dispatch(loadMovies())
         };
 
@@ -106,12 +110,12 @@ function Homepage() {
 
             {/* ------------------------------------------------------------ */}
 
-            <div className="container">
+            <div className="container w-75">
 
                 <h2 className="mt-3">Browse by Category</h2>
 
                 <div className="d-flex flex-wrap">
-                    <CategoryButton title={"All"}  onClick={() => { 
+                    <CategoryButton title={"All"} onClick={() => {
                         handleFilterButton('all');
                         handleShowPagination()
                     }} />
@@ -139,9 +143,9 @@ function Homepage() {
 
             <div className="container divider my-1 "></div>
 
-            <div className="container d-flex flex-wrap justify-content-around my-1">
+            <div className="w-75 container d-flex flex-wrap justify-content-around my-1">
 
-                {movies.length > 0 ? movies.filter((movie, idx) => idx < 20).map(movie => (
+                {movies.length > 0 ? movies.filter((movie, idx) => idx < 15).map(movie => (
                     <div key={movie.idx}>
                         <Link className="text-decoration-none text-dark" to={`detailPage/${movie._id}`}>
                             <Card className="skala" title={movie.title} img={movie.poster} category={movie.genres.join(', ')} />

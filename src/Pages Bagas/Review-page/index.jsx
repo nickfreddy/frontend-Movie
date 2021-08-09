@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 import { Navbar, Card, Container, Row, Col } from 'react-bootstrap'
 import back_button from '../../img/back-button.png'
 import './index.css'
 import logo from '../../img/brand-logo.png'
 import ReviewMovie from './ListReview';
-
+import React from 'react';
 
 const ReviewPage = () => {
 
@@ -26,7 +26,7 @@ const ReviewPage = () => {
             <div className="Profile-page">
                 <Container>
                     <Row>
-                        <Col xs={2}>
+                        <Col xs={6} md={4}>
                             <Card style={{ borderRadius: "10px", boxShadow: "4px 5px 1px #9E9E9E" }}>
                                 <Card.Body style={{ padding: "0" }}>
                                     <div className="card-title">
@@ -40,7 +40,7 @@ const ReviewPage = () => {
                                 </Card.Body>
                             </Card>
                         </Col>
-                        <Col>
+                        <Col md={8}>
                             <ReviewMovie />
                         </Col>
 

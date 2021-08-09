@@ -28,22 +28,22 @@ function Footer() {
                             <h5 className="pt-2">deMovie</h5>
                         </div>
                         <p className="ps-3 pe-5" style={{ fontWeight: "300" }}>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.printing and typesetting industry. Lorem Ipsum has been the industry's standard
+                        deMovie is the world's most laidback source for movie, and celebrity content. Find ratings and reviews for some movie.
                         </p>
                     </Col>
                     <Col>
                         <div className="about-us">
-                            <h5>Tentang Kami</h5>
+                            <h5>About Us</h5>
                             <h5>Blog</h5>
-                            <h5>Layanan</h5>
-                            <h5>Karir</h5>
-                            <h5>Pusat Media</h5>
+                            <h5>Service</h5>
+                            <h5>Career</h5>
+                            <h5>Media Center</h5>
                         </div>
 
                     </Col>
                     <Col className="pt-2">
                         <h5 className="pb-1">Download</h5>
-                        <div className="download" className="pb-5">
+                        <div className="download pb-5">
                             <img
                                 src={googleplay}
                                 width="175"

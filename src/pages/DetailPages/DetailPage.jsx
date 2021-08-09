@@ -1,5 +1,5 @@
 import './Background.css'
-import { Button, Badge, Container, Row, Col } from 'react-bootstrap';
+import { Container, } from 'react-bootstrap';
 import React from 'react'
 import './DetailPage.css'
 import TitleBackground from '../../components/DetailBackground/TitleBackground';
@@ -7,10 +7,10 @@ import DetailNavBtn from '../../components/DetailNavButton.jsx/DetailNavBtn';
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { postReview } from '../../redux/action/postReview';
+// import { postReview } from '../../redux/action/postReview';
 // import { GetDetail } from '../../redux/action/details';
 // import { loadMovie } from '../../redux/action/load-movie';
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
 // import { GetDetail } from "../../redux/action/details"
 
 
@@ -32,7 +32,7 @@ function Detailpage() {
 
     useEffect(() => {
         GetDetailMovies(`https://demovie.gabatch13.my.id/movies/${id}?revlimit=3&revpage=1`);
-    }, [])
+    }, [id])
 
     console.log(detail)
     let link = detail.trailer

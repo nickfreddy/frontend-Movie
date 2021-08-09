@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Card, Button } from 'react-bootstrap'
+import { Modal, Card, Button } from 'react-bootstrap'
 import axios from 'axios';
 import { useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,6 +12,7 @@ function ReviewMovie() {
     const reviewData = useSelector(state => state.review.data)
     const [review, setReview] = useState([])
     const dispatch = useDispatch()
+    const [modalShow, setModalShow] = React.useState(false);
     const refreshPage = () => {
         window.location.reload();
     }

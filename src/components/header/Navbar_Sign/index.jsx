@@ -1,15 +1,43 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../Navbar_Sign/index.css'
 import { Navbar, Nav, NavDropdown, Form, FormControl, Container, Dropdown, Button } from 'react-bootstrap'
 import logo from '../../../img/brand-logo.png'
-import user from '../../../img/user.png'
+import photouser from '../../../img/user.png'
 import { searchMovieRdx } from '../../../redux/action/search';
 import { useDispatch } from 'react-redux';
+import axios from 'axios';
 
 function Navbar_Sign(props) {
+    const [role, setRole] = useState([])
+    const [name, setName] = useState([])
     const [searchValue, setSearchValue] = useState("");
     const dispatch = useDispatch()
     const USERID = localStorage.getItem('USERID');
+
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const GetAllUser = async () => {
+        try {
+            const res = await axios.get(`https://demovie.gabatch13.my.id/users/${USERID}`);
+            const data = await res.data;
+            setRole(data.role)
+            setName(data.username)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    useEffect(() => {
+        GetAllUser()
+    }, [GetAllUser])
+
+    console.log(role)
+
+
+
+
+
+
 
     function LogOut() {
         localStorage.clear();
@@ -48,9 +76,9 @@ function Navbar_Sign(props) {
                     <Navbar.Brand className='me-auto text-light' href='/' style={{ fontWeight: "500" }}>deMovie</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="m-auto pe-3" >
+                        <Nav className="m-auto pe-3 searchBar" >
                             {window.location.pathname === '/' ?
-                                <Form className="d-flex" style={{ maxWidth: "50rem" }}>
+                                <Form className="d-flex searchBar" >
                                     <FormControl
                                         type="search"
                                         placeholder="Search Movie"
@@ -64,17 +92,20 @@ function Navbar_Sign(props) {
                         <Nav>
                             <NavDropdown title={<div className="user-profile">
                                 <img
-                                    src={user}
+                                    src={photouser}
                                     width="50"
                                     height="50"
                                     className="d-inline-block align-top m-3"
                                     alt="React Bootstrap logo"
                                 />
                             </div>} id="navbarScrollingDropdown">
-                                <Dropdown.ItemText style={{ fontWeight: "500", fontSize: "18px" }}>User Name</Dropdown.ItemText>
+
+                                <Dropdown.ItemText style={{ fontWeight: "500", fontSize: "18px" }}>{name} </Dropdown.ItemText>
                                 <NavDropdown.Item href={`/Profile-page/${USERID}`}>Profile</NavDropdown.Item>
                                 <NavDropdown.Item href={`/Review-page/${USERID}`} >My Review</NavDropdown.Item>
-                                <NavDropdown.Item href={`/Admin-page/${USERID}`} >Setting Movie</NavDropdown.Item>
+                                {role === "admin" ? <NavDropdown.Item href={`/Admin-page/${USERID}`} >Setting Movie</NavDropdown.Item> : null}
+
+
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item onClick={LogOut}>Sign out</NavDropdown.Item>
                             </NavDropdown>
