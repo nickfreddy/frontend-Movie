@@ -59,13 +59,13 @@ function Detailpage() {
                     <DetailNavBtn />
 
                     <div className='SynopContainer'>
-                        <Col lg={3} md={3} xs={3} sm={3}>
+                        <Col >
                         <h1>Synopsis</h1>
                         </Col>
-                        <Col lg={9} md={9} xs={9} sm={9}>
+                        <Col >
                         <div className='LineContainer' style={{ color: 'white' }}>
                             line
-                            <div className='Line'></div>
+                            <div className='Line-atas'></div>
                         </div>
                         </Col>
                     </div>
@@ -78,7 +78,7 @@ function Detailpage() {
 
                         <div className='LineContainer' style={{ color: 'white' }}>
                             line
-                            <div className='Line'></div>
+                            <div className='Line-bawah'></div>
                         </div>
                     </div>
                     <div className='infoDetail'>

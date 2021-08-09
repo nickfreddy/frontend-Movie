@@ -3,7 +3,7 @@ import { Button, Navbar, Card, Form, Container, Row, Col, Modal } from 'react-bo
 import back_button from '../../img/back-button.png'
 import '../Profile-page/index.css'
 // import user from '../../img/user.png'
-// import logo from '../../img/brand-logo.png'
+import logo from '../../img/brand-logo.png'
 import axios from 'axios';
 import Photo from '../../pages/DetailPages/Photo';
 
@@ -12,11 +12,19 @@ const ProfilePage = () => {
     const [show, setShow] = useState(false);
     const USERID = localStorage.getItem('USERID');
     const Token = localStorage.getItem('Token');
+
     const refreshPage = () => {
         window.location.reload();
     }
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const backtoHome = () => {
+        localStorage.clear();
+        window.location.replace("/");
+    };
+
+
 
     const [user, setUser] = useState([])
 
@@ -39,14 +47,14 @@ const ProfilePage = () => {
     console.log(user)
 
     const [state, setState] = useState({
-        photo: null,
+        photo: user.photo,
         username: user.username,
         email: user.email,
         description: user.description
     })
 
+    console.log(state)
 
-    
     const add = async (e) => {
         e.preventDefault()
         try {
@@ -57,36 +65,28 @@ const ProfilePage = () => {
         }
     }
 
-    // const [photo, setPhoto] = useState({
-    //     photo: null,
-       
-    // })
-
-    // const handleImageChange = (e) => {
-    //     setPhoto({photo: e.target.files[0]
-    //     })
-    //   };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // console.log(this.state);
-        let form_data = new FormData();
-        form_data.append('photo', this.state.photo, this.state.photo.name);
-    
-        let url = `https://demovie.gabatch13.my.id/users/${USERID}`;
-        axios.put(url, form_data, {
-          headers: { Authorization: `Bearer ${Token}` }
-        })
-            .then(res => {
-              console.log(res.data);
-            })
-            .catch(err => console.log(err))
-      };
-
-
    
+    const deleteUser = async (e) => {
+        e.preventDefault()
+        try {
+            const res = await axios.delete(`https://demovie.gabatch13.my.id/users/${USERID}`, { headers: { Authorization: `Bearer ${Token}` } }); (alert(`Profile has been Delete`)); backtoHome();
+        } catch (error) {
+            console.log({ error })
+        }
+    }
+
     return (
         <div>
+               <div className="footerprofile bg-secondary">
+                <img
+                    src={logo}
+                    width="50"
+                    height="50"
+                    className="d-inline-block align-top m-3"
+                    alt="React Bootstrap logo"
+                />
+                <h3>deMovie</h3>
+            </div>
             <div className="back-header">
                 <div className="back-button p-3">
                     <Navbar.Brand className="ms-4" href="/">
@@ -113,7 +113,7 @@ const ProfilePage = () => {
                                     <div className="button-profile">
                                         <h5>Profile</h5>
                                     </div>
-                                    <div className="button-profile watchlist" style={{color:'red',}}>
+                                    <div onClick={deleteUser} className="button-profile watchlist" style={{color:'red',}}>
                                         <h5>Delete Account</h5>
                                     </div>
 
@@ -149,8 +149,8 @@ const ProfilePage = () => {
                                         <div className="button-submit">
                                             <Button href="/" style={{ width: "100px", height: "40px", marginRight: "20px" }} variant="secondary" type="reset">
                                                 Cancel
-                                            </Button> 
-                                            <Button onClick={add}  style={{ width: "100px", height: "40px" }} variant="warning" >
+                                            </Button>
+                                            <Button onClick={add} style={{ width: "100px", height: "40px" }} variant="warning" >
                                                 Update
                                             </Button>
                                         </div>
@@ -190,36 +190,17 @@ const ProfilePage = () => {
 
                                         <Modal className="mt-5" show={show} onHide={handleClose}>
                                         <Modal.Header closeButton>
-                <Modal.Title id="example-modal-sizes-title-lg">
-Choose your Great Photo               
-                </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-            <Photo setShow={setShow} />
-        </Modal.Body>
-           
-                
-            </Modal>
-
-
-                                        {/* <form onSubmit={handleSubmit}>
-         
-                                            <p>
-                                            <input type="file"
-                                                    id="photo"
-                                                    accept="image/png, image/jpeg" value={state.photo} onChange={(a) => setState({...state, photo: a.target.files[0] })} />
-                                            </p>
-                                            <input type="submit"/>
-                                        </form> */}
-                                        {/* onChange={handleImageChange} */}
+                                            <Modal.Title id="example-modal-sizes-title-lg">
+                                            Choose your Great Photo               
+                                                </Modal.Title>
+                                            </Modal.Header>
+                                            <Modal.Body>
+                                            <Photo setShow={setShow} />
+                                        </Modal.Body>
                                         
-                                            {/* <Form>
-                                            <Form.Group controlId="formFile" className="mb-3 ">
-                                                <Form.Control id="photo" type="file" accept="image/png, image/jpeg" value={statePhoto.photo} onChange={(e) => setPhoto({ photo: e.target.files[0] })}/>
-                                            </Form.Group>
-                                            <Button onClick={photo}  style={{ width: "100px", height: "40px" }} variant="warning" >Photo</Button>
+                                                
+                                            </Modal>
 
-                                            </Form> */}
                                         </div>
 
                                     </div>
@@ -231,16 +212,7 @@ Choose your Great Photo
                 </Container>
 
             </div>
-            {/* <div className="footerprofile bg-secondary">
-                <img
-                    src={logo}
-                    width="50"
-                    height="50"
-                    className="d-inline-block align-top m-3"
-                    alt="React Bootstrap logo"
-                />
-                <h3>deMovie</h3>
-            </div> */}
+         
         </div >
     );
 };

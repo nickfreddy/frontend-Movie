@@ -4,7 +4,7 @@ import { Modal, Button, Form } from 'react-bootstrap'
 import { Switch, Route, Link } from 'react-router-dom'
 import ModalSignIn from '../modalSignIn/ModalSignIn'
 import axios from 'axios'
-
+import './ModalSignUp.css'
 // email: "inokiUser@yahoo.com"
 // password: "!Nokiglints13"
 // username: "inokiUser"
@@ -46,24 +46,24 @@ function ModalSignUp(props) {
 
                     <Form.Group className="mb-3" controlId="formBasicName">
                         <Form.Label>Full Name</Form.Label>
-                        <Form.Control value={state.username} onChange={(e) => setState({ ...state, username: e.target.value })} type="name" placeholder="Full Name" style={{ width: '25rem' }} />
+                        <Form.Control className="width-nokay" value={state.username} onChange={(e) => setState({ ...state, username: e.target.value })} type="name" placeholder="Full Name" />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control value={state.email} onChange={(e) => setState({ ...state, email: e.target.value })} type="email" placeholder="Enter email" style={{ width: '25rem' }} />
+                        <Form.Control className="width-nokay" value={state.email} onChange={(e) => setState({ ...state, email: e.target.value })} type="email" placeholder="Enter email" />
                     </Form.Group>
 
                     <Form.Group className="mb-5" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control value={state.password} onChange={(e) => setState({ ...state, password: e.target.value })} type="password" placeholder="Password" style={{ width: '25rem' }} />
+                        <Form.Control className="width-nokay" value={state.password} onChange={(e) => setState({ ...state, password: e.target.value })} type="password" placeholder="Password"  />
                     </Form.Group>
 
                     <Form.Group>
-                        <Button className="mt-4" variant="primary" type="submit" style={{ width: '25rem' }}>
-                            SIGN UP
+                        <Button className="mt-4 width-nokay" variant="primary" type="submit" >
+                            REGISTER
                         </Button>
-                        <p className="text-center mt-3">Already have an account ? <a onClick={props.onClick} style={{ cursor: 'pointer' }} className="text-warning">Log in</a></p>
+                        <p className="text-center mt-3">Already have an account ? <a onClick={props.onClick} style={{ cursor: 'pointer' }} className="text-secondary">Sign in</a></p>
                     </Form.Group>
                 </div>
 

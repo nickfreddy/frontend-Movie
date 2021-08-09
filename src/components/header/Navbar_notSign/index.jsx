@@ -13,24 +13,41 @@ import { useDispatch } from 'react-redux';
 
 function Navbar_notSign() {
 
-    const [show, setShow] = useState(false);
-    const [step, setStep] = useState(1);
+    const [showIn, setShowIn] = useState(false);
+    const [showUp, setShowUp] = useState(false);
+    const [stepIn, setStepIn] = useState(1);
+    const [stepUp, setStepUp] = useState(1);
     const [searchValue, setSearchValue] = useState("");
     const dispatch = useDispatch()
 
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleCloseIn = () => {
+        setShowIn(false);
+        resetStepIn();
+    }
+    const handleShowIn = () => setShowIn(true);
 
-    const handleClose2 = () => setShow(false);
-    const handleShow2 = () => setShow(true);
+    const handleCloseUp = () => {
+        setShowUp(false);
+        resetStepUp();
+    };
+    const handleShowUp = () => setShowUp(true);
 
-    function goNextPage() {
-        setStep(step => step + 1)
+    const resetStepIn = () => setStepIn(1)
+    const resetStepUp = () => setStepUp(1)
+
+    function goNextPageIn() {
+        setStepIn(step => step + 1)
+    }
+    function goPrevPageIn() {
+        setStepIn(step => step - 1)
     }
 
-    function goPrevPage() {
-        setStep(step => step - 1)
+    function goNextPageUp() {
+        setStepUp(step => step + 1)
+    }
+    function goPrevPageUp() {
+        setStepUp(step => step - 1)
     }
 
     const handleSearchInputChanges = (e) => {
@@ -86,8 +103,8 @@ function Navbar_notSign() {
 
                         <Nav>
                             <div className="d-flex p-nokay">
-                                <Button style={{ fontWeight: "500", color: "black" }} variant="secondary text-light me-1 m-nokay" style={{maxWidth: '8rem'}} onClick={handleShow}>Sign Up</Button>
-                                <Button style={{ fontWeight: "500", color: "black" }} variant="secondary text-light m-nokay" style={{maxWidth: '8rem'}} onClick={handleShow2}>Sign In</Button>
+                                <Button style={{ fontWeight: "500", color: "black" }} variant="secondary text-light me-1 m-nokay" style={{maxWidth: '8rem'}} onClick={handleShowUp}>Register</Button>
+                                <Button style={{ fontWeight: "500", color: "black" }} variant="secondary text-light m-nokay" style={{maxWidth: '8rem'}} onClick={handleShowIn}>Sign In</Button>
                             </div>
                         </Nav>
 
@@ -96,14 +113,14 @@ function Navbar_notSign() {
             </Navbar>
 
             {/* ----------modal--------------- */}
-            <Modal className="mt-5" show={show} onHide={handleClose}>
-                {step === 1 && <ModalSignUp onClick={goNextPage} setShow={setShow} />}
-                {step === 2 && <ModalSignIn onClick={goPrevPage} setShow={setShow} />}
+            <Modal className="mt-5" show={showUp} onHide={handleCloseUp}>
+                {stepUp === 1 && <ModalSignUp onClick={goNextPageUp} setShow={setShowUp} />}
+                {stepUp === 2 && <ModalSignIn onClick={goPrevPageUp} setShow={setShowUp} />}
             </Modal>
 
-            <Modal className="mt-5" show={show} onHide={handleClose2}>
-                {step === 1 && <ModalSignIn onClick={goNextPage} setShow={setShow} />}
-                {step === 2 && <ModalSignUp onClick={goPrevPage} setShow={setShow} />}
+            <Modal className="mt-5" show={showIn} onHide={handleCloseIn}>
+                {stepIn === 1 && <ModalSignIn onClick={goNextPageIn} setShow={setShowIn} />}
+                {stepIn === 2 && <ModalSignUp onClick={goPrevPageIn} setShow={setShowIn} />}
                 
             </Modal>
 

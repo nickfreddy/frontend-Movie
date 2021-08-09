@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import './Background.css'
 import { Modal, Button, Col } from 'react-bootstrap';
 // import Rating from 'react-rating';
-// import StarRatings from "react-star-ratings";
+import StarRatings from "react-star-ratings";
 // import Rating from '@material-ui/lab/Rating';
-import ReactStars from "react-rating-stars-component";
+// import ReactStars from "react-rating-stars-component";
 
 
 function TitleBackground(props) {
@@ -28,22 +28,21 @@ url(${poster})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover',
                     <h1>{title}</h1>
                 </div>
                 <div>
-                    <div className='Rating'>
-                        <div className="starRating">
-                        <ReactStars
+                    <div className='Rating '>
+                        <div className="starRating me-3" style={{display:'flex', alignItems:'center'}}>
+                        {/* <ReactStars
                             count={1}
                             value={1}
                             edit={false}
                             // onChange={ratingChanged}
-                            size={40}
-                            activeColor="#ffd700"
-                        />
+                            
+                        /> */}
 
-                         {/* <StarRatings rating={1} starRatedColor="#FFD700" starDimension="2rem" numberOfStars={5} /> */}
+                         <StarRatings style={{display:'flex', alignItems:'center', marginRight:'1rem'}} rating={1} starRatedColor="#FFD700" starDimension="2.5rem" numberOfStars={1} />
                        
-                        </div><span></span>
-                        <div className="totalReview">
-                            <p>{rating} / 5</p>
+                        </div>
+                        <div className="totalReview m-0" style={{display:'flex', alignItems:'center', marginLeft:'1rem'}}>
+                            <div>{rating} / 5</div>
                         </div>
                     </div>
                     <div className='Overview'>

@@ -1,0 +1,10 @@
+.width-nokay{
+    width: 25rem;
+}
+
+@media screen and (max-width: 460px) {
+    .width-nokay{
+        width: 20rem;
+    }
+    
+}

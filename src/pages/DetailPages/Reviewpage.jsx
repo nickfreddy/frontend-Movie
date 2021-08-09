@@ -104,7 +104,7 @@ function sanitizeYTLink(link) {
 return (
 <>
     <TitleBackground synopsis={detail?.synopsis} title={detail?.title} poster={detail?.poster}
-        rating={detail?.averageRating===null ? `Unrated` : detail?.averageRating} trailer={detail?.trailer ?
+        rating={detail?.averageRating===null ? `-` : detail?.averageRating} trailer={detail?.trailer ?
         sanitizeYTLink(link) : `null`} />
 
     <div>
@@ -116,8 +116,8 @@ return (
 
 
 
-                    <Form.Group className="mb-3" style={{ paddingLeft: '1rem', paddingRight: '1rem' }}>
-                        <Form.Label>Rating</Form.Label>
+                    <Form.Group className="mb-3 d-flex " style={{ paddingLeft: '1rem', paddingRight: '1rem' }}>
+                        <Form.Label className="me-2" >Rating</Form.Label>
                         <Rating name="half-rating" value={state.rating} onChange={(e)=> setState({ ...state, rating:
                             e.target.value })} defaultValue={0} precision={1} />
 
