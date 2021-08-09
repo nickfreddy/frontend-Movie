@@ -69,11 +69,13 @@ const ProfilePage = () => {
     const deleteUser = async (e) => {
         e.preventDefault()
         try {
+            // eslint-disable-next-line no-unused-vars
             const res = await axios.delete(`https://demovie.gabatch13.my.id/users/${USERID}`, { headers: { Authorization: `Bearer ${Token}` } }); (alert(`Profile has been Delete`)); backtoHome();
         } catch (error) {
             console.log({ error })
         }
     }
+    console.log(user.photo)
 
     return (
         <div>
@@ -177,34 +179,20 @@ const ProfilePage = () => {
                                         />
                                         <div className="input-image">
 
+                                        <Button style={{ fontWeight: "500", color: "black" ,maxWidth: '8rem'}} variant="secondary text-light me-1 m-nokay" onClick={handleShow}>Upload Photo</Button>
 
-
-
-
-
-                                        <Button style={{ fontWeight: "500", color: "black" }} variant="secondary text-light me-1 m-nokay" style={{maxWidth: '8rem'}} onClick={handleShow}>Upload Photo</Button>
-
-
-
-
-
-                                        <Modal className="mt-5" show={show} onHide={handleClose}>
-                                        <Modal.Header closeButton>
-                                            <Modal.Title id="example-modal-sizes-title-lg">
-                                            Choose your Great Photo               
-                                                </Modal.Title>
-                                            </Modal.Header>
-                                            <Modal.Body>
-                                            <Photo setShow={setShow} />
-                                        </Modal.Body>
-                                        
-                                                
+                                            <Modal className="mt-5" show={show} onHide={handleClose}>
+                                                <Modal.Header closeButton>
+                                                    <Modal.Title id="example-modal-sizes-title-lg">
+                                                     Choose your Great Photo               
+                                                      </Modal.Title>
+                                                 </Modal.Header>
+                                                 <Modal.Body>
+                                                     <Photo setShow={setShow} />
+                                                </Modal.Body>
                                             </Modal>
-
                                         </div>
-
                                     </div>
-
                                 </Card.Body>
                             </Card>
                         </Col>

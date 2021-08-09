@@ -12,76 +12,76 @@ import { useState, useEffect } from "react";
 
 
 function Review() {
-const { id } = useParams();
-const USERID = localStorage.getItem('USERID');
-const Token = localStorage.getItem('Token');
+    const { id } = useParams();
+    const USERID = localStorage.getItem('USERID');
+    const Token = localStorage.getItem('Token');
 
-const refreshPage = () => {
-window.location.reload();
-}
+    const refreshPage = () => {
+        window.location.reload();
+    }
 
-const [detail, setDetail] = useState([])
+    const [detail, setDetail] = useState([])
 
-const GetDetailMovies = async (url) => {
-try {
-const res = await axios.get(url);
-const data = await res.data;
-setDetail(data.data)
-//declare variable to save the data
-} catch (error) {
-console.log(error)
-}
-}
+    const GetDetailMovies = async (url) => {
+        try {
+            const res = await axios.get(url);
+            const data = await res.data;
+            setDetail(data.data)
+            //declare variable to save the data
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
-useEffect(() => {
-GetDetailMovies(`https://demovie.gabatch13.my.id/movies/${id}?revlimit=3&revpage=1`);
-}, [id])
+    useEffect(() => {
+        GetDetailMovies(`https://demovie.gabatch13.my.id/movies/${id}?revlimit=3&revpage=1`);
+    }, [id])
 
-console.log(detail)
+    console.log(detail)
 
-const [state, setState] = useState({
-rating: 0,
-comment: "",
+    const [state, setState] = useState({
+        rating: 0,
+        comment: "",
 
-});
+    });
 
-        const add = async (e) => {
+    const add = async (e) => {
         e.preventDefault()
         if (state.rating === 0 || state.comment === "") {
-        alert("leave your comment & rating first");
-        return;
-         } else {
-            await axios.post(`https://demovie.gabatch13.my.id/movies/${id}/reviews`, state, { headers: { 'Authorization': `Bearer ${Token}` }}).then(alert(`review success`)); refreshPage();
-            }
-            }
+            alert("leave your comment & rating first");
+            return;
+        } else {
+            await axios.post(`https://demovie.gabatch13.my.id/movies/${id}/reviews`, state, { headers: { 'Authorization': `Bearer ${Token}` } }).then(alert(`review success`)); refreshPage();
+        }
+    }
 
     const edit = async (e) => {
         e.preventDefault()
         if (state.rating === 0 || state.comment === "") {
-        alert("leave your comment & rating first");
-        return;
+            alert("leave your comment & rating first");
+            return;
         } else {
-            await axios.put(`https://demovie.gabatch13.my.id/movies/${id}/reviews/${comment}`, state, { headers: { 'Authorization':`Bearer ${Token}` } }).then
+            await axios.put(`https://demovie.gabatch13.my.id/movies/${id}/reviews/${comment}`, state, { headers: { 'Authorization': `Bearer ${Token}` } }).then
                 (alert(`edit success`)); refreshPage();
-                }
-                }
+        }
+    }
 
     const Delete = async (e) => {
         try {
-        await axios.delete(`https://demovie.gabatch13.my.id/movies/${USERID}/reviews/${comment}`, { headers: { Authorization:`Bearer ${Token}` } }); refreshPage();
-            } catch (error) {
+            await axios.delete(`https://demovie.gabatch13.my.id/movies/${USERID}/reviews/${comment}`, { headers: { Authorization: `Bearer ${Token}` } }); refreshPage();
+        } catch (error) {
             console.log({ error })
-            }
-            }
+        }
+    }
 
 
-let link = detail.trailer
-console.log(link)
+    let link = detail.trailer
+    console.log(link)
 
-function sanitizeYTLink(link) {
-    return link.includes("watch")
-    ? `https://www.youtube.com/embed/${link.split("=")[1]}`
-    : `https://www.youtube.com/embed/${link.split("/")[3]}`;
+    function sanitizeYTLink(link) {
+        return link.includes("watch")
+            ? `https://www.youtube.com/embed/${link.split("=")[1]}`
+            : `https://www.youtube.com/embed/${link.split("/")[3]}`;
     };
 
     // function reviewID (review) {
@@ -106,41 +106,42 @@ return (
 <TitleBackground synopsis={detail.synopsis} title={detail.title} poster={detail.poster}
                 rating={detail.averageRating === null ? 0 : detail.averageRating} trailer={detail.trailer ?
                     sanitizeYTLink(link) : `null`} />
+   <div>
+                <Container className='PageContainer '>
+                    <DetailNavBtn />
+
+                    <Form className="d-flex justify-content-center rounded-3" style={{ backgroundColor: '#D6E0E3' }}>
+                        <div style={{ paddingTop: '1rem', width: '60rem', height: '25rem', }}>
 
 
-    <div>
-        <Container className='PageContainer '>
-            <DetailNavBtn />
 
-            <Form className="d-flex justify-content-center rounded-3" style={{ backgroundColor: '#D6E0E3' }}>
-                <div style={{ paddingTop: '1rem', width: '60rem', height: '25rem', }}>
-
-
+                        
 
                     <Form.Group className="mb-3 d-flex " style={{ paddingLeft: '1rem', paddingRight: '1rem' }}>
                         <Form.Label className="me-2" >Rating</Form.Label>
                         <Rating name="half-rating" value={state.rating} onChange={(e)=> setState({ ...state, rating:
                             e.target.value })} defaultValue={0} precision={1} />
+                            </Form.Group>
 
-                    </Form.Group>
+                            <Form.Group className="mb-3" style={{ paddingLeft: '1rem', paddingRight: '1rem' }}>
+                                <Form.Label>Comment</Form.Label>
+                                <Form.Control as="textarea" value={state.comment} onChange={(e) => setState({
+                                    ...state, comment:
+                                        e.target.value
+                                })} placeholder="Leave a review" style={{ Width: '70rem', height: '200px' }}
+                                />
 
-                    <Form.Group className="mb-3" style={{ paddingLeft: '1rem', paddingRight: '1rem' }}>
-                        <Form.Label>Comment</Form.Label>
-                        <Form.Control as="textarea" value={state.comment} onChange={(e)=> setState({ ...state, comment:
-                            e.target.value })} placeholder="Leave a review" style={{ Width: '70rem', height: '200px' }}
-                            />
-                           
-                    </Form.Group>
-                    {USERID ? <Button onClick={add} style={{ float: 'right', marginRight: '1rem' }}>Submit</Button> : null}
-                    {/* eslint-disable-next-line eqeqeq */}
-                    {pengguna == USERID ? <Button onClick={edit} variant='warning'
-                        style={{ float: 'right', marginRight: '1rem' }}>Edit</Button> : null}
-                    {/* eslint-disable-next-line eqeqeq */}
-                    {pengguna == USERID ? <Button onClick={Delete} 
-                        style={{ float: 'left', marginLeft: '1rem', backgroundColor:'#CD113B', borderColor:"#FF7600"}}>Delete</Button> : null}
-                </div>
+                            </Form.Group>
+                            {USERID ? <Button onClick={add} style={{ float: 'right', marginRight: '1rem' }}>Submit</Button> : null}
+                            {/* eslint-disable-next-line eqeqeq */}
+                            {pengguna == USERID ? <Button onClick={edit} variant='warning'
+                                style={{ float: 'right', marginRight: '1rem' }}>Edit</Button> : null}
+                            {/* eslint-disable-next-line eqeqeq */}
+                            {pengguna == USERID ? <Button onClick={Delete}
+                                style={{ float: 'left', marginLeft: '1rem', backgroundColor: '#CD113B', borderColor: "#FF7600" }}>Delete</Button> : null}
+                        </div>
 
-            </Form>
+                    </Form>
 
 
             <ul>
@@ -160,14 +161,14 @@ return (
                 </Col>
             </Row>
 
-        </Container>
+                </Container>
 
-    </div>
+            </div>
 
 
 
-</>
-)
+        </>
+    )
 }
 
 export default Review

@@ -54,7 +54,7 @@ function ListMovie() {
                                 <Col className='ButtonList' style={{justifyContent:'flex-end'}} md={4} lg={4} >
                                 <div className="button-movie-list "  style={{justifyContent:'flex-end'}}>
                                     <Button variant="primary" className="me-2" href={`/Update-movie/${movie._id}`}>Update</Button>{' '}
-                                    <Button variant="warning" onClick={() => dispatch(deletemovie(movie._id, token))}>Delete</Button>{' '}
+                                    <Button  style={{ backgroundColor: '#CD113B', borderColor: "#FF7600" }} onClick={() => dispatch(deletemovie(movie._id, token))}>Delete</Button>{' '}
                                 </div>
                                 </Col>
                             </li>

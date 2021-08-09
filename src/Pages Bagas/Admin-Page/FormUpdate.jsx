@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Button, ListGroupItem, ListGroup, Navbar, Card, Nav, NavDropdown, Form, FormControl, Container, Row, Col, NavItem, Grid } from 'react-bootstrap'
+import { Button, Navbar, Card, Form,  Container, Row, Col, } from 'react-bootstrap'
 import back_button from '../../img/back-button.png'
 import '../Admin-Page/index.css'
 import logo from '../../img/brand-logo.png'
-import example from '../../img/example-movie.png'
+// import example from '../../img/example-movie.png'
 import { useParams } from 'react-router';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 
 
@@ -13,50 +14,84 @@ const FormMovie = (props) => {
     const USERID = localStorage.getItem('USERID');
     const Token = localStorage.getItem('Token');
     const { id } = useParams()
-    console.log(typeof id)
 
+
+    const history = useHistory()
+
+
+
+    const [state, setState] = useState({
+        title: "",
+        genres: "",
+        release_year: "",
+        poster: "",
+        trailer: "",
+        synopsis: ""
+    })
     const [detail, setDetail] = useState([])
 
     const GetDetailMovies = async (url) => {
         try {
             const res = await axios.get(url);
             const data = await res.data;
-            setDetail(data.data)
+
+
+            setState({
+                title: data.data.title,
+                genres: data.data.genres.join(),
+                release_year: data.data.release_year,
+                poster: data.data.poster,
+                trailer: data.data.trailer,
+                synopsis: data.data.synopsis
+            })
+            setDetail(
+                data.data
+            )
         } catch (error) {
             console.log(error)
         }
     }
 
-    console.log(detail.title)
 
     useEffect(() => {
         GetDetailMovies(`https://demovie.gabatch13.my.id/movies/${id}?revlimit=3&revpage=1`);
-    }, [])
+    }, [id])
 
-    const [state, setState] = useState({
-        title: detail.title,
-        genres: detail.genres,
-        release_year: detail.release_year,
-        poster: detail.poster,
-        trailer: detail.trailer,
-        synopsis: detail.synopsis
-    })
+    // const [state, setState] = useState({
+    //     title: detail.title,
+    //     genres: detail.genres,
+    //     release_year: detail.release_year,
+    //     poster: detail.poster,
+    //     trailer: detail.trailer,
+    //     synopsis: detail.synopsis
+    // })
 
     const add = async (e) => {
         e.preventDefault()
         try {
+            // eslint-disable-next-line no-unused-vars
             const res = await axios.put(`https://demovie.gabatch13.my.id/movies/${id}`, state, { headers: { Authorization: `Bearer ${Token}` } }); (alert(`Movie Updated`))
-            console.log(res)
+
         } catch (error) {
             console.log({ error })
         }
     }
 
 
-    console.log(state)
+
 
     return (
         <>
+                <div className="footerprofile bg-secondary">
+                <img
+                    src={logo}
+                    width="50"
+                    height="50"
+                    className="d-inline-block align-top m-3"
+                    alt="React Bootstrap logo"
+                />
+                <h3>deMovie</h3>
+            </div>
         <div>
             <div className="back-header">
                 <div className="back-button p-3">
@@ -83,10 +118,14 @@ const FormMovie = (props) => {
                                     </div>
                                     <div className="image-movie md sm">
                                         <img
+                                            style={{
+                                                width: "100%",
+                                                height: "auto",
+                                                objectFit: "contain"
+                                            }}
                                             src={detail.poster}
-                                            width="350"
-                                            height="500"
-                                            className="d-inline-block align-top"
+
+                                            // className="d-inline-block align-top"
                                             alt="React Bootstrap logo"
                                         />
                                     </div>
@@ -94,7 +133,7 @@ const FormMovie = (props) => {
                             </Card>
                         </Col>
                         <Col>
-                            <Card style={{ borderRadius: "10px", }}>
+                            <Card style={{ borderRadius: "10px", marginBottom:'5rem' }}>
                                 <Card.Body style={{ padding: "0" }}>
                                     <div className="card-title">
                                         <h3>Update Movie</h3>
@@ -128,9 +167,10 @@ const FormMovie = (props) => {
 
 
                                         <div className="button-submit">
-                                           <a href={`/Admin-page/${USERID}`}> <Button style={{ width: "100px", height: "40px", marginRight: "20px" }} variant="secondary" >
+                                            <Button style={{ width: "100px", height: "40px", marginRight: "20px" }} variant="secondary" type="reset"
+                                                onClick={() => history.push(`/Admin-page/${USERID}`)}>
                                                 Cancel
-                                            </Button></a>
+                                            </Button>
                                             <Button onClick={add} style={{ width: "100px", height: "40px" }} variant="warning" type="submit">
                                                 Save
                                             </Button>
@@ -143,16 +183,7 @@ const FormMovie = (props) => {
                 </Container>
 
             </div>
-            <div className="footerprofile bg-secondary">
-                <img
-                    src={logo}
-                    width="50"
-                    height="50"
-                    className="d-inline-block align-top m-3"
-                    alt="React Bootstrap logo"
-                />
-                <h3>De Movie</h3>
-            </div>
+    
         </div >
         </>
     );
