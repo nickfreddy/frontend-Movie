@@ -62,7 +62,7 @@ function Detailpage() {
                         <h1>Synopsis</h1>
                         <div className='LineContainer' style={{ color: 'white' }}>
                             line
-                            <div className='Line'></div>
+                            <div className='Line-atas'></div>
                         </div>
                     </div>
                     <div>
@@ -74,7 +74,7 @@ function Detailpage() {
 
                         <div className='LineContainer' style={{ color: 'white' }}>
                             line
-                            <div className='Line'></div>
+                            <div className='Line-bawah'></div>
                         </div>
                     </div>
                     <div className='infoDetail'>

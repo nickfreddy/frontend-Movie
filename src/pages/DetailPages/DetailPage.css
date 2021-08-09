@@ -25,21 +25,29 @@
     /* flex-direction: row; */
     /* width: 80%; */
     /* border: 2px; */
-    margin-left: 2rem;
     height: 5px;
     /* background-color: black; */
     /* border: 2px; */
 
 }
 
-.Line {
+.Line-atas {
 
-    width: 70rem;
+    width: 57rem;
     background-color: #CDCDCD;
     height: 5px;
+    margin-left: 2.3rem;
     /* max-width: 4rem; */
 }
 
+.Line-bawah {
+
+    width: 57rem;
+    background-color: #CDCDCD;
+    height: 5px;
+    margin-left: 1rem;
+    /* max-width: 4rem; */
+}
 
 .BtnLink {
     display: flex;
@@ -75,33 +83,46 @@
     margin-top: 1rem !important;
 }
 
-@media screen and (max-width: 1400px) {
-    .Line {
+.Line {
+    width: 50rem;
+}
 
-        width: 50rem;
+@media screen and (max-width: 1199px) {
+    .Line-atas {
+        width: 45rem;
+    }
+
+    .Line-bawah {
+        width: 45rem;
     }
 }
 
-@media screen and (max-width: 1000px) {
-    .Line {
-
-        width: 35rem;
+@media screen and (max-width: 990px) {
+    .Line-atas {
+        width: 31rem;
     }
 
+    .Line-bawah {
+        width: 31rem;
+    }
 }
 
-@media screen and (max-width: 650px) {
-    .Line {
-
-        width: 20rem;
+@media screen and (max-width: 767px) {
+    .Line-atas {
+        width: 21rem;
     }
 
+    .Line-bawah {
+        width: 21rem;
+    }
 }
 
-@media screen and (max-width: 450px) {
-    .Line {
-
+@media screen and (max-width: 504px) {
+    .Line-atas {
         width: 10rem;
     }
 
+    .Line-bawah {
+        width: 10rem;
+    }
 }
