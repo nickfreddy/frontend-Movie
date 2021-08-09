@@ -27,30 +27,33 @@ const FormMovie = (props) => {
         }
     }
 
-    console.log("Detail:", detail)
+    console.log(detail.title)
 
     useEffect(() => {
         GetDetailMovies(`https://demovie.gabatch13.my.id/movies/${id}?revlimit=3&revpage=1`);
     }, [])
 
     const [state, setState] = useState({
-        title: "",
-        genres: "",
-        release_year: "",
-        poster: "",
-        trailer: "",
-        synopsis: ""
+        title: detail.title,
+        genres: detail.genres,
+        release_year: detail.release_year,
+        poster: detail.poster,
+        trailer: detail.trailer,
+        synopsis: detail.synopsis
     })
 
     const add = async (e) => {
         e.preventDefault()
         try {
-            const res = await axios.put(`https://demovie.gabatch13.my.id/movies/${id}`, state, { headers: { Authorization: `Bearer ${Token}` } })
+            const res = await axios.put(`https://demovie.gabatch13.my.id/movies/${id}`, state, { headers: { Authorization: `Bearer ${Token}` } }); (alert(`Movie Updated`))
             console.log(res)
         } catch (error) {
             console.log({ error })
         }
     }
+
+
+    console.log(state)
 
     return (
         <div>
@@ -96,7 +99,7 @@ const FormMovie = (props) => {
                                         <h3>Update Movie</h3>
                                         <p>update a new component movie </p>
                                     </div>
-                                    <Form onSubmit={add} style={{ padding: "1px 32px 20px 110px" }}>
+                                    <Form style={{ padding: "1px 32px 20px 110px" }}>
                                         <Form.Group className="mb-3 d-flex" controlId="formBasicFirstName">
                                             <Form.Label style={{ width: "30%" }} >Movie Title</Form.Label>
                                             <Form.Control value={state.title} onChange={(e) => setState({ ...state, title: e.target.value })} type="text" placeholder="Title" />
@@ -127,7 +130,7 @@ const FormMovie = (props) => {
                                             <Button style={{ width: "100px", height: "40px", marginRight: "20px" }} variant="secondary" type="reset">
                                                 Cancel
                                             </Button>
-                                            <Button style={{ width: "100px", height: "40px" }} variant="warning" type="submit">
+                                            <Button onClick={add} style={{ width: "100px", height: "40px" }} variant="warning" type="submit">
                                                 Save
                                             </Button>
                                         </div>

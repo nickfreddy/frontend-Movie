@@ -9,9 +9,16 @@ import axios from 'axios';
 const ProfilePage = () => {
     const USERID = localStorage.getItem('USERID');
     const Token = localStorage.getItem('Token');
+
     const refreshPage = () => {
         window.location.reload();
     }
+
+    const backtoHome = () => {
+        localStorage.clear();
+        window.location.replace("/");
+    };
+
 
 
     const [user, setUser] = useState([])
@@ -35,11 +42,13 @@ const ProfilePage = () => {
     console.log(user)
 
     const [state, setState] = useState({
-        photo: "",
+        photo: user.photo,
         username: user.username,
         email: user.email,
         description: user.description
     })
+
+    console.log(state)
 
     const add = async (e) => {
         e.preventDefault()
@@ -51,22 +60,30 @@ const ProfilePage = () => {
         }
     }
 
-    
+    const deleteUser = async (e) => {
+        e.preventDefault()
+        try {
+            const res = await axios.delete(`https://demovie.gabatch13.my.id/users/${USERID}`, { headers: { Authorization: `Bearer ${Token}` } }); (alert(`Profile has been Delete`)); backtoHome();
+        } catch (error) {
+            console.log({ error })
+        }
+    }
+
 
     // const add = async (a) => {
     // await axios.put(`https://demovie.gabatch13.my.id/users/${USERID}`, state, { headers: { 'Authorization': `Bearer ${Token}` } })
     // .then(alert(`Profile Updated`));  refreshPage();
-        
+
 
     // }
-    
+
     // const photo = async (a) => {
     //     await axios.put(`https://demovie.gabatch13.my.id/users/${USERID}`, formData, { headers: { 'Authorization': `Bearer ${Token}` } })
     //     .then(alert(`Profile Updated`));  refreshPage();
-            
-    
+
+
     //     }
-   
+
     return (
         <div>
             <div className="back-header">
@@ -95,7 +112,7 @@ const ProfilePage = () => {
                                     <div className="button-profile">
                                         <h5>Profile</h5>
                                     </div>
-                                    <div className="button-profile watchlist">
+                                    <div onClick={deleteUser} className="button-profile watchlist">
                                         <h5>Delete Account</h5>
                                     </div>
 
@@ -131,8 +148,8 @@ const ProfilePage = () => {
                                         <div className="button-submit">
                                             <Button href="/" style={{ width: "100px", height: "40px", marginRight: "20px" }} variant="secondary" type="reset">
                                                 Cancel
-                                            </Button> 
-                                            <Button onClick={add}  style={{ width: "100px", height: "40px" }} variant="warning" >
+                                            </Button>
+                                            <Button onClick={add} style={{ width: "100px", height: "40px" }} variant="warning" >
                                                 Update
                                             </Button>
                                         </div>
