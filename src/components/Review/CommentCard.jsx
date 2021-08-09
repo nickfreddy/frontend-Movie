@@ -1,9 +1,11 @@
 import React from "react";
 import { Figure, Container , Col, Card} from 'react-bootstrap';
+import StarRatings from "react-star-ratings";
+
 // import user from '../../img/user.png'
 
 const CommentCard = (props) => {
-  const { userID, comment, photo } = props;
+  const { userID, comment, photo, userrating } = props;
   // const imgSrc= '../../img/user.png';
 
   return (
@@ -16,7 +18,7 @@ const CommentCard = (props) => {
         </Col>
         <Col>
         <Card border="light"  style={{ maxWidth: '75rem', borderRadius:'10px',}}>
-            <Card.Header style={{backgroundColor:'#D6E0E3', borderRadius:'5px'}}>{userID}</Card.Header>
+            <Card.Header className="mb-3 d-flex flex-column  "  style={{backgroundColor:'#D6E0E3', borderRadius:'5px'}}>{userID} <StarRatings  rating={userrating} starRatedColor="#E2703A" starDimension="1rem" numberOfStars={5} /></Card.Header>
             <Card.Body >
                 <Card.Text>
                     {comment}

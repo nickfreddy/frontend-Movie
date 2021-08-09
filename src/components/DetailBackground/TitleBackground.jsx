@@ -31,18 +31,18 @@ url(${poster})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover',
                     <div className='Rating '>
                         <div className="starRating me-3" style={{display:'flex', alignItems:'center'}}>
                         {/* <ReactStars
-                            count={1}
-                            value={1}
+                            count={5}
+                            value={rating}
                             edit={false}
                             // onChange={ratingChanged}
                             
                         /> */}
 
-                         <StarRatings style={{display:'flex', alignItems:'center', marginRight:'1rem'}} rating={1} starRatedColor="#FFD700" starDimension="2.5rem" numberOfStars={1} />
+                       {rating === 0 ? null : <StarRatings style={{display:'flex', alignItems:'center', marginRight:'1rem'}} rating={rating} starRatedColor="#FFD700" starDimension="2rem" numberOfStars={5} /> }  
                        
                         </div>
                         <div className="totalReview m-0" style={{display:'flex', alignItems:'center', marginLeft:'1rem'}}>
-                            <div>{rating} / 5</div>
+                            <div style={{display:'flex', alignItems:'center', }}>{rating} / 5</div>
                         </div>
                     </div>
                     <div className='Overview'>

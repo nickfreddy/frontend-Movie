@@ -57,8 +57,10 @@ function Characterpage() {
 
         <>
             <TitleBackground synopsis={detail.synopsis} title={detail.title} poster={detail.poster}
-                rating={detail.averageRating === null ? `Unrated` : detail.averageRating} trailer={detail.trailer ?
-                    sanitizeYTLink(link) : `null`} />    <Container>
+                rating={detail.averageRating === null ? 0 : detail.averageRating} trailer={detail.trailer ?
+                    sanitizeYTLink(link) : `null`} />
+ 
+                     <Container>
                 <DetailNavBtn />
                 <h1>Character</h1>
 

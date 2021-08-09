@@ -10,6 +10,17 @@ import AddMovie from './AddMovie';
 const AdminPage = () => {
     const [isAddMovie, setIsAddMovie] = useState(true)
     return (
+        <>
+         <div className="footer bg-secondary">
+                <img
+                    src={logo}
+                    width="50"
+                    height="50"
+                    className="d-inline-block align-top m-3"
+                    alt="React Bootstrap logo"
+                />
+                <h3>deMovie</h3>
+            </div>
         <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
             <div className="back-header">
                 <div className="back-button p-3">
@@ -28,7 +39,7 @@ const AdminPage = () => {
                 <Container>
                     <Row>
                         <Col className='AdminTools' xs={12} md={4}lg={4}>
-                            <Card style={{ borderRadius: "10px", boxShadow: "4px 5px 1px #9E9E9E" }}>
+                            <Card style={{ borderRadius: "10px", }}>
                                 <Card.Body style={{ padding: "0" }}>
                                     <div className="card-title">
                                         <h3>Movie</h3>
@@ -52,17 +63,9 @@ const AdminPage = () => {
                 </Container>
 
             </div>
-            <div className="footer bg-secondary">
-                <img
-                    src={logo}
-                    width="50"
-                    height="50"
-                    className="d-inline-block align-top m-3"
-                    alt="React Bootstrap logo"
-                />
-                <h3>deMovie</h3>
-            </div>
+           
         </div >
+        </>
     );
 };
 

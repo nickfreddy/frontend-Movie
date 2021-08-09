@@ -103,9 +103,10 @@ function sanitizeYTLink(link) {
 
 return (
 <>
-    <TitleBackground synopsis={detail?.synopsis} title={detail?.title} poster={detail?.poster}
-        rating={detail?.averageRating===null ? `-` : detail?.averageRating} trailer={detail?.trailer ?
-        sanitizeYTLink(link) : `null`} />
+<TitleBackground synopsis={detail.synopsis} title={detail.title} poster={detail.poster}
+                rating={detail.averageRating === null ? 0 : detail.averageRating} trailer={detail.trailer ?
+                    sanitizeYTLink(link) : `null`} />
+
 
     <div>
         <Container className='PageContainer '>
@@ -146,7 +147,7 @@ return (
                 {review?.map((item, index) => (
                 <div key={index}>
                     <CommentCard photo={item?.user_id?.photo} userID={item?.user_id?.username}
-                        comment={item?.comment} />
+                        comment={item?.comment} userrating={item?.rating} />
                 </div>
                 ))}
                 <div style={{ margin: "1rem 0 1rem 0", height: '5px' }}></div>

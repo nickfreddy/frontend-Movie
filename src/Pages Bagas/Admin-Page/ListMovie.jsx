@@ -38,7 +38,7 @@ function ListMovie() {
 
 
     return (
-        <Card style={{ borderRadius: "10px", boxShadow: "4px 5px 1px #9E9E9E", marginBottom: "50px" }}>
+        <Card style={{ borderRadius: "10px",  marginBottom: "50px" }}>
             <Card.Body style={{ padding: "0" }}>
                 <div className="card-title">
                     <h3>Movie List</h3>

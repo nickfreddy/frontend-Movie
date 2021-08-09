@@ -104,15 +104,15 @@ const ProfilePage = () => {
                 <Container className='d-flex justify-content-center'>
                     <Row>
                         <Col xs={12} lg={3} md={4} >
-                            <Card style={{ borderRadius: "10px", boxShadow: "4px 5px 1px #9E9E9E" }}>
+                            <Card style={{ borderRadius: "10px",  }}>
                                 <Card.Body style={{ padding: "0" }}>
                                     <div className="card-title">
-                                        <h3>Setting</h3>
+                                        <h3>Setting Profile</h3>
                                         <p>Customize profile pitcure and profile</p>
                                     </div>
-                                    <div className="button-profile">
+                                    {/* <div className="button-profile disabled " >
                                         <h5>Profile</h5>
-                                    </div>
+                                    </div> */}
                                     <div onClick={deleteUser} className="button-profile watchlist" style={{color:'red',}}>
                                         <h5>Delete Account</h5>
                                     </div>
@@ -121,7 +121,7 @@ const ProfilePage = () => {
                             </Card>
                         </Col>
                         <Col sm={12} xs={12} lg={6} md={8} >
-                            <Card style={{ borderRadius: "10px", boxShadow: "4px 5px 1px #9E9E9E" }}>
+                            <Card style={{ borderRadius: "10px", }}>
                                 <Card.Body style={{ padding: "0" }}>
                                     <div className="card-title">
                                         <h3>Edit Profile</h3>
@@ -159,8 +159,8 @@ const ProfilePage = () => {
                             </Card>
 
                         </Col>
-                        <Col lg={3} md={12} style={{alignItems:"center"}}>
-                            <Card style={{ borderRadius: "10px", boxShadow: "4px 5px 1px #9E9E9E" }}>
+                        <Col lg={3} md={12} style={{alignItems:"center", marginBottom:'5rem'}}>
+                            <Card style={{ borderRadius: "10px",  }}>
                                 <Card.Body style={{ display:'flex', flexDirection:'column', padding: "0", alignItems:"center" }}>
                                     <div className="card-title">
                                         <h3>{user.username}</h3>

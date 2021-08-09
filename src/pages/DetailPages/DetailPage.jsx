@@ -48,7 +48,7 @@ function Detailpage() {
     return (
         <>
             <TitleBackground synopsis={detail.synopsis} title={detail.title} poster={detail.poster}
-                rating={detail.averageRating === null ? `  -` : detail.averageRating} trailer={detail.trailer ?
+                rating={detail.averageRating === null ? 0 : detail.averageRating} trailer={detail.trailer ?
                     sanitizeYTLink(link) : `null`} />
 
 

@@ -10,6 +10,9 @@ import './ModalSignUp.css'
 // username: "inokiUser"
 
 function ModalSignUp(props) {
+    const backtoHome = () => {
+        window.location.replace("/");
+    };
 
     const { onClick, setShow } = props;
     const [state, setState] = useState({
@@ -27,7 +30,7 @@ function ModalSignUp(props) {
 
             axios.post(`https://demovie.gabatch13.my.id/auth/register`, state).then(res => {
                 setShow(false);
-                alert(`register sukses`)
+                alert(`register sukses`);backtoHome();
             })
         }
     }

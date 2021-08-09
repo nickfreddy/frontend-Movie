@@ -29,7 +29,7 @@ function AddMovie() {
     }
 
     return (
-        <Card style={{ borderRadius: "10px", boxShadow: "4px 5px 1px #9E9E9E" }}>
+        <Card style={{ borderRadius: "10px", marginBottom:'2rem' }}>
             <Card.Body style={{ padding: "0" }}>
                 <div className="card-title">
                     <h3>Add Movie</h3>

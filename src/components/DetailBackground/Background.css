@@ -151,12 +151,15 @@
     }
 
     .Rating {
-        /* margin-top: -0.4rem; */
+        margin-top: -0.4rem;
         /* font-size: 1rem; */
         line-height: 0.7rem;
         display: flex;
         text-align: left;
         padding-left: 2rem;
+    }
+    .totalReview{
+        margin-top: 0.5rem;
     }
 
     .Overview {
@@ -165,6 +168,7 @@
         font-size: 1rem;
         line-height: 0.9rem;
         padding-left: 2rem;
+        margin-top: 1rem;
 
     }
 
