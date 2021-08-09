@@ -15,8 +15,10 @@ const ProfilePage = () => {
     }
 
     const backtoHome = () => {
-        window.location.reload();
-    }
+        localStorage.clear();
+        window.location.replace("/");
+    };
+
 
 
     const [user, setUser] = useState([])
