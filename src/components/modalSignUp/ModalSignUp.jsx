@@ -61,9 +61,9 @@ function ModalSignUp(props) {
 
                     <Form.Group>
                         <Button className="mt-4" variant="primary" type="submit" style={{ width: '25rem' }}>
-                            SIGN UP
+                            REGISTER
                         </Button>
-                        <p className="text-center mt-3">Already have an account ? <a onClick={props.onClick} style={{ cursor: 'pointer' }} className="text-warning">Log in</a></p>
+                        <p className="text-center mt-3">Already have an account ? <a onClick={props.onClick} style={{ cursor: 'pointer' }} className="text-warning">Sign in</a></p>
                     </Form.Group>
                 </div>
 
