@@ -6,6 +6,7 @@ import logo from '../../img/brand-logo.png'
 import example from '../../img/example-movie.png'
 import { useParams } from 'react-router';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 
 
@@ -13,47 +14,70 @@ const FormMovie = (props) => {
     const USERID = localStorage.getItem('USERID');
     const Token = localStorage.getItem('Token');
     const { id } = useParams()
-    console.log(typeof id)
 
+
+    const history = useHistory()
+
+
+
+    const [state, setState] = useState({
+        title: "",
+        genres: "",
+        release_year: "",
+        poster: "",
+        trailer: "",
+        synopsis: ""
+    })
     const [detail, setDetail] = useState([])
 
     const GetDetailMovies = async (url) => {
         try {
             const res = await axios.get(url);
             const data = await res.data;
-            setDetail(data.data)
+
+
+            setState({
+                title: data.data.title,
+                genres: data.data.genres.join(),
+                release_year: data.data.release_year,
+                poster: data.data.poster,
+                trailer: data.data.trailer,
+                synopsis: data.data.synopsis
+            })
+            setDetail(
+                data.data
+            )
         } catch (error) {
             console.log(error)
         }
     }
 
-    console.log(detail.title)
 
     useEffect(() => {
         GetDetailMovies(`https://demovie.gabatch13.my.id/movies/${id}?revlimit=3&revpage=1`);
     }, [])
 
-    const [state, setState] = useState({
-        title: detail.title,
-        genres: detail.genres,
-        release_year: detail.release_year,
-        poster: detail.poster,
-        trailer: detail.trailer,
-        synopsis: detail.synopsis
-    })
+    // const [state, setState] = useState({
+    //     title: detail.title,
+    //     genres: detail.genres,
+    //     release_year: detail.release_year,
+    //     poster: detail.poster,
+    //     trailer: detail.trailer,
+    //     synopsis: detail.synopsis
+    // })
 
     const add = async (e) => {
         e.preventDefault()
         try {
             const res = await axios.put(`https://demovie.gabatch13.my.id/movies/${id}`, state, { headers: { Authorization: `Bearer ${Token}` } }); (alert(`Movie Updated`))
-            console.log(res)
+
         } catch (error) {
             console.log({ error })
         }
     }
 
 
-    console.log(state)
+
 
     return (
         <div>
@@ -73,7 +97,7 @@ const FormMovie = (props) => {
             <div className="Profile-page">
                 <Container>
                     <Row>
-                        <Col xs={4}>
+                        <Col xs={12} md={4}>
                             <Card style={{ borderRadius: "10px", boxShadow: "4px 5px 1px #9E9E9E" }}>
                                 <Card.Body style={{ padding: "0" }}>
                                     <div className="card-title">
@@ -82,10 +106,14 @@ const FormMovie = (props) => {
                                     </div>
                                     <div className="image-movie">
                                         <img
+                                            style={{
+                                                width: "100%",
+                                                height: "auto",
+                                                objectFit: "contain"
+                                            }}
                                             src={detail.poster}
-                                            width="350"
-                                            height="500"
-                                            className="d-inline-block align-top"
+
+                                            // className="d-inline-block align-top"
                                             alt="React Bootstrap logo"
                                         />
                                     </div>
@@ -127,7 +155,8 @@ const FormMovie = (props) => {
 
 
                                         <div className="button-submit">
-                                            <Button style={{ width: "100px", height: "40px", marginRight: "20px" }} variant="secondary" type="reset">
+                                            <Button style={{ width: "100px", height: "40px", marginRight: "20px" }} variant="secondary" type="reset"
+                                                onClick={() => history.push(`/Admin-page/${USERID}`)}>
                                                 Cancel
                                             </Button>
                                             <Button onClick={add} style={{ width: "100px", height: "40px" }} variant="warning" type="submit">

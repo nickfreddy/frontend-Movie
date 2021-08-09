@@ -68,7 +68,7 @@ const ProfilePage = () => {
             console.log({ error })
         }
     }
-
+    console.log(user.photo)
 
     // const add = async (a) => {
     // await axios.put(`https://demovie.gabatch13.my.id/users/${USERID}`, state, { headers: { 'Authorization': `Bearer ${Token}` } })
