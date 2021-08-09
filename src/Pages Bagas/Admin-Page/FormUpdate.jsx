@@ -70,14 +70,14 @@ const FormMovie = (props) => {
             <div className="Profile-page">
                 <Container>
                     <Row>
-                        <Col xs={4}>
+                        <Col xs={12} lg={4}>
                             <Card style={{ borderRadius: "10px", boxShadow: "4px 5px 1px #9E9E9E" }}>
                                 <Card.Body style={{ padding: "0" }}>
                                     <div className="card-title">
                                         <h3>{detail.title}</h3>
                                         <p>{detail.genres}</p>
                                     </div>
-                                    <div className="image-movie">
+                                    <div className="image-movie md sm">
                                         <img
                                             src={detail.poster}
                                             width="350"
@@ -96,37 +96,37 @@ const FormMovie = (props) => {
                                         <h3>Update Movie</h3>
                                         <p>update a new component movie </p>
                                     </div>
-                                    <Form onSubmit={add} style={{ padding: "1px 32px 20px 110px" }}>
+                                    <Form onSubmit={add} style={{ padding: "1px 32px 20px 2rem" }}>
                                         <Form.Group className="mb-3 d-flex" controlId="formBasicFirstName">
-                                            <Form.Label style={{ width: "30%" }} >Movie Title</Form.Label>
+                                            <Form.Label style={{ width: "30%", marginRight:'1rem' }} >Movie Title</Form.Label>
                                             <Form.Control value={state.title} onChange={(e) => setState({ ...state, title: e.target.value })} type="text" placeholder="Title" />
                                         </Form.Group>
                                         <Form.Group className="mb-3 d-flex" controlId="formBasicFirstName">
-                                            <Form.Label style={{ width: "30%" }} >Genre</Form.Label>
+                                            <Form.Label style={{ width: "30%", marginRight:'1rem'  }} >Genre</Form.Label>
                                             <Form.Control value={state.genres} onChange={(e) => setState({ ...state, genres: e.target.value })} type="text" placeholder="Action, Anime, Drama, Comedy" />
                                         </Form.Group>
                                         <Form.Group className="mb-3 d-flex" controlId="formBasicFirstName">
-                                            <Form.Label style={{ width: "30%" }} >Release</Form.Label>
+                                            <Form.Label style={{ width: "30%", marginRight:'1rem'  }} >Release</Form.Label>
                                             <Form.Control value={state.release_year} onChange={(e) => setState({ ...state, release_year: e.target.value })} type="text" placeholder="Release date" />
                                         </Form.Group>
                                         <Form.Group className="mb-3 d-flex" controlId="formBasicFirstName">
-                                            <Form.Label style={{ width: "30%" }} >Trailer</Form.Label>
+                                            <Form.Label style={{ width: "30%", marginRight:'1rem'  }} >Trailer</Form.Label>
                                             <Form.Control value={state.trailer} onChange={(e) => setState({ ...state, trailer: e.target.value })} type="text" placeholder="URL" />
                                         </Form.Group>
                                         <Form.Group className="mb-3 d-flex" controlId="formBasicFirstName">
-                                            <Form.Label style={{ width: "30%" }} >Synopsis</Form.Label>
+                                            <Form.Label style={{ width: "30%", marginRight:'1rem'  }} >Synopsis</Form.Label>
                                             <Form.Control value={state.synopsis} onChange={(e) => setState({ ...state, synopsis: e.target.value })} type="text" placeholder="synopsis" />
                                         </Form.Group>
                                         <Form.Group className="mb-3 d-flex" controlId="formBasicFirstName">
-                                            <Form.Label style={{ width: "30%" }} >Poster</Form.Label>
+                                            <Form.Label style={{ width: "30%", marginRight:'1rem'  }} >Poster</Form.Label>
                                             <Form.Control value={state.poster} onChange={(e) => setState({ ...state, poster: e.target.value })} type="text" placeholder="URL" />
                                         </Form.Group>
 
 
                                         <div className="button-submit">
-                                            <Button style={{ width: "100px", height: "40px", marginRight: "20px" }} variant="secondary" type="reset">
+                                           <a href={`/Admin-page/${USERID}`}> <Button style={{ width: "100px", height: "40px", marginRight: "20px" }} variant="secondary" >
                                                 Cancel
-                                            </Button>
+                                            </Button></a>
                                             <Button style={{ width: "100px", height: "40px" }} variant="warning" type="submit">
                                                 Save
                                             </Button>

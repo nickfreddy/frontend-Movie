@@ -44,7 +44,7 @@ function ListMovie() {
                     <h3>Movie List</h3>
                     <p>Welcome admin you can update and delete movie </p>
                 </div>
-                <div className="list-movie  justify-content-between ">
+                <div className="list-movie d-flex justify-content-evenly ">
                     <ol>
                         {movie.map((movie, idx) => {
                             return <li key={idx} className="d-flex  justify-content-between my-1" style={{justifyContent:'flex-end'}} >
@@ -60,9 +60,10 @@ function ListMovie() {
                             </li>
                         })}
                     </ol>
-                    <MyPagination onclick={handlePagination} />
+                   
                 </div>
             </Card.Body>
+            <MyPagination onclick={handlePagination} />
         </Card>
     );
 }

@@ -26,7 +26,7 @@
 }
 
 .Rating {
-    margin-top: -1rem;
+    /* margin-top: -1rem; */
     font-weight: 500;
     font-size: 2.2rem;
     line-height: 2.6rem;
@@ -43,9 +43,12 @@
     font-weight: 500;
     font-size: 1.9rem;
     line-height: 2.6rem;
-    text-align: left;
     color: white;
     padding-left: 10rem;
+    text-align: justify;
+  text-justify: inter-word;
+  /* text-align: left; */
+
 
 }
 
@@ -71,7 +74,7 @@
     }
 
     .Rating {
-        margin-top: -1rem;
+        /* margin-top: -1rem; */
         font-size: 1.5rem;
         line-height: 1.5rem;
         padding-left: 4rem;
@@ -149,8 +152,8 @@
     }
 
     .Rating {
-        margin-top: -0.4rem;
-        font-size: 1rem;
+        /* margin-top: -0.4rem; */
+        /* font-size: 1rem; */
         line-height: 0.7rem;
         display: flex;
         text-align: left;

@@ -27,7 +27,7 @@ const AdminPage = () => {
             <div className="Profile-page">
                 <Container>
                     <Row>
-                        <Col className='AdminTools' xs={10} md={4}lg={2}>
+                        <Col className='AdminTools' xs={12} md={4}lg={4}>
                             <Card style={{ borderRadius: "10px", boxShadow: "4px 5px 1px #9E9E9E" }}>
                                 <Card.Body style={{ padding: "0" }}>
                                     <div className="card-title">
@@ -43,7 +43,7 @@ const AdminPage = () => {
                                 </Card.Body>
                             </Card>
                         </Col>
-                        <Col md={8} lg={10} >
+                        <Col md={8} lg={8} >
                             {isAddMovie ? <ListMovie /> : <AddMovie />}
 
                         </Col>

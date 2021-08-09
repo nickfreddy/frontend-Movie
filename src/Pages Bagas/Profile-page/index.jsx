@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Navbar, Card, Form, Container, Row, Col, } from 'react-bootstrap'
+import { Button, Navbar, Card, Form, Container, Row, Col, Modal } from 'react-bootstrap'
 import back_button from '../../img/back-button.png'
 import '../Profile-page/index.css'
 // import user from '../../img/user.png'
 // import logo from '../../img/brand-logo.png'
 import axios from 'axios';
+import Photo from '../../pages/DetailPages/Photo';
 
 const ProfilePage = () => {
+    const [modalShow, setModalShow] = React.useState(false);
+    const [show, setShow] = useState(false);
     const USERID = localStorage.getItem('USERID');
     const Token = localStorage.getItem('Token');
     const refreshPage = () => {
         window.location.reload();
     }
-
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     const [user, setUser] = useState([])
 
@@ -35,11 +39,14 @@ const ProfilePage = () => {
     console.log(user)
 
     const [state, setState] = useState({
+        photo: null,
         username: user.username,
         email: user.email,
         description: user.description
     })
 
+
+    
     const add = async (e) => {
         e.preventDefault()
         try {
@@ -50,37 +57,33 @@ const ProfilePage = () => {
         }
     }
 
-    const [statePhoto, setPhoto] = useState({
-        photo: null,
+    // const [photo, setPhoto] = useState({
+    //     photo: null,
        
-    })
+    // })
 
+    // const handleImageChange = (e) => {
+    //     setPhoto({photo: e.target.files[0]
+    //     })
+    //   };
 
-
-    const photo = async (e) => {
-        e.preventDefault();let form_data = new FormData(); form_data.append('image', this.state.image, this.state.image.name);
-
-        try {
-            // eslint-disable-next-line no-unused-vars
-            const res = await axios.put(`https://demovie.gabatch13.my.id/users/${USERID}`, form_data, { headers: { Authorization: `Bearer ${Token}` } }); (alert(`Profile Updated`)); refreshPage();
-        } catch (error) {
-            console.log({ error })
-        }
-    }
-
-    // const add = async (a) => {
-    // await axios.put(`https://demovie.gabatch13.my.id/users/${USERID}`, state, { headers: { 'Authorization': `Bearer ${Token}` } })
-    // .then(alert(`Profile Updated`));  refreshPage();
-        
-
-    // }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // console.log(this.state);
+        let form_data = new FormData();
+        form_data.append('photo', this.state.photo, this.state.photo.name);
     
-    // const photo = async (a) => {
-    //     await axios.put(`https://demovie.gabatch13.my.id/users/${USERID}`, formData, { headers: { 'Authorization': `Bearer ${Token}` } })
-    //     .then(alert(`Profile Updated`));  refreshPage();
-            
-    
-    //     }
+        let url = `https://demovie.gabatch13.my.id/users/${USERID}`;
+        axios.put(url, form_data, {
+          headers: { Authorization: `Bearer ${Token}` }
+        })
+            .then(res => {
+              console.log(res.data);
+            })
+            .catch(err => console.log(err))
+      };
+
+
    
     return (
         <div>
@@ -98,9 +101,9 @@ const ProfilePage = () => {
                 </div>
             </div >
             <div className="Profile-page d-flex justify-content-between ">
-                <Container className='d-flex '>
+                <Container className='d-flex justify-content-center'>
                     <Row>
-                        <Col xs={7} lg={2} md={2} >
+                        <Col xs={12} lg={3} md={4} >
                             <Card style={{ borderRadius: "10px", boxShadow: "4px 5px 1px #9E9E9E" }}>
                                 <Card.Body style={{ padding: "0" }}>
                                     <div className="card-title">
@@ -110,14 +113,14 @@ const ProfilePage = () => {
                                     <div className="button-profile">
                                         <h5>Profile</h5>
                                     </div>
-                                    <div className="button-profile watchlist">
+                                    <div className="button-profile watchlist" style={{color:'red',}}>
                                         <h5>Delete Account</h5>
                                     </div>
 
                                 </Card.Body>
                             </Card>
                         </Col>
-                        <Col sm={10} lg={7} md={8} >
+                        <Col sm={12} xs={12} lg={6} md={8} >
                             <Card style={{ borderRadius: "10px", boxShadow: "4px 5px 1px #9E9E9E" }}>
                                 <Card.Body style={{ padding: "0" }}>
                                     <div className="card-title">
@@ -156,9 +159,9 @@ const ProfilePage = () => {
                             </Card>
 
                         </Col>
-                        <Col lg={3} md={2}>
+                        <Col lg={3} md={12} style={{alignItems:"center"}}>
                             <Card style={{ borderRadius: "10px", boxShadow: "4px 5px 1px #9E9E9E" }}>
-                                <Card.Body style={{ padding: "0" }}>
+                                <Card.Body style={{ display:'flex', flexDirection:'column', padding: "0", alignItems:"center" }}>
                                     <div className="card-title">
                                         <h3>{user.username}</h3>
                                         <p>{user.description}</p>
@@ -173,13 +176,50 @@ const ProfilePage = () => {
                                             alt="React Bootstrap logo"
                                         />
                                         <div className="input-image">
-                                            <Form>
+
+
+
+
+
+
+                                        <Button style={{ fontWeight: "500", color: "black" }} variant="secondary text-light me-1 m-nokay" style={{maxWidth: '8rem'}} onClick={handleShow}>Upload Photo</Button>
+
+
+
+
+
+                                        <Modal className="mt-5" show={show} onHide={handleClose}>
+                                        <Modal.Header closeButton>
+                <Modal.Title id="example-modal-sizes-title-lg">
+Choose your Great Photo               
+                </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+            <Photo setShow={setShow} />
+        </Modal.Body>
+           
+                
+            </Modal>
+
+
+                                        {/* <form onSubmit={handleSubmit}>
+         
+                                            <p>
+                                            <input type="file"
+                                                    id="photo"
+                                                    accept="image/png, image/jpeg" value={state.photo} onChange={(a) => setState({...state, photo: a.target.files[0] })} />
+                                            </p>
+                                            <input type="submit"/>
+                                        </form> */}
+                                        {/* onChange={handleImageChange} */}
+                                        
+                                            {/* <Form>
                                             <Form.Group controlId="formFile" className="mb-3 ">
-                                                <Form.Control type="file" value={statePhoto.photo} onChange={(e) => setPhoto({ ...statePhoto, photo: e.target.files[0] })}/>
+                                                <Form.Control id="photo" type="file" accept="image/png, image/jpeg" value={statePhoto.photo} onChange={(e) => setPhoto({ photo: e.target.files[0] })}/>
                                             </Form.Group>
                                             <Button onClick={photo}  style={{ width: "100px", height: "40px" }} variant="warning" >Photo</Button>
 
-                                            </Form>
+                                            </Form> */}
                                         </div>
 
                                     </div>

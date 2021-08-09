@@ -155,7 +155,6 @@ function Homepage() {
                 )) : <NoResult />}
 
             </div>
-<a href={`Photo/${USERID}`}><button >tes foto</button></a>
             {/* --------------------------------------------------------------- */}
 
             <div className="my-3">

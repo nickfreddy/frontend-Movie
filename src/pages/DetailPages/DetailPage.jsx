@@ -1,5 +1,5 @@
 import './Background.css'
-import { Container, } from 'react-bootstrap';
+import { Container, Col } from 'react-bootstrap';
 import React from 'react'
 import './DetailPage.css'
 import TitleBackground from '../../components/DetailBackground/TitleBackground';
@@ -48,7 +48,7 @@ function Detailpage() {
     return (
         <>
             <TitleBackground synopsis={detail.synopsis} title={detail.title} poster={detail.poster}
-                rating={detail.averageRating === null ? `Unrated` : detail.averageRating} trailer={detail.trailer ?
+                rating={detail.averageRating === null ? `  -` : detail.averageRating} trailer={detail.trailer ?
                     sanitizeYTLink(link) : `null`} />
 
 
@@ -59,11 +59,15 @@ function Detailpage() {
                     <DetailNavBtn />
 
                     <div className='SynopContainer'>
+                        <Col lg={3} md={3} xs={3} sm={3}>
                         <h1>Synopsis</h1>
+                        </Col>
+                        <Col lg={9} md={9} xs={9} sm={9}>
                         <div className='LineContainer' style={{ color: 'white' }}>
                             line
                             <div className='Line'></div>
                         </div>
+                        </Col>
                     </div>
                     <div>
                         <p> {detail.synopsis} </p>

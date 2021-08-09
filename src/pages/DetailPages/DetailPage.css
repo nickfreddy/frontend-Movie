@@ -34,7 +34,7 @@
 
 .Line {
 
-    width: 70rem;
+    width: 5rem;
     background-color: #CDCDCD;
     height: 5px;
     /* max-width: 4rem; */
@@ -78,14 +78,14 @@
 @media screen and (max-width: 1400px) {
     .Line {
 
-        width: 50rem;
+        width: 20rem;
     }
 }
 
 @media screen and (max-width: 1000px) {
     .Line {
 
-        width: 35rem;
+        width: 10rem;
     }
 
 }
@@ -93,7 +93,7 @@
 @media screen and (max-width: 650px) {
     .Line {
 
-        width: 20rem;
+        width: 5rem;
     }
 
 }
@@ -101,7 +101,7 @@
 @media screen and (max-width: 450px) {
     .Line {
 
-        width: 10rem;
+        width: 4rem;
     }
 
 }

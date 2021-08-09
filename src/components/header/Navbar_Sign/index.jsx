@@ -10,6 +10,7 @@ import axios from 'axios';
 function Navbar_Sign(props) {
     const [role, setRole] = useState([])
     const [name, setName] = useState([])
+    const [photo,setPhoto] = useState([])
     const [searchValue, setSearchValue] = useState("");
     const dispatch = useDispatch()
     const USERID = localStorage.getItem('USERID');
@@ -20,6 +21,8 @@ function Navbar_Sign(props) {
         try {
             const res = await axios.get(`https://demovie.gabatch13.my.id/users/${USERID}`);
             const data = await res.data;
+            console.log(data)
+            setPhoto(data.photo)
             setRole(data.role)
             setName(data.username)
         } catch (error) {
@@ -92,7 +95,7 @@ function Navbar_Sign(props) {
                         <Nav>
                             <NavDropdown title={<div className="user-profile">
                                 <img
-                                    src={photouser}
+                                    src={photo ? photo : photouser}
                                     width="50"
                                     height="50"
                                     className="d-inline-block align-top m-3"

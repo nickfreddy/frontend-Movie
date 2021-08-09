@@ -41,7 +41,7 @@ class Photo extends Component {
       headers: { Authorization: `Bearer ${Token}` }
     })
         .then(res => {
-          console.log(res.data);
+          console.log(res.data);(alert(`Photo Updated`)); refreshPage();
         })
         .catch(err => console.log(err))
   };
