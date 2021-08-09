@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import logo from '../../img/brand-logo.png'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react';
+import './ModalSignIn.css';
 
 
 function ModalSignIn(props) {
@@ -42,16 +43,16 @@ function ModalSignIn(props) {
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" onChange={(e) => setState({ ...state, email: e.target.value })} style={{ width: '25rem' }} />
+                        <Form.Control className="width-nokay" type="email" placeholder="Enter email" onChange={(e) => setState({ ...state, email: e.target.value })}/>
                     </Form.Group>
 
                     <Form.Group className="mb-5" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" onChange={(e) => setState({ ...state, password: e.target.value })} style={{ width: '25rem' }} />
+                        <Form.Control className="width-nokay" type="password" placeholder="Password" onChange={(e) => setState({ ...state, password: e.target.value })}/>
                     </Form.Group>
 
                     <Form.Group>
-                        <Button className="mt-4" variant="primary" type="submit" style={{ width: '25rem' }}>
+                        <Button className="mt-4 width-nokay" variant="primary" type="submit" >
                             SIGN IN
                         </Button>
                         <p className="text-center mt-3">Don't have an account ? <a onClick={props.onClick} style={{ cursor: 'pointer' }} className=" text-secondary">Regeister</a></p>
