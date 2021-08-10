@@ -65,12 +65,16 @@ const ProfilePage = () => {
         }
     }
 
+    function clearlocal() {
+        localStorage.clear();
+        
+    };
    
     const deleteUser = async (e) => {
         e.preventDefault()
         try {
             // eslint-disable-next-line no-unused-vars
-            const res = await axios.delete(`https://demovie.gabatch13.my.id/users/${USERID}`, { headers: { Authorization: `Bearer ${Token}` } }); (alert(`Profile has been Delete`)); backtoHome();
+            const res = await axios.delete(`https://demovie.gabatch13.my.id/users/${USERID}`, { headers: { Authorization: `Bearer ${Token}` } });clearlocal(); (alert(`Profile has been Delete`)); backtoHome();
         } catch (error) {
             console.log({ error })
         }

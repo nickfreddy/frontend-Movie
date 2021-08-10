@@ -21,7 +21,7 @@ function AddMovie() {
     const add = async (e) => {
         e.preventDefault()
         try {
-            const res = await axios.post(`https://demovie.gabatch13.my.id/movies/`, state, { headers: { Authorization: `Bearer ${Token}` } }); refreshPage();
+            const res = await axios.post(`https://demovie.gabatch13.my.id/movies/`, state, { headers: { Authorization: `Bearer ${Token}` } });alert(`Movie Created`); refreshPage();
             console.log(res)
         } catch (error) {
             console.log({ error })

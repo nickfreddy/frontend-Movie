@@ -65,12 +65,14 @@ const FormMovie = (props) => {
     //     trailer: detail.trailer,
     //     synopsis: detail.synopsis
     // })
-
+    const refreshPage = () => {
+        window.location.reload();
+    }
     const add = async (e) => {
         e.preventDefault()
         try {
             // eslint-disable-next-line no-unused-vars
-            const res = await axios.put(`https://demovie.gabatch13.my.id/movies/${id}`, state, { headers: { Authorization: `Bearer ${Token}` } }); (alert(`Movie Updated`))
+            const res = await axios.put(`https://demovie.gabatch13.my.id/movies/${id}`, state, { headers: { Authorization: `Bearer ${Token}` } }); (alert(`Movie Updated`));refreshPage();
 
         } catch (error) {
             console.log({ error })
