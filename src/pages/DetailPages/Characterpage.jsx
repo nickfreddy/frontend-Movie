@@ -41,7 +41,7 @@ function Characterpage() {
 
     useEffect(() => {
         getActors(`https://randomuser.me/api/?inc=picture,name&results=${number}`);
-    }, [number])
+    }, [])
     // console.log(Actors)
 
     let link = detail.trailer
