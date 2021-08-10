@@ -6,7 +6,7 @@ export const loadMovies = () => async (dispatch) => {
         const movies = await axios.get("https://demovie.gabatch13.my.id/movies?page=1&limit=15");
         const dataResults = await movies.data;
         const data = await dataResults.dataMovie;
-        console.log(data)
+        // console.log(data)
         dispatch({
             type: GET_MOVIE,
             payload: data
