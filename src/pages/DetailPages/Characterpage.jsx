@@ -24,7 +24,7 @@ function Characterpage() {
 
     useEffect(() => {
         GetDetailMovies(`https://demovie.gabatch13.my.id/movies/${id}?revlimit=3&revpage=1`);
-    }, [])
+    }, [id])
 
     const [Actors, setActors] = useState([])
 
@@ -41,11 +41,11 @@ function Characterpage() {
 
     useEffect(() => {
         getActors(`https://randomuser.me/api/?inc=picture,name&results=${number}`);
-    }, [])
-    console.log(Actors)
+    }, [number])
+    // console.log(Actors)
 
     let link = detail.trailer
-    console.log(link)
+    // console.log(link)
 
     function sanitizeYTLink(link) {
         return link.includes("watch")

@@ -24,7 +24,7 @@ function Homepage() {
     const USERID = localStorage.getItem('USERID');
     const ROLE = localStorage.getItem('ROLE');
 
-    console.log(ROLE)
+    // console.log(ROLE)
 
 
 
@@ -86,7 +86,7 @@ function Homepage() {
     //     } catch (error) {setMovies([])}
     // };
 
-    console.log(movies)
+    // console.log(movies)
 
     const backdrops = [
         'https://image.tmdb.org/t/p/original/dq18nCTTLpy9PmtzZI6Y2yAgdw5.jpg',

@@ -76,7 +76,7 @@ function Review() {
 
 
     let link = detail.trailer
-    console.log(link)
+    // console.log(link)
 
     function sanitizeYTLink(link) {
         return link.includes("watch")
@@ -89,17 +89,17 @@ function Review() {
     // }
 
     let review = detail?.reviews
-    console.log(review)
+    // console.log(review)
     // let reviewID = review?._id
     // console.log(reviewID)
 
     let reviewID = review?.filter(item => item?.user_id?._id === USERID);
-    console.log(reviewID);
+    // console.log(reviewID);
     let comment = reviewID?.map(item => item?._id);
-    console.log(comment)
+    // console.log(comment)
     let pengguna = reviewID?.map(item => item?.user_id?._id);
     console.log(pengguna)
-    console.log(USERID)
+    // console.log(USERID)
 
 return (
 <>

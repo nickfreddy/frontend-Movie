@@ -16,7 +16,7 @@ import axios from "axios";
 
 function Detailpage() {
     const { id } = useParams();
-    console.log(id)
+    // console.log(id)
 
     const [detail, setDetail] = useState([])
 
@@ -34,9 +34,9 @@ function Detailpage() {
         GetDetailMovies(`https://demovie.gabatch13.my.id/movies/${id}?revlimit=3&revpage=1`);
     }, [id])
 
-    console.log(detail)
+    // console.log(detail)
     let link = detail.trailer
-    console.log(link)
+    // console.log(link)
 
     function sanitizeYTLink(link) {
         return link.includes("watch")

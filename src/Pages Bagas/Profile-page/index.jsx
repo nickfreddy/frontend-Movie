@@ -44,7 +44,7 @@ const ProfilePage = () => {
         `);
     }, [USERID])
 
-    console.log(user)
+    // console.log(user)
 
     const [state, setState] = useState({
         photo: user.photo,
@@ -53,7 +53,7 @@ const ProfilePage = () => {
         description: user.description
     })
 
-    console.log(state)
+    // console.log(state)
 
     const add = async (e) => {
         e.preventDefault()
@@ -75,7 +75,7 @@ const ProfilePage = () => {
             console.log({ error })
         }
     }
-    console.log(user.photo)
+    // console.log(user.photo)
 
     return (
         <div>

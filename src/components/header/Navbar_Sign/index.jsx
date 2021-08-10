@@ -34,7 +34,7 @@ function Navbar_Sign(props) {
         GetAllUser()
     }, [GetAllUser])
 
-    console.log(role)
+    // console.log(role)
 
 
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './Background.css'
-import { Modal, Button, Col } from 'react-bootstrap';
+import { Modal, Button, Col, Tooltip, OverlayTrigger } from 'react-bootstrap';
 // import Rating from 'react-rating';
 import StarRatings from "react-star-ratings";
 // import Rating from '@material-ui/lab/Rating';
@@ -11,7 +11,7 @@ function TitleBackground(props) {
 const { title, poster, trailer, rating, synopsis, } = props;
 
 const [lgShow, setLgShow] = useState(false);
-console.log(rating)
+// console.log(rating)
 // let angka = rating?;
 
 
@@ -51,7 +51,20 @@ url(${poster})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover',
                     <div className='Tombol'>
                         <Button variant="warning" size='lg' onClick={() => setLgShow(true)}>Watch Trailer</Button>
                         <div className='watchlist-btn'>
-                            <Button style={{ color: 'white' }} variant="outline-secondary" size='lg' disabled>Add to Watchlist</Button>
+                        <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Coming Soon</Tooltip>}>
+  <span className="d-inline-block">
+    <Button variant="outline-secondary"  size='lg' disabled style={{ pointerEvents: 'none', color: 'white'}}>
+    Add to Watchlist
+    </Button>
+  </span>
+</OverlayTrigger>
+
+
+                        {/* <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Tooltip!</Tooltip>}>
+                        
+                            <Button style={{ color: 'white', pointerEvents: 'none' }} variant="outline-secondary" size='lg' disabled>Add to Watchlist</Button>
+                       
+                        </OverlayTrigger> */}
                         </div>
                     </div>
                 </div>

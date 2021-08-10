@@ -19,7 +19,7 @@ const Search = (props) => {
     resetInputField();
   }
 
-  console.log(searchValue)
+  // console.log(searchValue)
   return (
       <form className="search">
           
